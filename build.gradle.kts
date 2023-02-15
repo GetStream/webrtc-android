@@ -1,6 +1,6 @@
 buildscript {
   dependencies {
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0-RC2")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20-Beta")
   }
 }
 @Suppress("DSL_SCOPE_VIOLATION")
