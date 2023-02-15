@@ -9,7 +9,7 @@
   <a href="https://getstream.io"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HayesGordon/e7f3c4587859c17f3e593fd3ff5b13f4/raw/11d9d9385c9f34374ede25f6471dc743b977a914/badge.json" alt="Stream Feeds"></a>
 </p>
 
-**Stream WebRTC Android** is Google's WebRTC pre-compiled library for Android. It reflects the recent WebRTC updates and supports functional UI components and extensions for Android and Jetpack Compose.
+🛰️ **Stream WebRTC Android** is Google's WebRTC pre-compiled library for Android. It reflects the recent WebRTC updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
 
 ## Agenda
 Since Google no more supports [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shutdown, so the library is not available now), we decided to build our own pre-compiled WebRTC core library that reflects recent WebRTC commits with some improvements.
