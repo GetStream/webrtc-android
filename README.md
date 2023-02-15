@@ -62,22 +62,23 @@ dependencies {
 
 ## Usages
 
-Once you import this library, you can use all of the `org.webrtc` packge functions, such as `org.webrtc.PeerConnection` and `org.webrtc.VideoTrack`. For more information, you can check out the API references for WebRTC packages.
+Once you import this library, you can use all of the `org.webrtc` packge functions, such as `org.webrtc.PeerConnection` and `org.webrtc.VideoTrack`. For more information, you can check out the [API references for WebRTC packages](https://getstream.github.io/stream-webrtc-android/).
 
 Here are the most commonly used APIs in the WebRTC library, and you can reference the documentation below:
 
-- [PeerConnection]()
+- [PeerConnection](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-peer-connection/index.html?query=open%20class%20PeerConnection)
 - [PeerConnectionFactory]()
-- [EglBase]()
-- [VideoTrack]()
-- [VideoSource]()
-- [AudioTrack]()
-- [AudioSource]()
-- [MediaStreamTrack]()
-- [IceCandidate]()
-- [SessionDescription]()
-- [Camera2Capturer]()
-- [Camera2Enumerator]()
+- [EglBase](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-egl-base/index.html?query=interface%20EglBase)
+- [VideoTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-track/index.html?query=open%20class%20VideoTrack%20:%20MediaStreamTrack)
+- [VideoSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-source/index.html?query=open%20class%20VideoSource%20:%20MediaSource)
+- [AudioTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-track/index.html)
+- [AudioSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-source/index.html?query=open%20class%20AudioSource%20:%20MediaSource)
+- [MediaStreamTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-media-stream-track/index.html?query=open%20class%20MediaStreamTrack)
+- [IceCandidate](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-ice-candidate/index.html?query=open%20class%20IceCandidate): Representation of a single ICE Candidate, mirroring `IceCandidateInterface` in the C++ API.
+- [SessionDescription](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-session-description/index.html?query=open%20class%20SessionDescription): Description of an RFC 4566 Session. SDPs are passed as serialized Strings in Java-land and are materialized to SessionDescriptionInterface as appropriate in the JNI layer.
+- [Camera2Capturer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-capturer/index.html?query=open%20class%20Camera2Capturer%20:%20CameraCapturer)
+- [Camera2Enumerator](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-enumerator/index.html?query=open%20class%20Camera2Enumerator%20:%20CameraEnumerator)
+- [SurfaceViewRenderer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-surface-view-renderer/index.html?query=open%20class%20SurfaceViewRenderer%20:%20SurfaceView,%20SurfaceHolder.Callback,%20VideoSink,%20RendererCommon.RendererEvents): Display the video stream on a SurfaceView.
 
 If you want to learn more about building a video chat application for Android using WebRTC, check out the blog post below:
 
@@ -99,9 +100,9 @@ dependencies {
 
 ### VideoTextureViewRenderer
 
-`VideoTextureViewRenderer` is a custom [TextureView](https://developer.android.com/reference/android/view/TextureView) that implements [VideoSink]() and [SurfaceTextureListener](). 
+`VideoTextureViewRenderer` is a custom [TextureView](https://developer.android.com/reference/android/view/TextureView) that implements [VideoSink](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-sink/index.html?query=interface%20VideoSink) and [SurfaceTextureListener](https://developer.android.com/reference/kotlin/android/view/TextureView.SurfaceTextureListener.html). 
 
-Usually, you can use [SurfaceViewRenderer] to display real-time video streams on a layout if you need a simple video call screen without overlaying video frames over another one. However, it might not work well as you expect if you suppose to need to design a complex video call screen, such as one video call layout should overlay another video call layout, such as the example below:
+Usually, you can use [SurfaceViewRenderer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-surface-view-renderer/index.html?query=open%20class%20SurfaceViewRenderer%20:%20SurfaceView,%20SurfaceHolder.Callback,%20VideoSink,%20RendererCommon.RendererEvents) to display real-time video streams on a layout if you need a simple video call screen without overlaying video frames over another one. However, it might not work well as you expect if you suppose to need to design a complex video call screen, such as one video call layout should overlay another video call layout, such as the example below:
 
 ![Screenshot](https://user-images.githubusercontent.com/24237865/218671884-d027ef03-1ccc-4d12-8153-adc2964034cc.png)
 
@@ -115,7 +116,7 @@ For this case, we'd recommend you use `VideoTextureViewRenderer` like the exampl
  />
 ```
 
-You can add or remove [VideoTrack]() like the below:
+You can add or remove [VideoTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-track/index.html?query=open%20class%20VideoTrack%20:%20MediaStreamTrack) like the below:
 
 ```kotlin
 videoTrack.video.addSink(participantVideoRenderer)
