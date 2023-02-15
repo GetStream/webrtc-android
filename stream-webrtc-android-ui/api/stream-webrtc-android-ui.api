@@ -1,0 +1,22 @@
+public final class io/getstream/webrtc/android/ui/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public class io/getstream/webrtc/android/ui/VideoTextureViewRenderer : android/view/TextureView, android/view/TextureView$SurfaceTextureListener, org/webrtc/VideoSink {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun init (Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;)V
+	protected fun onDetachedFromWindow ()V
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	protected fun onLayout (ZIIII)V
+	public fun onSurfaceTextureAvailable (Landroid/graphics/SurfaceTexture;II)V
+	public fun onSurfaceTextureDestroyed (Landroid/graphics/SurfaceTexture;)Z
+	public fun onSurfaceTextureSizeChanged (Landroid/graphics/SurfaceTexture;II)V
+	public fun onSurfaceTextureUpdated (Landroid/graphics/SurfaceTexture;)V
+	public final fun setMirror (Z)V
+}
+

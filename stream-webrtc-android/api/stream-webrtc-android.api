@@ -1,0 +1,2178 @@
+public abstract interface class org/webrtc/AddIceObserver {
+	public abstract fun onAddFailure (Ljava/lang/String;)V
+	public abstract fun onAddSuccess ()V
+}
+
+public abstract interface class org/webrtc/AudioDecoderFactoryFactory {
+	public abstract fun createNativeAudioDecoderFactory ()J
+}
+
+public abstract interface class org/webrtc/AudioEncoderFactoryFactory {
+	public abstract fun createNativeAudioEncoderFactory ()J
+}
+
+public abstract interface class org/webrtc/AudioProcessingFactory {
+	public abstract fun createNative ()J
+}
+
+public class org/webrtc/AudioSource : org/webrtc/MediaSource {
+	public fun <init> (J)V
+}
+
+public class org/webrtc/AudioTrack : org/webrtc/MediaStreamTrack {
+	public fun <init> (J)V
+	public fun setVolume (D)V
+}
+
+public final class org/webrtc/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public class org/webrtc/BuiltinAudioDecoderFactoryFactory : org/webrtc/AudioDecoderFactoryFactory {
+	public fun <init> ()V
+	public fun createNativeAudioDecoderFactory ()J
+}
+
+public class org/webrtc/BuiltinAudioEncoderFactoryFactory : org/webrtc/AudioEncoderFactoryFactory {
+	public fun <init> ()V
+	public fun createNativeAudioEncoderFactory ()J
+}
+
+public class org/webrtc/CallSessionFileRotatingLogSink {
+	public fun <init> (Ljava/lang/String;ILorg/webrtc/Logging$Severity;)V
+	public fun dispose ()V
+	public static fun getLogData (Ljava/lang/String;)[B
+}
+
+public abstract interface annotation class org/webrtc/CalledByNative : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public abstract interface annotation class org/webrtc/CalledByNativeUnchecked : java/lang/annotation/Annotation {
+	public abstract fun value ()Ljava/lang/String;
+}
+
+public class org/webrtc/Camera1Capturer {
+	public fun <init> (Ljava/lang/String;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;Z)V
+	public synthetic fun changeCaptureFormat (III)V
+	protected fun createCameraSession (Lorg/webrtc/CameraSession$CreateSessionCallback;Lorg/webrtc/CameraSession$Events;Landroid/content/Context;Lorg/webrtc/SurfaceTextureHelper;Ljava/lang/String;III)V
+	public synthetic fun dispose ()V
+	public synthetic fun initialize (Lorg/webrtc/SurfaceTextureHelper;Landroid/content/Context;Lorg/webrtc/CapturerObserver;)V
+	public synthetic fun isScreencast ()Z
+	public synthetic fun printStackTrace ()V
+	public synthetic fun startCapture (III)V
+	public synthetic fun stopCapture ()V
+	public synthetic fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;)V
+	public synthetic fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;Ljava/lang/String;)V
+}
+
+public class org/webrtc/Camera1Enumerator : org/webrtc/CameraEnumerator {
+	public fun <init> ()V
+	public fun <init> (Z)V
+	public fun createCapturer (Ljava/lang/String;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;)Lorg/webrtc/CameraVideoCapturer;
+	public fun getDeviceNames ()[Ljava/lang/String;
+	public fun getSupportedFormats (Ljava/lang/String;)Ljava/util/List;
+	public fun isBackFacing (Ljava/lang/String;)Z
+	public fun isFrontFacing (Ljava/lang/String;)Z
+}
+
+public class org/webrtc/Camera2Capturer {
+	public fun <init> (Landroid/content/Context;Ljava/lang/String;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;)V
+	public synthetic fun changeCaptureFormat (III)V
+	protected fun createCameraSession (Lorg/webrtc/CameraSession$CreateSessionCallback;Lorg/webrtc/CameraSession$Events;Landroid/content/Context;Lorg/webrtc/SurfaceTextureHelper;Ljava/lang/String;III)V
+	public synthetic fun dispose ()V
+	public synthetic fun initialize (Lorg/webrtc/SurfaceTextureHelper;Landroid/content/Context;Lorg/webrtc/CapturerObserver;)V
+	public synthetic fun isScreencast ()Z
+	public synthetic fun printStackTrace ()V
+	public synthetic fun startCapture (III)V
+	public synthetic fun stopCapture ()V
+	public synthetic fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;)V
+	public synthetic fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;Ljava/lang/String;)V
+}
+
+public class org/webrtc/Camera2Enumerator : org/webrtc/CameraEnumerator {
+	public fun <init> (Landroid/content/Context;)V
+	public fun createCapturer (Ljava/lang/String;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;)Lorg/webrtc/CameraVideoCapturer;
+	public fun getDeviceNames ()[Ljava/lang/String;
+	public fun getSupportedFormats (Ljava/lang/String;)Ljava/util/List;
+	public fun isBackFacing (Ljava/lang/String;)Z
+	public fun isFrontFacing (Ljava/lang/String;)Z
+	public static fun isSupported (Landroid/content/Context;)Z
+}
+
+public class org/webrtc/CameraEnumerationAndroid {
+	public fun <init> ()V
+	public static fun getClosestSupportedFramerateRange (Ljava/util/List;I)Lorg/webrtc/CameraEnumerationAndroid$CaptureFormat$FramerateRange;
+	public static fun getClosestSupportedSize (Ljava/util/List;II)Lorg/webrtc/Size;
+}
+
+public class org/webrtc/CameraEnumerationAndroid$CaptureFormat {
+	public final field framerate Lorg/webrtc/CameraEnumerationAndroid$CaptureFormat$FramerateRange;
+	public final field height I
+	public final field imageFormat I
+	public final field width I
+	public fun <init> (IIII)V
+	public fun <init> (IILorg/webrtc/CameraEnumerationAndroid$CaptureFormat$FramerateRange;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun frameSize ()I
+	public static fun frameSize (III)I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/CameraEnumerationAndroid$CaptureFormat$FramerateRange {
+	public field max I
+	public field min I
+	public fun <init> (II)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class org/webrtc/CameraEnumerator {
+	public abstract fun createCapturer (Ljava/lang/String;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;)Lorg/webrtc/CameraVideoCapturer;
+	public abstract fun getDeviceNames ()[Ljava/lang/String;
+	public abstract fun getSupportedFormats (Ljava/lang/String;)Ljava/util/List;
+	public abstract fun isBackFacing (Ljava/lang/String;)Z
+	public abstract fun isFrontFacing (Ljava/lang/String;)Z
+}
+
+public abstract interface class org/webrtc/CameraVideoCapturer : org/webrtc/VideoCapturer {
+	public fun addMediaRecorderToCamera (Landroid/media/MediaRecorder;Lorg/webrtc/CameraVideoCapturer$MediaRecorderHandler;)V
+	public fun removeMediaRecorderFromCamera (Lorg/webrtc/CameraVideoCapturer$MediaRecorderHandler;)V
+	public abstract fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;)V
+	public abstract fun switchCamera (Lorg/webrtc/CameraVideoCapturer$CameraSwitchHandler;Ljava/lang/String;)V
+}
+
+public abstract interface class org/webrtc/CameraVideoCapturer$CameraEventsHandler {
+	public abstract fun onCameraClosed ()V
+	public abstract fun onCameraDisconnected ()V
+	public abstract fun onCameraError (Ljava/lang/String;)V
+	public abstract fun onCameraFreezed (Ljava/lang/String;)V
+	public abstract fun onCameraOpening (Ljava/lang/String;)V
+	public abstract fun onFirstFrameAvailable ()V
+}
+
+public class org/webrtc/CameraVideoCapturer$CameraStatistics {
+	public fun <init> (Lorg/webrtc/SurfaceTextureHelper;Lorg/webrtc/CameraVideoCapturer$CameraEventsHandler;)V
+	public fun addFrame ()V
+	public fun release ()V
+}
+
+public abstract interface class org/webrtc/CameraVideoCapturer$CameraSwitchHandler {
+	public abstract fun onCameraSwitchDone (Z)V
+	public abstract fun onCameraSwitchError (Ljava/lang/String;)V
+}
+
+public abstract interface class org/webrtc/CameraVideoCapturer$MediaRecorderHandler {
+	public abstract fun onMediaRecorderError (Ljava/lang/String;)V
+	public abstract fun onMediaRecorderSuccess ()V
+}
+
+public final class org/webrtc/CandidatePairChangeEvent {
+	public final field estimatedDisconnectedTimeMs I
+	public final field lastDataReceivedMs I
+	public final field local Lorg/webrtc/IceCandidate;
+	public final field reason Ljava/lang/String;
+	public final field remote Lorg/webrtc/IceCandidate;
+}
+
+public abstract interface class org/webrtc/CapturerObserver {
+	public abstract fun onCapturerStarted (Z)V
+	public abstract fun onCapturerStopped ()V
+	public abstract fun onFrameCaptured (Lorg/webrtc/VideoFrame;)V
+}
+
+public class org/webrtc/ContextUtils {
+	public fun <init> ()V
+	public static fun getApplicationContext ()Landroid/content/Context;
+	public static fun initialize (Landroid/content/Context;)V
+}
+
+public final class org/webrtc/CryptoOptions {
+	public static fun builder ()Lorg/webrtc/CryptoOptions$Builder;
+	public fun getSFrame ()Lorg/webrtc/CryptoOptions$SFrame;
+	public fun getSrtp ()Lorg/webrtc/CryptoOptions$Srtp;
+}
+
+public class org/webrtc/CryptoOptions$Builder {
+	public fun createCryptoOptions ()Lorg/webrtc/CryptoOptions;
+	public fun setEnableAes128Sha1_32CryptoCipher (Z)Lorg/webrtc/CryptoOptions$Builder;
+	public fun setEnableEncryptedRtpHeaderExtensions (Z)Lorg/webrtc/CryptoOptions$Builder;
+	public fun setEnableGcmCryptoSuites (Z)Lorg/webrtc/CryptoOptions$Builder;
+	public fun setRequireFrameEncryption (Z)Lorg/webrtc/CryptoOptions$Builder;
+}
+
+public final class org/webrtc/CryptoOptions$SFrame {
+	public fun getRequireFrameEncryption ()Z
+}
+
+public final class org/webrtc/CryptoOptions$Srtp {
+	public fun getEnableAes128Sha1_32CryptoCipher ()Z
+	public fun getEnableEncryptedRtpHeaderExtensions ()Z
+	public fun getEnableGcmCryptoSuites ()Z
+}
+
+public class org/webrtc/DataChannel {
+	public fun <init> (J)V
+	public fun bufferedAmount ()J
+	public fun close ()V
+	public fun dispose ()V
+	public fun id ()I
+	public fun label ()Ljava/lang/String;
+	public fun registerObserver (Lorg/webrtc/DataChannel$Observer;)V
+	public fun send (Lorg/webrtc/DataChannel$Buffer;)Z
+	public fun state ()Lorg/webrtc/DataChannel$State;
+	public fun unregisterObserver ()V
+}
+
+public class org/webrtc/DataChannel$Buffer {
+	public final field binary Z
+	public final field data Ljava/nio/ByteBuffer;
+	public fun <init> (Ljava/nio/ByteBuffer;Z)V
+}
+
+public class org/webrtc/DataChannel$Init {
+	public field id I
+	public field maxRetransmitTimeMs I
+	public field maxRetransmits I
+	public field negotiated Z
+	public field ordered Z
+	public field protocol Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract interface class org/webrtc/DataChannel$Observer {
+	public abstract fun onBufferedAmountChange (J)V
+	public abstract fun onMessage (Lorg/webrtc/DataChannel$Buffer;)V
+	public abstract fun onStateChange ()V
+}
+
+public final class org/webrtc/DataChannel$State : java/lang/Enum {
+	public static final field CLOSED Lorg/webrtc/DataChannel$State;
+	public static final field CLOSING Lorg/webrtc/DataChannel$State;
+	public static final field CONNECTING Lorg/webrtc/DataChannel$State;
+	public static final field OPEN Lorg/webrtc/DataChannel$State;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/DataChannel$State;
+	public static fun values ()[Lorg/webrtc/DataChannel$State;
+}
+
+public class org/webrtc/Dav1dDecoder : org/webrtc/WrappedNativeVideoDecoder {
+	public fun <init> ()V
+	public fun createNativeVideoDecoder ()J
+}
+
+public class org/webrtc/DefaultVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;)V
+	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/DefaultVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;ZZ)V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/DtmfSender {
+	public fun <init> (J)V
+	public fun canInsertDtmf ()Z
+	public fun dispose ()V
+	public fun duration ()I
+	public fun insertDtmf (Ljava/lang/String;II)Z
+	public fun interToneGap ()I
+	public fun tones ()Ljava/lang/String;
+}
+
+public abstract interface class org/webrtc/EglBase {
+	public static final field CONFIG_PIXEL_BUFFER [I
+	public static final field CONFIG_PIXEL_RGBA_BUFFER [I
+	public static final field CONFIG_PLAIN [I
+	public static final field CONFIG_RECORDABLE [I
+	public static final field CONFIG_RGBA [I
+	public static final field EGL_OPENGL_ES2_BIT I
+	public static final field EGL_OPENGL_ES3_BIT I
+	public static final field EGL_RECORDABLE_ANDROID I
+	public static final field lock Ljava/lang/Object;
+	public static fun configBuilder ()Lorg/webrtc/EglBase$ConfigBuilder;
+	public static fun create ()Lorg/webrtc/EglBase;
+	public static fun create (Lorg/webrtc/EglBase$Context;)Lorg/webrtc/EglBase;
+	public static fun create (Lorg/webrtc/EglBase$Context;[I)Lorg/webrtc/EglBase;
+	public abstract fun createDummyPbufferSurface ()V
+	public static fun createEgl10 (Ljavax/microedition/khronos/egl/EGLContext;[I)Lorg/webrtc/EglBase10;
+	public static fun createEgl10 (Lorg/webrtc/EglBase10$Context;[I)Lorg/webrtc/EglBase10;
+	public static fun createEgl10 ([I)Lorg/webrtc/EglBase10;
+	public static fun createEgl14 (Landroid/opengl/EGLContext;[I)Lorg/webrtc/EglBase14;
+	public static fun createEgl14 (Lorg/webrtc/EglBase14$Context;[I)Lorg/webrtc/EglBase14;
+	public static fun createEgl14 ([I)Lorg/webrtc/EglBase14;
+	public abstract fun createPbufferSurface (II)V
+	public abstract fun createSurface (Landroid/graphics/SurfaceTexture;)V
+	public abstract fun createSurface (Landroid/view/Surface;)V
+	public abstract fun detachCurrent ()V
+	public abstract fun getEglBaseContext ()Lorg/webrtc/EglBase$Context;
+	public static fun getOpenGlesVersionFromConfig ([I)I
+	public abstract fun hasSurface ()Z
+	public abstract fun makeCurrent ()V
+	public abstract fun release ()V
+	public abstract fun releaseSurface ()V
+	public abstract fun surfaceHeight ()I
+	public abstract fun surfaceWidth ()I
+	public abstract fun swapBuffers ()V
+	public abstract fun swapBuffers (J)V
+}
+
+public class org/webrtc/EglBase$ConfigBuilder {
+	public fun <init> ()V
+	public fun createConfigAttributes ()[I
+	public fun setHasAlphaChannel (Z)Lorg/webrtc/EglBase$ConfigBuilder;
+	public fun setIsRecordable (Z)Lorg/webrtc/EglBase$ConfigBuilder;
+	public fun setOpenGlesVersion (I)Lorg/webrtc/EglBase$ConfigBuilder;
+	public fun setSupportsPixelBuffer (Z)Lorg/webrtc/EglBase$ConfigBuilder;
+}
+
+public abstract interface class org/webrtc/EglBase$Context {
+	public static final field NO_CONTEXT J
+	public abstract fun getNativeEglContext ()J
+}
+
+public abstract interface class org/webrtc/EglBase10 : org/webrtc/EglBase {
+}
+
+public abstract interface class org/webrtc/EglBase10$Context : org/webrtc/EglBase$Context {
+	public abstract fun getRawContext ()Ljavax/microedition/khronos/egl/EGLContext;
+}
+
+public abstract interface class org/webrtc/EglBase14 : org/webrtc/EglBase {
+}
+
+public abstract interface class org/webrtc/EglBase14$Context : org/webrtc/EglBase$Context {
+	public abstract fun getRawContext ()Landroid/opengl/EGLContext;
+}
+
+public class org/webrtc/EglRenderer : org/webrtc/VideoSink {
+	protected final field name Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Lorg/webrtc/VideoFrameDrawer;)V
+	public fun addFrameListener (Lorg/webrtc/EglRenderer$FrameListener;F)V
+	public fun addFrameListener (Lorg/webrtc/EglRenderer$FrameListener;FLorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun addFrameListener (Lorg/webrtc/EglRenderer$FrameListener;FLorg/webrtc/RendererCommon$GlDrawer;Z)V
+	public fun clearImage ()V
+	public fun clearImage (FFFF)V
+	public fun createEglSurface (Landroid/graphics/SurfaceTexture;)V
+	public fun createEglSurface (Landroid/view/Surface;)V
+	public fun disableFpsReduction ()V
+	public fun init (Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun init (Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RendererCommon$GlDrawer;Z)V
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	public fun pauseVideo ()V
+	public fun printStackTrace ()V
+	public fun release ()V
+	public fun releaseEglSurface (Ljava/lang/Runnable;)V
+	public fun removeFrameListener (Lorg/webrtc/EglRenderer$FrameListener;)V
+	public fun setErrorCallback (Lorg/webrtc/EglRenderer$ErrorCallback;)V
+	public fun setFpsReduction (F)V
+	public fun setLayoutAspectRatio (F)V
+	public fun setMirror (Z)V
+	public fun setMirrorVertically (Z)V
+}
+
+public abstract interface class org/webrtc/EglRenderer$ErrorCallback {
+	public abstract fun onGlOutOfMemory ()V
+}
+
+public abstract interface class org/webrtc/EglRenderer$FrameListener {
+	public abstract fun onFrame (Landroid/graphics/Bitmap;)V
+}
+
+public class org/webrtc/EncodedImage : org/webrtc/RefCounted {
+	public final field buffer Ljava/nio/ByteBuffer;
+	public final field captureTimeMs J
+	public final field captureTimeNs J
+	public final field encodedHeight I
+	public final field encodedWidth I
+	public final field frameType Lorg/webrtc/EncodedImage$FrameType;
+	public final field qp Ljava/lang/Integer;
+	public final field rotation I
+	public static fun builder ()Lorg/webrtc/EncodedImage$Builder;
+	public fun release ()V
+	public fun retain ()V
+}
+
+public class org/webrtc/EncodedImage$Builder {
+	public fun createEncodedImage ()Lorg/webrtc/EncodedImage;
+	public fun setBuffer (Ljava/nio/ByteBuffer;Ljava/lang/Runnable;)Lorg/webrtc/EncodedImage$Builder;
+	public fun setCaptureTimeMs (J)Lorg/webrtc/EncodedImage$Builder;
+	public fun setCaptureTimeNs (J)Lorg/webrtc/EncodedImage$Builder;
+	public fun setEncodedHeight (I)Lorg/webrtc/EncodedImage$Builder;
+	public fun setEncodedWidth (I)Lorg/webrtc/EncodedImage$Builder;
+	public fun setFrameType (Lorg/webrtc/EncodedImage$FrameType;)Lorg/webrtc/EncodedImage$Builder;
+	public fun setQp (Ljava/lang/Integer;)Lorg/webrtc/EncodedImage$Builder;
+	public fun setRotation (I)Lorg/webrtc/EncodedImage$Builder;
+}
+
+public final class org/webrtc/EncodedImage$FrameType : java/lang/Enum {
+	public static final field EmptyFrame Lorg/webrtc/EncodedImage$FrameType;
+	public static final field VideoFrameDelta Lorg/webrtc/EncodedImage$FrameType;
+	public static final field VideoFrameKey Lorg/webrtc/EncodedImage$FrameType;
+	public fun getNative ()I
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/EncodedImage$FrameType;
+	public static fun values ()[Lorg/webrtc/EncodedImage$FrameType;
+}
+
+public abstract interface class org/webrtc/FecControllerFactoryFactoryInterface {
+	public abstract fun createNative ()J
+}
+
+public class org/webrtc/FileVideoCapturer : org/webrtc/VideoCapturer {
+	public fun <init> (Ljava/lang/String;)V
+	public fun changeCaptureFormat (III)V
+	public fun dispose ()V
+	public fun initialize (Lorg/webrtc/SurfaceTextureHelper;Landroid/content/Context;Lorg/webrtc/CapturerObserver;)V
+	public fun isScreencast ()Z
+	public fun startCapture (III)V
+	public fun stopCapture ()V
+	public fun tick ()V
+}
+
+public abstract interface class org/webrtc/FrameDecryptor {
+	public abstract fun getNativeFrameDecryptor ()J
+}
+
+public abstract interface class org/webrtc/FrameEncryptor {
+	public abstract fun getNativeFrameEncryptor ()J
+}
+
+public class org/webrtc/GlRectDrawer {
+	public fun <init> ()V
+	public synthetic fun drawOes (I[FIIIIII)V
+	public synthetic fun drawRgb (I[FIIIIII)V
+	public synthetic fun drawYuv ([I[FIIIIII)V
+	public synthetic fun release ()V
+}
+
+public class org/webrtc/GlShader {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun getAttribLocation (Ljava/lang/String;)I
+	public fun getUniformLocation (Ljava/lang/String;)I
+	public fun release ()V
+	public fun setVertexAttribArray (Ljava/lang/String;IILjava/nio/FloatBuffer;)V
+	public fun setVertexAttribArray (Ljava/lang/String;ILjava/nio/FloatBuffer;)V
+	public fun useProgram ()V
+}
+
+public class org/webrtc/GlTextureFrameBuffer {
+	public fun <init> (I)V
+	public fun getFrameBufferId ()I
+	public fun getHeight ()I
+	public fun getTextureId ()I
+	public fun getWidth ()I
+	public fun release ()V
+	public fun setSize (II)V
+}
+
+public class org/webrtc/GlUtil {
+	public static fun checkNoGLES2Error (Ljava/lang/String;)V
+	public static fun createFloatBuffer ([F)Ljava/nio/FloatBuffer;
+	public static fun generateTexture (I)I
+}
+
+public class org/webrtc/GlUtil$GlOutOfMemoryException : android/opengl/GLException {
+	public fun <init> (ILjava/lang/String;)V
+}
+
+public class org/webrtc/HardwareVideoDecoderFactory {
+	public fun <init> ()V
+	public fun <init> (Lorg/webrtc/EglBase$Context;)V
+	public fun <init> (Lorg/webrtc/EglBase$Context;Lorg/webrtc/Predicate;)V
+	public synthetic fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public synthetic fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/HardwareVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;ZZ)V
+	public fun <init> (Lorg/webrtc/EglBase$Context;ZZLorg/webrtc/Predicate;)V
+	public fun <init> (ZZ)V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/IceCandidate {
+	public final field adapterType Lorg/webrtc/PeerConnection$AdapterType;
+	public final field sdp Ljava/lang/String;
+	public final field sdpMLineIndex I
+	public final field sdpMid Ljava/lang/String;
+	public final field serverUrl Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;ILjava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/webrtc/IceCandidateErrorEvent {
+	public final field address Ljava/lang/String;
+	public final field errorCode I
+	public final field errorText Ljava/lang/String;
+	public final field port I
+	public final field url Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;ILjava/lang/String;ILjava/lang/String;)V
+}
+
+public class org/webrtc/JavaI420Buffer : org/webrtc/VideoFrame$I420Buffer {
+	public static fun allocate (II)Lorg/webrtc/JavaI420Buffer;
+	public fun cropAndScale (IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public static fun cropAndScaleI420 (Lorg/webrtc/VideoFrame$I420Buffer;IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public fun getDataU ()Ljava/nio/ByteBuffer;
+	public fun getDataV ()Ljava/nio/ByteBuffer;
+	public fun getDataY ()Ljava/nio/ByteBuffer;
+	public fun getHeight ()I
+	public fun getStrideU ()I
+	public fun getStrideV ()I
+	public fun getStrideY ()I
+	public fun getWidth ()I
+	public fun release ()V
+	public fun retain ()V
+	public fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+	public static fun wrap (IILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/lang/Runnable;)Lorg/webrtc/JavaI420Buffer;
+}
+
+public class org/webrtc/JniCommon {
+	public fun <init> ()V
+	public static fun nativeAddRef (J)V
+	public static fun nativeAllocateByteBuffer (I)Ljava/nio/ByteBuffer;
+	public static fun nativeFreeByteBuffer (Ljava/nio/ByteBuffer;)V
+	public static fun nativeReleaseRef (J)V
+}
+
+public class org/webrtc/LibaomAv1Decoder : org/webrtc/WrappedNativeVideoDecoder {
+	public fun <init> ()V
+	public fun createNativeVideoDecoder ()J
+}
+
+public class org/webrtc/LibaomAv1Encoder : org/webrtc/WrappedNativeVideoEncoder {
+	public fun <init> ()V
+	public fun createNativeVideoEncoder ()J
+	public fun isHardwareEncoder ()Z
+}
+
+public class org/webrtc/LibvpxVp8Decoder : org/webrtc/WrappedNativeVideoDecoder {
+	public fun <init> ()V
+	public fun createNativeVideoDecoder ()J
+}
+
+public class org/webrtc/LibvpxVp8Encoder : org/webrtc/WrappedNativeVideoEncoder {
+	public fun <init> ()V
+	public fun createNativeVideoEncoder ()J
+	public fun isHardwareEncoder ()Z
+}
+
+public class org/webrtc/LibvpxVp9Decoder : org/webrtc/WrappedNativeVideoDecoder {
+	public fun <init> ()V
+	public fun createNativeVideoDecoder ()J
+}
+
+public class org/webrtc/LibvpxVp9Encoder : org/webrtc/WrappedNativeVideoEncoder {
+	public fun <init> ()V
+	public fun createNativeVideoEncoder ()J
+	public fun isHardwareEncoder ()Z
+}
+
+public abstract interface class org/webrtc/Loggable {
+	public abstract fun onLogMessage (Ljava/lang/String;Lorg/webrtc/Logging$Severity;Ljava/lang/String;)V
+}
+
+public class org/webrtc/Logging {
+	public fun <init> ()V
+	public static fun d (Ljava/lang/String;Ljava/lang/String;)V
+	public static fun e (Ljava/lang/String;Ljava/lang/String;)V
+	public static fun e (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public static fun enableLogThreads ()V
+	public static fun enableLogTimeStamps ()V
+	public static fun enableLogToDebugOutput (Lorg/webrtc/Logging$Severity;)V
+	public static fun enableTracing (Ljava/lang/String;Ljava/util/EnumSet;)V
+	public static fun log (Lorg/webrtc/Logging$Severity;Ljava/lang/String;Ljava/lang/String;)V
+	public static fun v (Ljava/lang/String;Ljava/lang/String;)V
+	public static fun w (Ljava/lang/String;Ljava/lang/String;)V
+	public static fun w (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class org/webrtc/Logging$Severity : java/lang/Enum {
+	public static final field LS_ERROR Lorg/webrtc/Logging$Severity;
+	public static final field LS_INFO Lorg/webrtc/Logging$Severity;
+	public static final field LS_NONE Lorg/webrtc/Logging$Severity;
+	public static final field LS_VERBOSE Lorg/webrtc/Logging$Severity;
+	public static final field LS_WARNING Lorg/webrtc/Logging$Severity;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/Logging$Severity;
+	public static fun values ()[Lorg/webrtc/Logging$Severity;
+}
+
+public final class org/webrtc/Logging$TraceLevel : java/lang/Enum {
+	public static final field TRACE_ALL Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_APICALL Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_CRITICAL Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_DEBUG Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_DEFAULT Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_ERROR Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_INFO Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_MEMORY Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_MODULECALL Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_NONE Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_STATEINFO Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_STREAM Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_TERSEINFO Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_TIMER Lorg/webrtc/Logging$TraceLevel;
+	public static final field TRACE_WARNING Lorg/webrtc/Logging$TraceLevel;
+	public final field level I
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/Logging$TraceLevel;
+	public static fun values ()[Lorg/webrtc/Logging$TraceLevel;
+}
+
+public class org/webrtc/MediaConstraints {
+	public final field mandatory Ljava/util/List;
+	public final field optional Ljava/util/List;
+	public fun <init> ()V
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/MediaConstraints$KeyValuePair {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getKey ()Ljava/lang/String;
+	public fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/MediaSource {
+	public fun <init> (J)V
+	public fun dispose ()V
+	protected fun getNativeMediaSource ()J
+	public fun state ()Lorg/webrtc/MediaSource$State;
+}
+
+public final class org/webrtc/MediaSource$State : java/lang/Enum {
+	public static final field ENDED Lorg/webrtc/MediaSource$State;
+	public static final field INITIALIZING Lorg/webrtc/MediaSource$State;
+	public static final field LIVE Lorg/webrtc/MediaSource$State;
+	public static final field MUTED Lorg/webrtc/MediaSource$State;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/MediaSource$State;
+	public static fun values ()[Lorg/webrtc/MediaSource$State;
+}
+
+public class org/webrtc/MediaStream {
+	public final field audioTracks Ljava/util/List;
+	public final field preservedVideoTracks Ljava/util/List;
+	public final field videoTracks Ljava/util/List;
+	public fun <init> (J)V
+	public fun addPreservedTrack (Lorg/webrtc/VideoTrack;)Z
+	public fun addTrack (Lorg/webrtc/AudioTrack;)Z
+	public fun addTrack (Lorg/webrtc/VideoTrack;)Z
+	public fun dispose ()V
+	public fun getId ()Ljava/lang/String;
+	public fun removeTrack (Lorg/webrtc/AudioTrack;)Z
+	public fun removeTrack (Lorg/webrtc/VideoTrack;)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/MediaStreamTrack {
+	public static final field AUDIO_TRACK_KIND Ljava/lang/String;
+	public static final field VIDEO_TRACK_KIND Ljava/lang/String;
+	public fun <init> (J)V
+	public fun dispose ()V
+	public fun enabled ()Z
+	public fun id ()Ljava/lang/String;
+	public fun kind ()Ljava/lang/String;
+	public fun setEnabled (Z)Z
+	public fun state ()Lorg/webrtc/MediaStreamTrack$State;
+}
+
+public final class org/webrtc/MediaStreamTrack$MediaType : java/lang/Enum {
+	public static final field MEDIA_TYPE_AUDIO Lorg/webrtc/MediaStreamTrack$MediaType;
+	public static final field MEDIA_TYPE_VIDEO Lorg/webrtc/MediaStreamTrack$MediaType;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/MediaStreamTrack$MediaType;
+	public static fun values ()[Lorg/webrtc/MediaStreamTrack$MediaType;
+}
+
+public final class org/webrtc/MediaStreamTrack$State : java/lang/Enum {
+	public static final field ENDED Lorg/webrtc/MediaStreamTrack$State;
+	public static final field LIVE Lorg/webrtc/MediaStreamTrack$State;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/MediaStreamTrack$State;
+	public static fun values ()[Lorg/webrtc/MediaStreamTrack$State;
+}
+
+public class org/webrtc/Metrics {
+	public final field map Ljava/util/Map;
+	public static fun enable ()V
+	public static fun getAndReset ()Lorg/webrtc/Metrics;
+}
+
+public class org/webrtc/Metrics$HistogramInfo {
+	public final field bucketCount I
+	public final field max I
+	public final field min I
+	public final field samples Ljava/util/Map;
+	public fun <init> (III)V
+	public fun addSample (II)V
+}
+
+public class org/webrtc/NV12Buffer : org/webrtc/VideoFrame$Buffer {
+	public fun <init> (IIIILjava/nio/ByteBuffer;Ljava/lang/Runnable;)V
+	public fun cropAndScale (IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public fun getHeight ()I
+	public fun getWidth ()I
+	public fun release ()V
+	public fun retain ()V
+	public fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public class org/webrtc/NV21Buffer : org/webrtc/VideoFrame$Buffer {
+	public fun <init> ([BIILjava/lang/Runnable;)V
+	public fun cropAndScale (IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public fun getHeight ()I
+	public fun getWidth ()I
+	public fun release ()V
+	public fun retain ()V
+	public fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public abstract interface class org/webrtc/NativeLibraryLoader {
+	public abstract fun load (Ljava/lang/String;)Z
+}
+
+public abstract interface class org/webrtc/NativePeerConnectionFactory {
+	public abstract fun createNativePeerConnection ()J
+}
+
+public abstract interface class org/webrtc/NetEqFactoryFactory {
+	public abstract fun createNativeNetEqFactory ()J
+}
+
+public abstract interface class org/webrtc/NetworkChangeDetector {
+	public abstract fun destroy ()V
+	public abstract fun getActiveNetworkList ()Ljava/util/List;
+	public abstract fun getCurrentConnectionType ()Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public abstract fun supportNetworkCallback ()Z
+}
+
+public final class org/webrtc/NetworkChangeDetector$ConnectionType : java/lang/Enum {
+	public static final field CONNECTION_2G Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_3G Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_4G Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_5G Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_BLUETOOTH Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_ETHERNET Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_NONE Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_UNKNOWN Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_UNKNOWN_CELLULAR Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_VPN Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static final field CONNECTION_WIFI Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public static fun values ()[Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+}
+
+public class org/webrtc/NetworkChangeDetector$IPAddress {
+	public final field address [B
+	public fun <init> ([B)V
+}
+
+public class org/webrtc/NetworkChangeDetector$NetworkInformation {
+	public final field handle J
+	public final field ipAddresses [Lorg/webrtc/NetworkChangeDetector$IPAddress;
+	public final field name Ljava/lang/String;
+	public final field type Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public final field underlyingTypeForVpn Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public fun <init> (Ljava/lang/String;Lorg/webrtc/NetworkChangeDetector$ConnectionType;Lorg/webrtc/NetworkChangeDetector$ConnectionType;J[Lorg/webrtc/NetworkChangeDetector$IPAddress;)V
+}
+
+public abstract class org/webrtc/NetworkChangeDetector$Observer {
+	public fun <init> ()V
+	public fun getFieldTrialsString ()Ljava/lang/String;
+	public abstract fun onConnectionTypeChanged (Lorg/webrtc/NetworkChangeDetector$ConnectionType;)V
+	public abstract fun onNetworkConnect (Lorg/webrtc/NetworkChangeDetector$NetworkInformation;)V
+	public abstract fun onNetworkDisconnect (J)V
+	public abstract fun onNetworkPreference (Ljava/util/List;I)V
+}
+
+public abstract interface class org/webrtc/NetworkChangeDetectorFactory {
+	public abstract fun create (Lorg/webrtc/NetworkChangeDetector$Observer;Landroid/content/Context;)Lorg/webrtc/NetworkChangeDetector;
+}
+
+public abstract interface class org/webrtc/NetworkControllerFactoryFactory {
+	public abstract fun createNativeNetworkControllerFactory ()J
+}
+
+public class org/webrtc/NetworkMonitor {
+	public static fun addNetworkObserver (Lorg/webrtc/NetworkMonitor$NetworkObserver;)V
+	public fun addObserver (Lorg/webrtc/NetworkMonitor$NetworkObserver;)V
+	public static fun getInstance ()Lorg/webrtc/NetworkMonitor;
+	public static fun init (Landroid/content/Context;)V
+	public static fun isOnline ()Z
+	public static fun removeNetworkObserver (Lorg/webrtc/NetworkMonitor$NetworkObserver;)V
+	public fun removeObserver (Lorg/webrtc/NetworkMonitor$NetworkObserver;)V
+	public fun setNetworkChangeDetectorFactory (Lorg/webrtc/NetworkChangeDetectorFactory;)V
+	public fun startMonitoring ()V
+	public fun startMonitoring (Landroid/content/Context;)V
+	public fun startMonitoring (Landroid/content/Context;Ljava/lang/String;)V
+	public fun stopMonitoring ()V
+}
+
+public abstract interface class org/webrtc/NetworkMonitor$NetworkObserver {
+	public abstract fun onConnectionTypeChanged (Lorg/webrtc/NetworkChangeDetector$ConnectionType;)V
+}
+
+public class org/webrtc/NetworkMonitorAutoDetect : android/content/BroadcastReceiver, org/webrtc/NetworkChangeDetector {
+	public fun <init> (Lorg/webrtc/NetworkChangeDetector$Observer;Landroid/content/Context;)V
+	public fun destroy ()V
+	public fun getActiveNetworkList ()Ljava/util/List;
+	public static fun getConnectionType (Lorg/webrtc/NetworkMonitorAutoDetect$NetworkState;)Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public fun getCurrentConnectionType ()Lorg/webrtc/NetworkChangeDetector$ConnectionType;
+	public fun getCurrentNetworkState ()Lorg/webrtc/NetworkMonitorAutoDetect$NetworkState;
+	public fun getDefaultNetId ()J
+	public fun onReceive (Landroid/content/Context;Landroid/content/Intent;)V
+	public static fun setIncludeWifiDirect (Z)V
+	public fun supportNetworkCallback ()Z
+}
+
+public abstract interface annotation class org/webrtc/NetworkPreference : java/lang/annotation/Annotation {
+	public static final field NEUTRAL I
+	public static final field NOT_PREFERRED I
+}
+
+public abstract interface class org/webrtc/NetworkStatePredictorFactoryFactory {
+	public abstract fun createNativeNetworkStatePredictorFactory ()J
+}
+
+public class org/webrtc/PeerConnection {
+	public fun <init> (Lorg/webrtc/NativePeerConnectionFactory;)V
+	public fun addIceCandidate (Lorg/webrtc/IceCandidate;)Z
+	public fun addIceCandidate (Lorg/webrtc/IceCandidate;Lorg/webrtc/AddIceObserver;)V
+	public fun addStream (Lorg/webrtc/MediaStream;)Z
+	public fun addTrack (Lorg/webrtc/MediaStreamTrack;)Lorg/webrtc/RtpSender;
+	public fun addTrack (Lorg/webrtc/MediaStreamTrack;Ljava/util/List;)Lorg/webrtc/RtpSender;
+	public fun addTransceiver (Lorg/webrtc/MediaStreamTrack$MediaType;)Lorg/webrtc/RtpTransceiver;
+	public fun addTransceiver (Lorg/webrtc/MediaStreamTrack$MediaType;Lorg/webrtc/RtpTransceiver$RtpTransceiverInit;)Lorg/webrtc/RtpTransceiver;
+	public fun addTransceiver (Lorg/webrtc/MediaStreamTrack;)Lorg/webrtc/RtpTransceiver;
+	public fun addTransceiver (Lorg/webrtc/MediaStreamTrack;Lorg/webrtc/RtpTransceiver$RtpTransceiverInit;)Lorg/webrtc/RtpTransceiver;
+	public fun close ()V
+	public fun connectionState ()Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public fun createAnswer (Lorg/webrtc/SdpObserver;Lorg/webrtc/MediaConstraints;)V
+	public fun createDataChannel (Ljava/lang/String;Lorg/webrtc/DataChannel$Init;)Lorg/webrtc/DataChannel;
+	public static fun createNativePeerConnectionObserver (Lorg/webrtc/PeerConnection$Observer;)J
+	public fun createOffer (Lorg/webrtc/SdpObserver;Lorg/webrtc/MediaConstraints;)V
+	public fun createSender (Ljava/lang/String;Ljava/lang/String;)Lorg/webrtc/RtpSender;
+	public fun dispose ()V
+	public fun getCertificate ()Lorg/webrtc/RtcCertificatePem;
+	public fun getLocalDescription ()Lorg/webrtc/SessionDescription;
+	public fun getNativePeerConnection ()J
+	public fun getReceivers ()Ljava/util/List;
+	public fun getRemoteDescription ()Lorg/webrtc/SessionDescription;
+	public fun getSenders ()Ljava/util/List;
+	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;)V
+	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;Lorg/webrtc/RtpReceiver;)V
+	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;Lorg/webrtc/RtpSender;)V
+	public fun getStats (Lorg/webrtc/StatsObserver;Lorg/webrtc/MediaStreamTrack;)Z
+	public fun getTransceivers ()Ljava/util/List;
+	public fun iceConnectionState ()Lorg/webrtc/PeerConnection$IceConnectionState;
+	public fun iceGatheringState ()Lorg/webrtc/PeerConnection$IceGatheringState;
+	public fun removeIceCandidates ([Lorg/webrtc/IceCandidate;)Z
+	public fun removeStream (Lorg/webrtc/MediaStream;)V
+	public fun removeTrack (Lorg/webrtc/RtpSender;)Z
+	public fun restartIce ()V
+	public fun setAudioPlayout (Z)V
+	public fun setAudioRecording (Z)V
+	public fun setBitrate (Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)Z
+	public fun setConfiguration (Lorg/webrtc/PeerConnection$RTCConfiguration;)Z
+	public fun setLocalDescription (Lorg/webrtc/SdpObserver;)V
+	public fun setLocalDescription (Lorg/webrtc/SdpObserver;Lorg/webrtc/SessionDescription;)V
+	public fun setRemoteDescription (Lorg/webrtc/SdpObserver;Lorg/webrtc/SessionDescription;)V
+	public fun signalingState ()Lorg/webrtc/PeerConnection$SignalingState;
+	public fun startRtcEventLog (II)Z
+	public fun stopRtcEventLog ()V
+}
+
+public final class org/webrtc/PeerConnection$AdapterType : java/lang/Enum {
+	public static final field ADAPTER_TYPE_ANY Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field CELLULAR Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field CELLULAR_2G Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field CELLULAR_3G Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field CELLULAR_4G Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field CELLULAR_5G Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field ETHERNET Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field LOOPBACK Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field UNKNOWN Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field VPN Lorg/webrtc/PeerConnection$AdapterType;
+	public static final field WIFI Lorg/webrtc/PeerConnection$AdapterType;
+	public final field bitMask Ljava/lang/Integer;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$AdapterType;
+	public static fun values ()[Lorg/webrtc/PeerConnection$AdapterType;
+}
+
+public final class org/webrtc/PeerConnection$BundlePolicy : java/lang/Enum {
+	public static final field BALANCED Lorg/webrtc/PeerConnection$BundlePolicy;
+	public static final field MAXBUNDLE Lorg/webrtc/PeerConnection$BundlePolicy;
+	public static final field MAXCOMPAT Lorg/webrtc/PeerConnection$BundlePolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$BundlePolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$BundlePolicy;
+}
+
+public final class org/webrtc/PeerConnection$CandidateNetworkPolicy : java/lang/Enum {
+	public static final field ALL Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
+	public static final field LOW_COST Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
+}
+
+public final class org/webrtc/PeerConnection$ContinualGatheringPolicy : java/lang/Enum {
+	public static final field GATHER_CONTINUALLY Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
+	public static final field GATHER_ONCE Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
+}
+
+public final class org/webrtc/PeerConnection$IceConnectionState : java/lang/Enum {
+	public static final field CHECKING Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field CLOSED Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field COMPLETED Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field CONNECTED Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field DISCONNECTED Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field FAILED Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static final field NEW Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceConnectionState;
+	public static fun values ()[Lorg/webrtc/PeerConnection$IceConnectionState;
+}
+
+public final class org/webrtc/PeerConnection$IceGatheringState : java/lang/Enum {
+	public static final field COMPLETE Lorg/webrtc/PeerConnection$IceGatheringState;
+	public static final field GATHERING Lorg/webrtc/PeerConnection$IceGatheringState;
+	public static final field NEW Lorg/webrtc/PeerConnection$IceGatheringState;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceGatheringState;
+	public static fun values ()[Lorg/webrtc/PeerConnection$IceGatheringState;
+}
+
+public class org/webrtc/PeerConnection$IceServer {
+	public final field hostname Ljava/lang/String;
+	public final field password Ljava/lang/String;
+	public final field tlsAlpnProtocols Ljava/util/List;
+	public final field tlsCertPolicy Lorg/webrtc/PeerConnection$TlsCertPolicy;
+	public final field tlsEllipticCurves Ljava/util/List;
+	public final field uri Ljava/lang/String;
+	public final field urls Ljava/util/List;
+	public final field username Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/webrtc/PeerConnection$TlsCertPolicy;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/webrtc/PeerConnection$TlsCertPolicy;Ljava/lang/String;)V
+	public static fun builder (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public static fun builder (Ljava/util/List;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/PeerConnection$IceServer$Builder {
+	public fun createIceServer ()Lorg/webrtc/PeerConnection$IceServer;
+	public fun setHostname (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun setPassword (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun setTlsAlpnProtocols (Ljava/util/List;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun setTlsCertPolicy (Lorg/webrtc/PeerConnection$TlsCertPolicy;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun setTlsEllipticCurves (Ljava/util/List;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+	public fun setUsername (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceServer$Builder;
+}
+
+public final class org/webrtc/PeerConnection$IceTransportsType : java/lang/Enum {
+	public static final field ALL Lorg/webrtc/PeerConnection$IceTransportsType;
+	public static final field NOHOST Lorg/webrtc/PeerConnection$IceTransportsType;
+	public static final field NONE Lorg/webrtc/PeerConnection$IceTransportsType;
+	public static final field RELAY Lorg/webrtc/PeerConnection$IceTransportsType;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$IceTransportsType;
+	public static fun values ()[Lorg/webrtc/PeerConnection$IceTransportsType;
+}
+
+public final class org/webrtc/PeerConnection$KeyType : java/lang/Enum {
+	public static final field ECDSA Lorg/webrtc/PeerConnection$KeyType;
+	public static final field RSA Lorg/webrtc/PeerConnection$KeyType;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$KeyType;
+	public static fun values ()[Lorg/webrtc/PeerConnection$KeyType;
+}
+
+public abstract interface class org/webrtc/PeerConnection$Observer {
+	public abstract fun onAddStream (Lorg/webrtc/MediaStream;)V
+	public fun onAddTrack (Lorg/webrtc/RtpReceiver;[Lorg/webrtc/MediaStream;)V
+	public fun onConnectionChange (Lorg/webrtc/PeerConnection$PeerConnectionState;)V
+	public abstract fun onDataChannel (Lorg/webrtc/DataChannel;)V
+	public abstract fun onIceCandidate (Lorg/webrtc/IceCandidate;)V
+	public fun onIceCandidateError (Lorg/webrtc/IceCandidateErrorEvent;)V
+	public abstract fun onIceCandidatesRemoved ([Lorg/webrtc/IceCandidate;)V
+	public abstract fun onIceConnectionChange (Lorg/webrtc/PeerConnection$IceConnectionState;)V
+	public abstract fun onIceConnectionReceivingChange (Z)V
+	public abstract fun onIceGatheringChange (Lorg/webrtc/PeerConnection$IceGatheringState;)V
+	public abstract fun onRemoveStream (Lorg/webrtc/MediaStream;)V
+	public fun onRemoveTrack (Lorg/webrtc/RtpReceiver;)V
+	public abstract fun onRenegotiationNeeded ()V
+	public fun onSelectedCandidatePairChanged (Lorg/webrtc/CandidatePairChangeEvent;)V
+	public abstract fun onSignalingChange (Lorg/webrtc/PeerConnection$SignalingState;)V
+	public fun onStandardizedIceConnectionChange (Lorg/webrtc/PeerConnection$IceConnectionState;)V
+	public fun onTrack (Lorg/webrtc/RtpTransceiver;)V
+}
+
+public final class org/webrtc/PeerConnection$PeerConnectionState : java/lang/Enum {
+	public static final field CLOSED Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static final field CONNECTED Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static final field CONNECTING Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static final field DISCONNECTED Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static final field FAILED Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static final field NEW Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$PeerConnectionState;
+	public static fun values ()[Lorg/webrtc/PeerConnection$PeerConnectionState;
+}
+
+public final class org/webrtc/PeerConnection$PortPrunePolicy : java/lang/Enum {
+	public static final field KEEP_FIRST_READY Lorg/webrtc/PeerConnection$PortPrunePolicy;
+	public static final field NO_PRUNE Lorg/webrtc/PeerConnection$PortPrunePolicy;
+	public static final field PRUNE_BASED_ON_PRIORITY Lorg/webrtc/PeerConnection$PortPrunePolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$PortPrunePolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$PortPrunePolicy;
+}
+
+public class org/webrtc/PeerConnection$RTCConfiguration {
+	public field activeResetSrtpParams Z
+	public field allowCodecSwitching Ljava/lang/Boolean;
+	public field audioJitterBufferFastAccelerate Z
+	public field audioJitterBufferMaxPackets I
+	public field bundlePolicy Lorg/webrtc/PeerConnection$BundlePolicy;
+	public field candidateNetworkPolicy Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
+	public field certificate Lorg/webrtc/RtcCertificatePem;
+	public field combinedAudioVideoBwe Ljava/lang/Boolean;
+	public field continualGatheringPolicy Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
+	public field cryptoOptions Lorg/webrtc/CryptoOptions;
+	public field disableIPv6OnWifi Z
+	public field disableIpv6 Z
+	public field enableCpuOveruseDetection Z
+	public field enableDscp Z
+	public field enableImplicitRollback Z
+	public field iceBackupCandidatePairPingInterval I
+	public field iceCandidatePoolSize I
+	public field iceCheckIntervalStrongConnectivityMs Ljava/lang/Integer;
+	public field iceCheckIntervalWeakConnectivityMs Ljava/lang/Integer;
+	public field iceCheckMinInterval Ljava/lang/Integer;
+	public field iceConnectionReceivingTimeout I
+	public field iceServers Ljava/util/List;
+	public field iceTransportsType Lorg/webrtc/PeerConnection$IceTransportsType;
+	public field iceUnwritableMinChecks Ljava/lang/Integer;
+	public field iceUnwritableTimeMs Ljava/lang/Integer;
+	public field keyType Lorg/webrtc/PeerConnection$KeyType;
+	public field maxIPv6Networks I
+	public field networkPreference Lorg/webrtc/PeerConnection$AdapterType;
+	public field offerExtmapAllowMixed Z
+	public field presumeWritableWhenFullyRelayed Z
+	public field pruneTurnPorts Z
+	public field rtcpMuxPolicy Lorg/webrtc/PeerConnection$RtcpMuxPolicy;
+	public field screencastMinBitrate Ljava/lang/Integer;
+	public field sdpSemantics Lorg/webrtc/PeerConnection$SdpSemantics;
+	public field stableWritableConnectionPingIntervalMs Ljava/lang/Integer;
+	public field stunCandidateKeepaliveIntervalMs Ljava/lang/Integer;
+	public field surfaceIceCandidatesOnIceTransportTypeChanged Z
+	public field suspendBelowMinBitrate Z
+	public field tcpCandidatePolicy Lorg/webrtc/PeerConnection$TcpCandidatePolicy;
+	public field turnCustomizer Lorg/webrtc/TurnCustomizer;
+	public field turnLoggingId Ljava/lang/String;
+	public field turnPortPrunePolicy Lorg/webrtc/PeerConnection$PortPrunePolicy;
+	public fun <init> (Ljava/util/List;)V
+}
+
+public final class org/webrtc/PeerConnection$RtcpMuxPolicy : java/lang/Enum {
+	public static final field NEGOTIATE Lorg/webrtc/PeerConnection$RtcpMuxPolicy;
+	public static final field REQUIRE Lorg/webrtc/PeerConnection$RtcpMuxPolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$RtcpMuxPolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$RtcpMuxPolicy;
+}
+
+public final class org/webrtc/PeerConnection$SdpSemantics : java/lang/Enum {
+	public static final field PLAN_B Lorg/webrtc/PeerConnection$SdpSemantics;
+	public static final field UNIFIED_PLAN Lorg/webrtc/PeerConnection$SdpSemantics;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$SdpSemantics;
+	public static fun values ()[Lorg/webrtc/PeerConnection$SdpSemantics;
+}
+
+public final class org/webrtc/PeerConnection$SignalingState : java/lang/Enum {
+	public static final field CLOSED Lorg/webrtc/PeerConnection$SignalingState;
+	public static final field HAVE_LOCAL_OFFER Lorg/webrtc/PeerConnection$SignalingState;
+	public static final field HAVE_LOCAL_PRANSWER Lorg/webrtc/PeerConnection$SignalingState;
+	public static final field HAVE_REMOTE_OFFER Lorg/webrtc/PeerConnection$SignalingState;
+	public static final field HAVE_REMOTE_PRANSWER Lorg/webrtc/PeerConnection$SignalingState;
+	public static final field STABLE Lorg/webrtc/PeerConnection$SignalingState;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$SignalingState;
+	public static fun values ()[Lorg/webrtc/PeerConnection$SignalingState;
+}
+
+public final class org/webrtc/PeerConnection$TcpCandidatePolicy : java/lang/Enum {
+	public static final field DISABLED Lorg/webrtc/PeerConnection$TcpCandidatePolicy;
+	public static final field ENABLED Lorg/webrtc/PeerConnection$TcpCandidatePolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$TcpCandidatePolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$TcpCandidatePolicy;
+}
+
+public final class org/webrtc/PeerConnection$TlsCertPolicy : java/lang/Enum {
+	public static final field TLS_CERT_POLICY_INSECURE_NO_CHECK Lorg/webrtc/PeerConnection$TlsCertPolicy;
+	public static final field TLS_CERT_POLICY_SECURE Lorg/webrtc/PeerConnection$TlsCertPolicy;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/PeerConnection$TlsCertPolicy;
+	public static fun values ()[Lorg/webrtc/PeerConnection$TlsCertPolicy;
+}
+
+public final class org/webrtc/PeerConnectionDependencies {
+	public static fun builder (Lorg/webrtc/PeerConnection$Observer;)Lorg/webrtc/PeerConnectionDependencies$Builder;
+}
+
+public class org/webrtc/PeerConnectionDependencies$Builder {
+	public fun createPeerConnectionDependencies ()Lorg/webrtc/PeerConnectionDependencies;
+	public fun setSSLCertificateVerifier (Lorg/webrtc/SSLCertificateVerifier;)Lorg/webrtc/PeerConnectionDependencies$Builder;
+}
+
+public class org/webrtc/PeerConnectionFactory {
+	public static final field TRIAL_ENABLED Ljava/lang/String;
+	public static final field VIDEO_FRAME_EMIT_TRIAL Ljava/lang/String;
+	public static fun builder ()Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun createAudioSource (Lorg/webrtc/MediaConstraints;)Lorg/webrtc/AudioSource;
+	public fun createAudioTrack (Ljava/lang/String;Lorg/webrtc/AudioSource;)Lorg/webrtc/AudioTrack;
+	public fun createLocalMediaStream (Ljava/lang/String;)Lorg/webrtc/MediaStream;
+	public fun createPeerConnection (Ljava/util/List;Lorg/webrtc/MediaConstraints;Lorg/webrtc/PeerConnection$Observer;)Lorg/webrtc/PeerConnection;
+	public fun createPeerConnection (Ljava/util/List;Lorg/webrtc/PeerConnection$Observer;)Lorg/webrtc/PeerConnection;
+	public fun createPeerConnection (Lorg/webrtc/PeerConnection$RTCConfiguration;Lorg/webrtc/MediaConstraints;Lorg/webrtc/PeerConnection$Observer;)Lorg/webrtc/PeerConnection;
+	public fun createPeerConnection (Lorg/webrtc/PeerConnection$RTCConfiguration;Lorg/webrtc/PeerConnection$Observer;)Lorg/webrtc/PeerConnection;
+	public fun createPeerConnection (Lorg/webrtc/PeerConnection$RTCConfiguration;Lorg/webrtc/PeerConnectionDependencies;)Lorg/webrtc/PeerConnection;
+	public fun createVideoSource (Z)Lorg/webrtc/VideoSource;
+	public fun createVideoSource (ZZ)Lorg/webrtc/VideoSource;
+	public fun createVideoTrack (Ljava/lang/String;Lorg/webrtc/VideoSource;)Lorg/webrtc/VideoTrack;
+	public fun dispose ()V
+	public static fun fieldTrialsFindFullName (Ljava/lang/String;)Ljava/lang/String;
+	public fun getNativeOwnedFactoryAndThreads ()J
+	public fun getNativePeerConnectionFactory ()J
+	public static fun initialize (Lorg/webrtc/PeerConnectionFactory$InitializationOptions;)V
+	public static fun initializeFieldTrials (Ljava/lang/String;)V
+	public fun printInternalStackTraces (Z)V
+	public static fun printStackTraces ()V
+	public static fun shutdownInternalTracer ()V
+	public fun startAecDump (II)Z
+	public static fun startInternalTracingCapture (Ljava/lang/String;)Z
+	public fun stopAecDump ()V
+	public static fun stopInternalTracingCapture ()V
+}
+
+public class org/webrtc/PeerConnectionFactory$Builder {
+	public fun createPeerConnectionFactory ()Lorg/webrtc/PeerConnectionFactory;
+	public fun setAudioDecoderFactoryFactory (Lorg/webrtc/AudioDecoderFactoryFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setAudioDeviceModule (Lorg/webrtc/audio/AudioDeviceModule;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setAudioEncoderFactoryFactory (Lorg/webrtc/AudioEncoderFactoryFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setAudioProcessingFactory (Lorg/webrtc/AudioProcessingFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setFecControllerFactoryFactoryInterface (Lorg/webrtc/FecControllerFactoryFactoryInterface;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setNetEqFactoryFactory (Lorg/webrtc/NetEqFactoryFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setNetworkControllerFactoryFactory (Lorg/webrtc/NetworkControllerFactoryFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setNetworkStatePredictorFactoryFactory (Lorg/webrtc/NetworkStatePredictorFactoryFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setOptions (Lorg/webrtc/PeerConnectionFactory$Options;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setVideoDecoderFactory (Lorg/webrtc/VideoDecoderFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+	public fun setVideoEncoderFactory (Lorg/webrtc/VideoEncoderFactory;)Lorg/webrtc/PeerConnectionFactory$Builder;
+}
+
+public class org/webrtc/PeerConnectionFactory$InitializationOptions {
+	public static fun builder (Landroid/content/Context;)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+}
+
+public class org/webrtc/PeerConnectionFactory$InitializationOptions$Builder {
+	public fun createInitializationOptions ()Lorg/webrtc/PeerConnectionFactory$InitializationOptions;
+	public fun setEnableInternalTracer (Z)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+	public fun setFieldTrials (Ljava/lang/String;)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+	public fun setInjectableLogger (Lorg/webrtc/Loggable;Lorg/webrtc/Logging$Severity;)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+	public fun setNativeLibraryLoader (Lorg/webrtc/NativeLibraryLoader;)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+	public fun setNativeLibraryName (Ljava/lang/String;)Lorg/webrtc/PeerConnectionFactory$InitializationOptions$Builder;
+}
+
+public class org/webrtc/PeerConnectionFactory$Options {
+	public field disableEncryption Z
+	public field disableNetworkMonitor Z
+	public field networkIgnoreMask I
+	public fun <init> ()V
+}
+
+public class org/webrtc/PlatformSoftwareVideoDecoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;)V
+	public synthetic fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public synthetic fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public abstract interface class org/webrtc/Predicate {
+	public fun and (Lorg/webrtc/Predicate;)Lorg/webrtc/Predicate;
+	public fun negate ()Lorg/webrtc/Predicate;
+	public fun or (Lorg/webrtc/Predicate;)Lorg/webrtc/Predicate;
+	public abstract fun test (Ljava/lang/Object;)Z
+}
+
+public abstract interface annotation class org/webrtc/Priority : java/lang/annotation/Annotation {
+	public static final field HIGH I
+	public static final field LOW I
+	public static final field MEDIUM I
+	public static final field VERY_LOW I
+}
+
+public class org/webrtc/RTCStats {
+	public fun <init> (JLjava/lang/String;Ljava/lang/String;Ljava/util/Map;)V
+	public fun getId ()Ljava/lang/String;
+	public fun getMembers ()Ljava/util/Map;
+	public fun getTimestampUs ()D
+	public fun getType ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class org/webrtc/RTCStatsCollectorCallback {
+	public abstract fun onStatsDelivered (Lorg/webrtc/RTCStatsReport;)V
+}
+
+public class org/webrtc/RTCStatsReport {
+	public fun <init> (JLjava/util/Map;)V
+	public fun getStatsMap ()Ljava/util/Map;
+	public fun getTimestampUs ()D
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class org/webrtc/RefCounted {
+	public abstract fun release ()V
+	public abstract fun retain ()V
+}
+
+public class org/webrtc/RendererCommon {
+	public fun <init> ()V
+	public static fun convertMatrixFromAndroidGraphicsMatrix (Landroid/graphics/Matrix;)[F
+	public static fun convertMatrixToAndroidGraphicsMatrix ([F)Landroid/graphics/Matrix;
+	public static fun getDisplaySize (FFII)Landroid/graphics/Point;
+	public static fun getDisplaySize (Lorg/webrtc/RendererCommon$ScalingType;FII)Landroid/graphics/Point;
+	public static fun getLayoutMatrix (ZFF)[F
+}
+
+public abstract interface class org/webrtc/RendererCommon$GlDrawer {
+	public abstract fun drawOes (I[FIIIIII)V
+	public abstract fun drawRgb (I[FIIIIII)V
+	public abstract fun drawYuv ([I[FIIIIII)V
+	public abstract fun release ()V
+}
+
+public abstract interface class org/webrtc/RendererCommon$RendererEvents {
+	public abstract fun onFirstFrameRendered ()V
+	public abstract fun onFrameResolutionChanged (III)V
+}
+
+public final class org/webrtc/RendererCommon$ScalingType : java/lang/Enum {
+	public static final field SCALE_ASPECT_BALANCED Lorg/webrtc/RendererCommon$ScalingType;
+	public static final field SCALE_ASPECT_FILL Lorg/webrtc/RendererCommon$ScalingType;
+	public static final field SCALE_ASPECT_FIT Lorg/webrtc/RendererCommon$ScalingType;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/RendererCommon$ScalingType;
+	public static fun values ()[Lorg/webrtc/RendererCommon$ScalingType;
+}
+
+public class org/webrtc/RendererCommon$VideoLayoutMeasure {
+	public fun <init> ()V
+	public fun measure (IIII)Landroid/graphics/Point;
+	public fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;)V
+	public fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;Lorg/webrtc/RendererCommon$ScalingType;)V
+	public fun setVisibleFraction (FF)V
+}
+
+public class org/webrtc/RtcCertificatePem {
+	public final field certificate Ljava/lang/String;
+	public final field privateKey Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public static fun generateCertificate ()Lorg/webrtc/RtcCertificatePem;
+	public static fun generateCertificate (J)Lorg/webrtc/RtcCertificatePem;
+	public static fun generateCertificate (Lorg/webrtc/PeerConnection$KeyType;)Lorg/webrtc/RtcCertificatePem;
+	public static fun generateCertificate (Lorg/webrtc/PeerConnection$KeyType;J)Lorg/webrtc/RtcCertificatePem;
+}
+
+public class org/webrtc/RtpParameters {
+	public final field codecs Ljava/util/List;
+	public field degradationPreference Lorg/webrtc/RtpParameters$DegradationPreference;
+	public final field encodings Ljava/util/List;
+	public final field transactionId Ljava/lang/String;
+	public fun getHeaderExtensions ()Ljava/util/List;
+	public fun getRtcp ()Lorg/webrtc/RtpParameters$Rtcp;
+}
+
+public class org/webrtc/RtpParameters$Codec {
+	public field clockRate Ljava/lang/Integer;
+	public field name Ljava/lang/String;
+	public field numChannels Ljava/lang/Integer;
+	public field parameters Ljava/util/Map;
+	public field payloadType I
+}
+
+public final class org/webrtc/RtpParameters$DegradationPreference : java/lang/Enum {
+	public static final field BALANCED Lorg/webrtc/RtpParameters$DegradationPreference;
+	public static final field DISABLED Lorg/webrtc/RtpParameters$DegradationPreference;
+	public static final field MAINTAIN_FRAMERATE Lorg/webrtc/RtpParameters$DegradationPreference;
+	public static final field MAINTAIN_RESOLUTION Lorg/webrtc/RtpParameters$DegradationPreference;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/RtpParameters$DegradationPreference;
+	public static fun values ()[Lorg/webrtc/RtpParameters$DegradationPreference;
+}
+
+public class org/webrtc/RtpParameters$Encoding {
+	public field active Z
+	public field adaptiveAudioPacketTime Z
+	public field bitratePriority D
+	public field maxBitrateBps Ljava/lang/Integer;
+	public field maxFramerate Ljava/lang/Integer;
+	public field minBitrateBps Ljava/lang/Integer;
+	public field networkPriority I
+	public field numTemporalLayers Ljava/lang/Integer;
+	public field rid Ljava/lang/String;
+	public field scaleResolutionDownBy Ljava/lang/Double;
+	public field ssrc Ljava/lang/Long;
+	public fun <init> (Ljava/lang/String;ZLjava/lang/Double;)V
+}
+
+public class org/webrtc/RtpParameters$HeaderExtension {
+	public fun getEncrypted ()Z
+	public fun getId ()I
+	public fun getUri ()Ljava/lang/String;
+}
+
+public class org/webrtc/RtpParameters$Rtcp {
+	public fun getCname ()Ljava/lang/String;
+	public fun getReducedSize ()Z
+}
+
+public class org/webrtc/RtpReceiver {
+	public fun <init> (J)V
+	public fun SetObserver (Lorg/webrtc/RtpReceiver$Observer;)V
+	public fun dispose ()V
+	public fun getParameters ()Lorg/webrtc/RtpParameters;
+	public fun id ()Ljava/lang/String;
+	public fun setFrameDecryptor (Lorg/webrtc/FrameDecryptor;)V
+	public fun track ()Lorg/webrtc/MediaStreamTrack;
+}
+
+public abstract interface class org/webrtc/RtpReceiver$Observer {
+	public abstract fun onFirstPacketReceived (Lorg/webrtc/MediaStreamTrack$MediaType;)V
+}
+
+public class org/webrtc/RtpSender {
+	public fun <init> (J)V
+	public fun dispose ()V
+	public fun dtmf ()Lorg/webrtc/DtmfSender;
+	public fun getParameters ()Lorg/webrtc/RtpParameters;
+	public fun getStreams ()Ljava/util/List;
+	public fun id ()Ljava/lang/String;
+	public fun setFrameEncryptor (Lorg/webrtc/FrameEncryptor;)V
+	public fun setParameters (Lorg/webrtc/RtpParameters;)Z
+	public fun setStreams (Ljava/util/List;)V
+	public fun setTrack (Lorg/webrtc/MediaStreamTrack;Z)Z
+	public fun track ()Lorg/webrtc/MediaStreamTrack;
+}
+
+public class org/webrtc/RtpTransceiver {
+	protected fun <init> (J)V
+	public fun dispose ()V
+	public fun getCurrentDirection ()Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public fun getDirection ()Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public fun getMediaType ()Lorg/webrtc/MediaStreamTrack$MediaType;
+	public fun getMid ()Ljava/lang/String;
+	public fun getReceiver ()Lorg/webrtc/RtpReceiver;
+	public fun getSender ()Lorg/webrtc/RtpSender;
+	public fun isStopped ()Z
+	public fun setDirection (Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;)Z
+	public fun stop ()V
+	public fun stopInternal ()V
+	public fun stopStandard ()V
+}
+
+public final class org/webrtc/RtpTransceiver$RtpTransceiverDirection : java/lang/Enum {
+	public static final field INACTIVE Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static final field RECV_ONLY Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static final field SEND_ONLY Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static final field SEND_RECV Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static final field STOPPED Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+	public static fun values ()[Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;
+}
+
+public final class org/webrtc/RtpTransceiver$RtpTransceiverInit {
+	public fun <init> ()V
+	public fun <init> (Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;)V
+	public fun <init> (Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;Ljava/util/List;)V
+	public fun <init> (Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;Ljava/util/List;Ljava/util/List;)V
+}
+
+public abstract interface class org/webrtc/SSLCertificateVerifier {
+	public abstract fun verify ([B)Z
+}
+
+public class org/webrtc/ScreenCapturerAndroid : org/webrtc/VideoCapturer, org/webrtc/VideoSink {
+	public fun <init> (Landroid/content/Intent;Landroid/media/projection/MediaProjection$Callback;)V
+	public fun changeCaptureFormat (III)V
+	public fun dispose ()V
+	public fun getMediaProjection ()Landroid/media/projection/MediaProjection;
+	public fun getNumCapturedFrames ()J
+	public fun initialize (Lorg/webrtc/SurfaceTextureHelper;Landroid/content/Context;Lorg/webrtc/CapturerObserver;)V
+	public fun isScreencast ()Z
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	public fun startCapture (III)V
+	public fun stopCapture ()V
+}
+
+public abstract interface class org/webrtc/SdpObserver {
+	public abstract fun onCreateFailure (Ljava/lang/String;)V
+	public abstract fun onCreateSuccess (Lorg/webrtc/SessionDescription;)V
+	public abstract fun onSetFailure (Ljava/lang/String;)V
+	public abstract fun onSetSuccess ()V
+}
+
+public class org/webrtc/SessionDescription {
+	public final field description Ljava/lang/String;
+	public final field type Lorg/webrtc/SessionDescription$Type;
+	public fun <init> (Lorg/webrtc/SessionDescription$Type;Ljava/lang/String;)V
+}
+
+public final class org/webrtc/SessionDescription$Type : java/lang/Enum {
+	public static final field ANSWER Lorg/webrtc/SessionDescription$Type;
+	public static final field OFFER Lorg/webrtc/SessionDescription$Type;
+	public static final field PRANSWER Lorg/webrtc/SessionDescription$Type;
+	public static final field ROLLBACK Lorg/webrtc/SessionDescription$Type;
+	public fun canonicalForm ()Ljava/lang/String;
+	public static fun fromCanonicalForm (Ljava/lang/String;)Lorg/webrtc/SessionDescription$Type;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/SessionDescription$Type;
+	public static fun values ()[Lorg/webrtc/SessionDescription$Type;
+}
+
+public class org/webrtc/SimulcastVideoEncoder : org/webrtc/WrappedNativeVideoEncoder {
+	public fun <init> (Lorg/webrtc/VideoEncoderFactory;Lorg/webrtc/VideoEncoderFactory;Lorg/webrtc/VideoCodecInfo;)V
+	public fun createNativeVideoEncoder ()J
+	public fun isHardwareEncoder ()Z
+}
+
+public class org/webrtc/SimulcastVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> (Lorg/webrtc/VideoEncoderFactory;Lorg/webrtc/VideoEncoderFactory;)V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/Size {
+	public field height I
+	public field width I
+	public fun <init> (II)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/SoftwareVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
+	public fun <init> ()V
+	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/SoftwareVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> ()V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public abstract interface class org/webrtc/StatsObserver {
+	public abstract fun onComplete ([Lorg/webrtc/StatsReport;)V
+}
+
+public class org/webrtc/StatsReport {
+	public final field id Ljava/lang/String;
+	public final field timestamp D
+	public final field type Ljava/lang/String;
+	public final field values [Lorg/webrtc/StatsReport$Value;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;D[Lorg/webrtc/StatsReport$Value;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/StatsReport$Value {
+	public final field name Ljava/lang/String;
+	public final field value Ljava/lang/String;
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/SurfaceEglRenderer : org/webrtc/EglRenderer, android/view/SurfaceHolder$Callback {
+	public fun <init> (Ljava/lang/String;)V
+	public fun disableFpsReduction ()V
+	public fun init (Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;[ILorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun init (Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	public fun pauseVideo ()V
+	public fun setFpsReduction (F)V
+	public fun surfaceChanged (Landroid/view/SurfaceHolder;III)V
+	public fun surfaceCreated (Landroid/view/SurfaceHolder;)V
+	public fun surfaceDestroyed (Landroid/view/SurfaceHolder;)V
+}
+
+public class org/webrtc/SurfaceTextureHelper {
+	public static fun create (Ljava/lang/String;Lorg/webrtc/EglBase$Context;)Lorg/webrtc/SurfaceTextureHelper;
+	public static fun create (Ljava/lang/String;Lorg/webrtc/EglBase$Context;Z)Lorg/webrtc/SurfaceTextureHelper;
+	public static fun create (Ljava/lang/String;Lorg/webrtc/EglBase$Context;ZLorg/webrtc/YuvConverter;)Lorg/webrtc/SurfaceTextureHelper;
+	public static fun create (Ljava/lang/String;Lorg/webrtc/EglBase$Context;ZLorg/webrtc/YuvConverter;Lorg/webrtc/SurfaceTextureHelper$FrameRefMonitor;)Lorg/webrtc/SurfaceTextureHelper;
+	public fun dispose ()V
+	public fun forceFrame ()V
+	public fun getHandler ()Landroid/os/Handler;
+	public fun getSurfaceTexture ()Landroid/graphics/SurfaceTexture;
+	public fun isTextureInUse ()Z
+	public fun setFrameRotation (I)V
+	public fun setTextureSize (II)V
+	public fun startListening (Lorg/webrtc/VideoSink;)V
+	public fun stopListening ()V
+	public fun textureToYuv (Lorg/webrtc/VideoFrame$TextureBuffer;)Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public abstract interface class org/webrtc/SurfaceTextureHelper$FrameRefMonitor {
+	public abstract fun onDestroyBuffer (Lorg/webrtc/VideoFrame$TextureBuffer;)V
+	public abstract fun onNewBuffer (Lorg/webrtc/VideoFrame$TextureBuffer;)V
+	public abstract fun onReleaseBuffer (Lorg/webrtc/VideoFrame$TextureBuffer;)V
+	public abstract fun onRetainBuffer (Lorg/webrtc/VideoFrame$TextureBuffer;)V
+}
+
+public class org/webrtc/SurfaceViewRenderer : android/view/SurfaceView, android/view/SurfaceHolder$Callback, org/webrtc/RendererCommon$RendererEvents, org/webrtc/VideoSink {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
+	public fun addFrameListener (Lorg/webrtc/EglRenderer$FrameListener;F)V
+	public fun addFrameListener (Lorg/webrtc/EglRenderer$FrameListener;FLorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun clearImage ()V
+	public fun disableFpsReduction ()V
+	public fun init (Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;)V
+	public fun init (Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;[ILorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun onFirstFrameRendered ()V
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	public fun onFrameResolutionChanged (III)V
+	protected fun onLayout (ZIIII)V
+	protected fun onMeasure (II)V
+	public fun pauseVideo ()V
+	public fun release ()V
+	public fun removeFrameListener (Lorg/webrtc/EglRenderer$FrameListener;)V
+	public fun setEnableHardwareScaler (Z)V
+	public fun setFpsReduction (F)V
+	public fun setMirror (Z)V
+	public fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;)V
+	public fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;Lorg/webrtc/RendererCommon$ScalingType;)V
+	public fun surfaceChanged (Landroid/view/SurfaceHolder;III)V
+	public fun surfaceCreated (Landroid/view/SurfaceHolder;)V
+	public fun surfaceDestroyed (Landroid/view/SurfaceHolder;)V
+}
+
+public class org/webrtc/TextureBufferImpl : org/webrtc/VideoFrame$TextureBuffer {
+	public fun <init> (IILorg/webrtc/VideoFrame$TextureBuffer$Type;ILandroid/graphics/Matrix;Landroid/os/Handler;Lorg/webrtc/YuvConverter;Ljava/lang/Runnable;)V
+	public fun applyTransformMatrix (Landroid/graphics/Matrix;II)Lorg/webrtc/TextureBufferImpl;
+	public synthetic fun applyTransformMatrix (Landroid/graphics/Matrix;II)Lorg/webrtc/VideoFrame$TextureBuffer;
+	public fun cropAndScale (IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public fun getHeight ()I
+	public fun getTextureId ()I
+	public fun getToI420Handler ()Landroid/os/Handler;
+	public fun getTransformMatrix ()Landroid/graphics/Matrix;
+	public fun getType ()Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+	public fun getUnscaledHeight ()I
+	public fun getUnscaledWidth ()I
+	public fun getWidth ()I
+	public fun getYuvConverter ()Lorg/webrtc/YuvConverter;
+	public fun release ()V
+	public fun retain ()V
+	public fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public class org/webrtc/ThreadUtils {
+	public fun <init> ()V
+	public static fun awaitUninterruptibly (Ljava/util/concurrent/CountDownLatch;)V
+	public static fun awaitUninterruptibly (Ljava/util/concurrent/CountDownLatch;J)Z
+	public static fun checkIsOnMainThread ()V
+	public static fun executeUninterruptibly (Lorg/webrtc/ThreadUtils$BlockingOperation;)V
+	public static fun invokeAtFrontUninterruptibly (Landroid/os/Handler;Ljava/lang/Runnable;)V
+	public static fun invokeAtFrontUninterruptibly (Landroid/os/Handler;Ljava/util/concurrent/Callable;)Ljava/lang/Object;
+	public static fun joinUninterruptibly (Ljava/lang/Thread;)V
+	public static fun joinUninterruptibly (Ljava/lang/Thread;J)Z
+}
+
+public abstract interface class org/webrtc/ThreadUtils$BlockingOperation {
+	public abstract fun run ()V
+}
+
+public class org/webrtc/ThreadUtils$ThreadChecker {
+	public fun <init> ()V
+	public fun checkIsOnValidThread ()V
+	public fun detachThread ()V
+}
+
+public class org/webrtc/TimestampAligner {
+	public fun <init> ()V
+	public fun dispose ()V
+	public static fun getRtcTimeNanos ()J
+	public fun translateTimestamp (J)J
+}
+
+public class org/webrtc/TurnCustomizer {
+	public fun <init> (J)V
+	public fun dispose ()V
+}
+
+public abstract interface class org/webrtc/VideoCapturer {
+	public abstract fun changeCaptureFormat (III)V
+	public abstract fun dispose ()V
+	public abstract fun initialize (Lorg/webrtc/SurfaceTextureHelper;Landroid/content/Context;Lorg/webrtc/CapturerObserver;)V
+	public abstract fun isScreencast ()Z
+	public abstract fun startCapture (III)V
+	public abstract fun stopCapture ()V
+}
+
+public class org/webrtc/VideoCodecInfo {
+	public static final field H264_CONSTRAINED_BASELINE_3_1 Ljava/lang/String;
+	public static final field H264_CONSTRAINED_HIGH_3_1 Ljava/lang/String;
+	public static final field H264_FMTP_LEVEL_ASYMMETRY_ALLOWED Ljava/lang/String;
+	public static final field H264_FMTP_PACKETIZATION_MODE Ljava/lang/String;
+	public static final field H264_FMTP_PROFILE_LEVEL_ID Ljava/lang/String;
+	public static final field H264_LEVEL_3_1 Ljava/lang/String;
+	public static final field H264_PROFILE_CONSTRAINED_BASELINE Ljava/lang/String;
+	public static final field H264_PROFILE_CONSTRAINED_HIGH Ljava/lang/String;
+	public final field name Ljava/lang/String;
+	public final field params Ljava/util/Map;
+	public final field payload I
+	public fun <init> (ILjava/lang/String;Ljava/util/Map;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class org/webrtc/VideoCodecStatus : java/lang/Enum {
+	public static final field ERROR Lorg/webrtc/VideoCodecStatus;
+	public static final field ERR_PARAMETER Lorg/webrtc/VideoCodecStatus;
+	public static final field ERR_REQUEST_SLI Lorg/webrtc/VideoCodecStatus;
+	public static final field ERR_SIZE Lorg/webrtc/VideoCodecStatus;
+	public static final field FALLBACK_SOFTWARE Lorg/webrtc/VideoCodecStatus;
+	public static final field LEVEL_EXCEEDED Lorg/webrtc/VideoCodecStatus;
+	public static final field MEMORY Lorg/webrtc/VideoCodecStatus;
+	public static final field NO_OUTPUT Lorg/webrtc/VideoCodecStatus;
+	public static final field OK Lorg/webrtc/VideoCodecStatus;
+	public static final field REQUEST_SLI Lorg/webrtc/VideoCodecStatus;
+	public static final field TARGET_BITRATE_OVERSHOOT Lorg/webrtc/VideoCodecStatus;
+	public static final field TIMEOUT Lorg/webrtc/VideoCodecStatus;
+	public static final field UNINITIALIZED Lorg/webrtc/VideoCodecStatus;
+	public fun getNumber ()I
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/VideoCodecStatus;
+	public static fun values ()[Lorg/webrtc/VideoCodecStatus;
+}
+
+public abstract interface class org/webrtc/VideoDecoder {
+	public fun createNativeVideoDecoder ()J
+	public abstract fun decode (Lorg/webrtc/EncodedImage;Lorg/webrtc/VideoDecoder$DecodeInfo;)Lorg/webrtc/VideoCodecStatus;
+	public abstract fun getImplementationName ()Ljava/lang/String;
+	public abstract fun initDecode (Lorg/webrtc/VideoDecoder$Settings;Lorg/webrtc/VideoDecoder$Callback;)Lorg/webrtc/VideoCodecStatus;
+	public abstract fun release ()Lorg/webrtc/VideoCodecStatus;
+}
+
+public abstract interface class org/webrtc/VideoDecoder$Callback {
+	public abstract fun onDecodedFrame (Lorg/webrtc/VideoFrame;Ljava/lang/Integer;Ljava/lang/Integer;)V
+}
+
+public class org/webrtc/VideoDecoder$DecodeInfo {
+	public final field isMissingFrames Z
+	public final field renderTimeMs J
+	public fun <init> (ZJ)V
+}
+
+public class org/webrtc/VideoDecoder$Settings {
+	public final field height I
+	public final field numberOfCores I
+	public final field width I
+	public fun <init> (III)V
+}
+
+public abstract interface class org/webrtc/VideoDecoderFactory {
+	public abstract fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/VideoDecoderFallback : org/webrtc/WrappedNativeVideoDecoder {
+	public fun <init> (Lorg/webrtc/VideoDecoder;Lorg/webrtc/VideoDecoder;)V
+	public fun createNativeVideoDecoder ()J
+}
+
+public abstract interface class org/webrtc/VideoEncoder {
+	public fun createNativeVideoEncoder ()J
+	public abstract fun encode (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoEncoder$EncodeInfo;)Lorg/webrtc/VideoCodecStatus;
+	public fun getEncoderInfo ()Lorg/webrtc/VideoEncoder$EncoderInfo;
+	public abstract fun getImplementationName ()Ljava/lang/String;
+	public fun getResolutionBitrateLimits ()[Lorg/webrtc/VideoEncoder$ResolutionBitrateLimits;
+	public abstract fun getScalingSettings ()Lorg/webrtc/VideoEncoder$ScalingSettings;
+	public abstract fun initEncode (Lorg/webrtc/VideoEncoder$Settings;Lorg/webrtc/VideoEncoder$Callback;)Lorg/webrtc/VideoCodecStatus;
+	public fun isHardwareEncoder ()Z
+	public abstract fun release ()Lorg/webrtc/VideoCodecStatus;
+	public abstract fun setRateAllocation (Lorg/webrtc/VideoEncoder$BitrateAllocation;I)Lorg/webrtc/VideoCodecStatus;
+	public fun setRates (Lorg/webrtc/VideoEncoder$RateControlParameters;)Lorg/webrtc/VideoCodecStatus;
+}
+
+public class org/webrtc/VideoEncoder$BitrateAllocation {
+	public final field bitratesBbs [[I
+	public fun <init> ([[I)V
+	public fun getSum ()I
+}
+
+public abstract interface class org/webrtc/VideoEncoder$Callback {
+	public abstract fun onEncodedFrame (Lorg/webrtc/EncodedImage;Lorg/webrtc/VideoEncoder$CodecSpecificInfo;)V
+}
+
+public class org/webrtc/VideoEncoder$Capabilities {
+	public final field lossNotification Z
+	public fun <init> (Z)V
+}
+
+public class org/webrtc/VideoEncoder$CodecSpecificInfo {
+	public fun <init> ()V
+}
+
+public class org/webrtc/VideoEncoder$CodecSpecificInfoAV1 : org/webrtc/VideoEncoder$CodecSpecificInfo {
+	public fun <init> ()V
+}
+
+public class org/webrtc/VideoEncoder$CodecSpecificInfoH264 : org/webrtc/VideoEncoder$CodecSpecificInfo {
+	public fun <init> ()V
+}
+
+public class org/webrtc/VideoEncoder$CodecSpecificInfoVP8 : org/webrtc/VideoEncoder$CodecSpecificInfo {
+	public fun <init> ()V
+}
+
+public class org/webrtc/VideoEncoder$CodecSpecificInfoVP9 : org/webrtc/VideoEncoder$CodecSpecificInfo {
+	public fun <init> ()V
+}
+
+public class org/webrtc/VideoEncoder$EncodeInfo {
+	public final field frameTypes [Lorg/webrtc/EncodedImage$FrameType;
+	public fun <init> ([Lorg/webrtc/EncodedImage$FrameType;)V
+}
+
+public class org/webrtc/VideoEncoder$EncoderInfo {
+	public final field applyAlignmentToAllSimulcastLayers Z
+	public final field requestedResolutionAlignment I
+	public fun <init> (IZ)V
+	public fun getApplyAlignmentToAllSimulcastLayers ()Z
+	public fun getRequestedResolutionAlignment ()I
+}
+
+public class org/webrtc/VideoEncoder$RateControlParameters {
+	public final field bitrate Lorg/webrtc/VideoEncoder$BitrateAllocation;
+	public final field framerateFps D
+	public fun <init> (Lorg/webrtc/VideoEncoder$BitrateAllocation;D)V
+}
+
+public class org/webrtc/VideoEncoder$ResolutionBitrateLimits {
+	public final field frameSizePixels I
+	public final field maxBitrateBps I
+	public final field minBitrateBps I
+	public final field minStartBitrateBps I
+	public fun <init> (IIII)V
+	public fun getFrameSizePixels ()I
+	public fun getMaxBitrateBps ()I
+	public fun getMinBitrateBps ()I
+	public fun getMinStartBitrateBps ()I
+}
+
+public class org/webrtc/VideoEncoder$ScalingSettings {
+	public static final field OFF Lorg/webrtc/VideoEncoder$ScalingSettings;
+	public final field high Ljava/lang/Integer;
+	public final field low Ljava/lang/Integer;
+	public final field on Z
+	public fun <init> (II)V
+	public fun <init> (Z)V
+	public fun <init> (ZII)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public class org/webrtc/VideoEncoder$Settings {
+	public final field automaticResizeOn Z
+	public final field capabilities Lorg/webrtc/VideoEncoder$Capabilities;
+	public final field height I
+	public final field maxFramerate I
+	public final field numberOfCores I
+	public final field numberOfSimulcastStreams I
+	public final field startBitrate I
+	public final field width I
+	public fun <init> (IIIIIIZ)V
+	public fun <init> (IIIIIIZLorg/webrtc/VideoEncoder$Capabilities;)V
+}
+
+public abstract interface class org/webrtc/VideoEncoderFactory {
+	public abstract fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getEncoderSelector ()Lorg/webrtc/VideoEncoderFactory$VideoEncoderSelector;
+	public fun getImplementations ()[Lorg/webrtc/VideoCodecInfo;
+	public abstract fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
+public abstract interface class org/webrtc/VideoEncoderFactory$VideoEncoderSelector {
+	public abstract fun onAvailableBitrate (I)Lorg/webrtc/VideoCodecInfo;
+	public abstract fun onCurrentEncoder (Lorg/webrtc/VideoCodecInfo;)V
+	public abstract fun onEncoderBroken ()Lorg/webrtc/VideoCodecInfo;
+	public fun onResolutionChange (II)Lorg/webrtc/VideoCodecInfo;
+}
+
+public class org/webrtc/VideoEncoderFallback : org/webrtc/WrappedNativeVideoEncoder {
+	public fun <init> (Lorg/webrtc/VideoEncoder;Lorg/webrtc/VideoEncoder;)V
+	public fun createNativeVideoEncoder ()J
+	public fun isHardwareEncoder ()Z
+}
+
+public class org/webrtc/VideoFileRenderer : org/webrtc/VideoSink {
+	public fun <init> (Ljava/lang/String;IILorg/webrtc/EglBase$Context;)V
+	public fun onFrame (Lorg/webrtc/VideoFrame;)V
+	public fun release ()V
+}
+
+public class org/webrtc/VideoFrame : org/webrtc/RefCounted {
+	public fun <init> (Lorg/webrtc/VideoFrame$Buffer;IJ)V
+	public fun getBuffer ()Lorg/webrtc/VideoFrame$Buffer;
+	public fun getRotatedHeight ()I
+	public fun getRotatedWidth ()I
+	public fun getRotation ()I
+	public fun getTimestampNs ()J
+	public fun release ()V
+	public fun retain ()V
+}
+
+public abstract interface class org/webrtc/VideoFrame$Buffer : org/webrtc/RefCounted {
+	public abstract fun cropAndScale (IIIIII)Lorg/webrtc/VideoFrame$Buffer;
+	public fun getBufferType ()I
+	public abstract fun getHeight ()I
+	public abstract fun getWidth ()I
+	public abstract fun release ()V
+	public abstract fun retain ()V
+	public abstract fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public abstract interface class org/webrtc/VideoFrame$I420Buffer : org/webrtc/VideoFrame$Buffer {
+	public fun getBufferType ()I
+	public abstract fun getDataU ()Ljava/nio/ByteBuffer;
+	public abstract fun getDataV ()Ljava/nio/ByteBuffer;
+	public abstract fun getDataY ()Ljava/nio/ByteBuffer;
+	public abstract fun getStrideU ()I
+	public abstract fun getStrideV ()I
+	public abstract fun getStrideY ()I
+}
+
+public abstract interface class org/webrtc/VideoFrame$TextureBuffer : org/webrtc/VideoFrame$Buffer {
+	public fun applyTransformMatrix (Landroid/graphics/Matrix;II)Lorg/webrtc/VideoFrame$TextureBuffer;
+	public abstract fun getTextureId ()I
+	public abstract fun getTransformMatrix ()Landroid/graphics/Matrix;
+	public abstract fun getType ()Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+}
+
+public final class org/webrtc/VideoFrame$TextureBuffer$Type : java/lang/Enum {
+	public static final field OES Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+	public static final field RGB Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+	public fun getGlTarget ()I
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+	public static fun values ()[Lorg/webrtc/VideoFrame$TextureBuffer$Type;
+}
+
+public class org/webrtc/VideoFrameDrawer {
+	public static final field TAG Ljava/lang/String;
+	public fun <init> ()V
+	public fun drawFrame (Lorg/webrtc/VideoFrame;Lorg/webrtc/RendererCommon$GlDrawer;)V
+	public fun drawFrame (Lorg/webrtc/VideoFrame;Lorg/webrtc/RendererCommon$GlDrawer;Landroid/graphics/Matrix;)V
+	public fun drawFrame (Lorg/webrtc/VideoFrame;Lorg/webrtc/RendererCommon$GlDrawer;Landroid/graphics/Matrix;IIII)V
+	public static fun drawTexture (Lorg/webrtc/RendererCommon$GlDrawer;Lorg/webrtc/VideoFrame$TextureBuffer;Landroid/graphics/Matrix;IIIIII)V
+	public fun prepareBufferForViewportSize (Lorg/webrtc/VideoFrame$Buffer;II)Lorg/webrtc/VideoFrame$Buffer;
+	public fun release ()V
+}
+
+public abstract interface class org/webrtc/VideoProcessor : org/webrtc/CapturerObserver {
+	public static fun applyFrameAdaptationParameters (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoProcessor$FrameAdaptationParameters;)Lorg/webrtc/VideoFrame;
+	public fun onFrameCaptured (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoProcessor$FrameAdaptationParameters;)V
+	public abstract fun setSink (Lorg/webrtc/VideoSink;)V
+}
+
+public class org/webrtc/VideoProcessor$FrameAdaptationParameters {
+	public final field cropHeight I
+	public final field cropWidth I
+	public final field cropX I
+	public final field cropY I
+	public final field drop Z
+	public final field scaleHeight I
+	public final field scaleWidth I
+	public final field timestampNs J
+	public fun <init> (IIIIIIJZ)V
+}
+
+public abstract interface class org/webrtc/VideoSink {
+	public abstract fun onFrame (Lorg/webrtc/VideoFrame;)V
+}
+
+public class org/webrtc/VideoSource : org/webrtc/MediaSource {
+	public fun <init> (J)V
+	public fun adaptOutputFormat (III)V
+	public fun adaptOutputFormat (IIIII)V
+	public fun adaptOutputFormat (Lorg/webrtc/VideoSource$AspectRatio;Ljava/lang/Integer;Lorg/webrtc/VideoSource$AspectRatio;Ljava/lang/Integer;Ljava/lang/Integer;)V
+	public fun dispose ()V
+	public fun getCapturerObserver ()Lorg/webrtc/CapturerObserver;
+	public fun setIsScreencast (Z)V
+	public fun setVideoProcessor (Lorg/webrtc/VideoProcessor;)V
+}
+
+public class org/webrtc/VideoSource$AspectRatio {
+	public static final field UNDEFINED Lorg/webrtc/VideoSource$AspectRatio;
+	public final field height I
+	public final field width I
+	public fun <init> (II)V
+}
+
+public class org/webrtc/VideoTrack : org/webrtc/MediaStreamTrack {
+	public fun <init> (J)V
+	public fun addSink (Lorg/webrtc/VideoSink;)V
+	public fun dispose ()V
+	public fun removeSink (Lorg/webrtc/VideoSink;)V
+}
+
+public final class org/webrtc/WebRTCException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;)V
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public abstract class org/webrtc/WrappedNativeVideoDecoder : org/webrtc/VideoDecoder {
+	public fun <init> ()V
+	public abstract fun createNativeVideoDecoder ()J
+	public final fun decode (Lorg/webrtc/EncodedImage;Lorg/webrtc/VideoDecoder$DecodeInfo;)Lorg/webrtc/VideoCodecStatus;
+	public final fun getImplementationName ()Ljava/lang/String;
+	public final fun initDecode (Lorg/webrtc/VideoDecoder$Settings;Lorg/webrtc/VideoDecoder$Callback;)Lorg/webrtc/VideoCodecStatus;
+	public final fun release ()Lorg/webrtc/VideoCodecStatus;
+}
+
+public abstract class org/webrtc/WrappedNativeVideoEncoder : org/webrtc/VideoEncoder {
+	public fun <init> ()V
+	public abstract fun createNativeVideoEncoder ()J
+	public final fun encode (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoEncoder$EncodeInfo;)Lorg/webrtc/VideoCodecStatus;
+	public final fun getImplementationName ()Ljava/lang/String;
+	public final fun getScalingSettings ()Lorg/webrtc/VideoEncoder$ScalingSettings;
+	public final fun initEncode (Lorg/webrtc/VideoEncoder$Settings;Lorg/webrtc/VideoEncoder$Callback;)Lorg/webrtc/VideoCodecStatus;
+	public abstract fun isHardwareEncoder ()Z
+	public final fun release ()Lorg/webrtc/VideoCodecStatus;
+	public final fun setRateAllocation (Lorg/webrtc/VideoEncoder$BitrateAllocation;I)Lorg/webrtc/VideoCodecStatus;
+}
+
+public final class org/webrtc/YuvConverter {
+	public fun <init> ()V
+	public fun <init> (Lorg/webrtc/VideoFrameDrawer;)V
+	public fun convert (Lorg/webrtc/VideoFrame$TextureBuffer;)Lorg/webrtc/VideoFrame$I420Buffer;
+	public fun release ()V
+}
+
+public class org/webrtc/YuvHelper {
+	public fun <init> ()V
+	public static fun ABGRToI420 (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
+	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)V
+	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;IIIIII)V
+	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
+	public static fun I420Rotate (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
+	public static fun I420Rotate (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;IIII)V
+	public static fun I420ToNV12 (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)V
+	public static fun I420ToNV12 (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;IIII)V
+	public static fun I420ToNV12 (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
+	public static fun copyPlane (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
+}
+
+public abstract interface class org/webrtc/audio/AudioDeviceModule {
+	public abstract fun getNativeAudioDeviceModulePointer ()J
+	public abstract fun release ()V
+	public abstract fun setMicrophoneMute (Z)V
+	public abstract fun setSpeakerMute (Z)V
+}
+
+public class org/webrtc/audio/JavaAudioDeviceModule : org/webrtc/audio/AudioDeviceModule {
+	public static fun builder (Landroid/content/Context;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun getNativeAudioDeviceModulePointer ()J
+	public static fun isBuiltInAcousticEchoCancelerSupported ()Z
+	public static fun isBuiltInNoiseSuppressorSupported ()Z
+	public fun release ()V
+	public fun setMicrophoneMute (Z)V
+	public fun setPreferredInputDevice (Landroid/media/AudioDeviceInfo;)V
+	public fun setSpeakerMute (Z)V
+}
+
+public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$AudioRecordErrorCallback {
+	public abstract fun onWebRtcAudioRecordError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioRecordInitError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioRecordStartError (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode;Ljava/lang/String;)V
+}
+
+public final class org/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode : java/lang/Enum {
+	public static final field AUDIO_RECORD_START_EXCEPTION Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode;
+	public static final field AUDIO_RECORD_START_STATE_MISMATCH Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode;
+	public static fun values ()[Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStartErrorCode;
+}
+
+public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$AudioRecordStateCallback {
+	public abstract fun onWebRtcAudioRecordStart ()V
+	public abstract fun onWebRtcAudioRecordStop ()V
+}
+
+public class org/webrtc/audio/JavaAudioDeviceModule$AudioSamples {
+	public fun <init> (III[B)V
+	public fun getAudioFormat ()I
+	public fun getChannelCount ()I
+	public fun getData ()[B
+	public fun getSampleRate ()I
+}
+
+public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$AudioTrackErrorCallback {
+	public abstract fun onWebRtcAudioTrackError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackInitError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackStartError (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode;Ljava/lang/String;)V
+}
+
+public final class org/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode : java/lang/Enum {
+	public static final field AUDIO_TRACK_START_EXCEPTION Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode;
+	public static final field AUDIO_TRACK_START_STATE_MISMATCH Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode;
+	public static fun values ()[Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStartErrorCode;
+}
+
+public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$AudioTrackStateCallback {
+	public abstract fun onWebRtcAudioTrackStart ()V
+	public abstract fun onWebRtcAudioTrackStop ()V
+}
+
+public class org/webrtc/audio/JavaAudioDeviceModule$Builder {
+	public fun createAudioDeviceModule ()Lorg/webrtc/audio/JavaAudioDeviceModule;
+	public fun setAudioAttributes (Landroid/media/AudioAttributes;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioFormat (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioRecordErrorCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordErrorCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioRecordStateCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStateCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioSource (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioTrackErrorCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackErrorCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioTrackStateCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioTrackStateCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setEnableVolumeLogger (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setInputSampleRate (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setOutputSampleRate (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setSampleRate (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setSamplesReadyCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$SamplesReadyCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setScheduler (Ljava/util/concurrent/ScheduledExecutorService;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setUseHardwareAcousticEchoCanceler (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setUseHardwareNoiseSuppressor (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setUseLowLatency (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setUseStereoInput (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setUseStereoOutput (Z)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+}
+
+public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$SamplesReadyCallback {
+	public abstract fun onWebRtcAudioRecordSamplesReady (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioSamples;)V
+}
+
+public final class org/webrtc/voiceengine/BuildInfo {
+	public fun <init> ()V
+	public static fun getAndroidBuildId ()Ljava/lang/String;
+	public static fun getBrand ()Ljava/lang/String;
+	public static fun getBuildRelease ()Ljava/lang/String;
+	public static fun getBuildType ()Ljava/lang/String;
+	public static fun getDevice ()Ljava/lang/String;
+	public static fun getDeviceManufacturer ()Ljava/lang/String;
+	public static fun getDeviceModel ()Ljava/lang/String;
+	public static fun getProduct ()Ljava/lang/String;
+	public static fun getSdkVersion ()I
+}
+
+public class org/webrtc/voiceengine/WebRtcAudioEffects {
+	public static fun canUseAcousticEchoCanceler ()Z
+	public static fun canUseNoiseSuppressor ()Z
+	public static fun create ()Lorg/webrtc/voiceengine/WebRtcAudioEffects;
+	public fun enable (I)V
+	public static fun isAcousticEchoCancelerBlacklisted ()Z
+	public static fun isAcousticEchoCancelerSupported ()Z
+	public static fun isNoiseSuppressorBlacklisted ()Z
+	public static fun isNoiseSuppressorSupported ()Z
+	public fun release ()V
+	public fun setAEC (Z)Z
+	public fun setNS (Z)Z
+}
+
+public class org/webrtc/voiceengine/WebRtcAudioManager {
+	public static fun getStereoInput ()Z
+	public static fun getStereoOutput ()Z
+	public fun isLowLatencyInputSupported ()Z
+	public static fun setBlacklistDeviceForOpenSLESUsage (Z)V
+	public static fun setStereoInput (Z)V
+	public static fun setStereoOutput (Z)V
+}
+
+public class org/webrtc/voiceengine/WebRtcAudioRecord {
+	public static fun setAudioSource (I)V
+	public static fun setErrorCallback (Lorg/webrtc/voiceengine/WebRtcAudioRecord$WebRtcAudioRecordErrorCallback;)V
+	public static fun setMicrophoneMute (Z)V
+	public static fun setOnAudioSamplesReady (Lorg/webrtc/voiceengine/WebRtcAudioRecord$WebRtcAudioRecordSamplesReadyCallback;)V
+}
+
+public final class org/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode : java/lang/Enum {
+	public static final field AUDIO_RECORD_START_EXCEPTION Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode;
+	public static final field AUDIO_RECORD_START_STATE_MISMATCH Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode;
+	public static fun values ()[Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode;
+}
+
+public class org/webrtc/voiceengine/WebRtcAudioRecord$AudioSamples {
+	public fun getAudioFormat ()I
+	public fun getChannelCount ()I
+	public fun getData ()[B
+	public fun getSampleRate ()I
+}
+
+public abstract interface class org/webrtc/voiceengine/WebRtcAudioRecord$WebRtcAudioRecordErrorCallback {
+	public abstract fun onWebRtcAudioRecordError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioRecordInitError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioRecordStartError (Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioRecordStartErrorCode;Ljava/lang/String;)V
+}
+
+public abstract interface class org/webrtc/voiceengine/WebRtcAudioRecord$WebRtcAudioRecordSamplesReadyCallback {
+	public abstract fun onWebRtcAudioRecordSamplesReady (Lorg/webrtc/voiceengine/WebRtcAudioRecord$AudioSamples;)V
+}
+
+public class org/webrtc/voiceengine/WebRtcAudioTrack {
+	public static fun setAudioTrackUsageAttribute (I)V
+	public static fun setErrorCallback (Lorg/webrtc/voiceengine/WebRtcAudioTrack$ErrorCallback;)V
+	public static fun setErrorCallback (Lorg/webrtc/voiceengine/WebRtcAudioTrack$WebRtcAudioTrackErrorCallback;)V
+	public static fun setSpeakerMute (Z)V
+}
+
+public final class org/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode : java/lang/Enum {
+	public static final field AUDIO_TRACK_START_EXCEPTION Lorg/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode;
+	public static final field AUDIO_TRACK_START_STATE_MISMATCH Lorg/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode;
+	public static fun values ()[Lorg/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode;
+}
+
+public abstract interface class org/webrtc/voiceengine/WebRtcAudioTrack$ErrorCallback {
+	public abstract fun onWebRtcAudioTrackError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackInitError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackStartError (Lorg/webrtc/voiceengine/WebRtcAudioTrack$AudioTrackStartErrorCode;Ljava/lang/String;)V
+}
+
+public abstract interface class org/webrtc/voiceengine/WebRtcAudioTrack$WebRtcAudioTrackErrorCallback {
+	public abstract fun onWebRtcAudioTrackError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackInitError (Ljava/lang/String;)V
+	public abstract fun onWebRtcAudioTrackStartError (Ljava/lang/String;)V
+}
+
+public final class org/webrtc/voiceengine/WebRtcAudioUtils {
+	public fun <init> ()V
+	public static fun deviceIsBlacklistedForOpenSLESUsage ()Z
+	public static fun getBlackListedModelsForAecUsage ()Ljava/util/List;
+	public static fun getBlackListedModelsForNsUsage ()Ljava/util/List;
+	public static fun getDefaultSampleRateHz ()I
+	public static fun getThreadInfo ()Ljava/lang/String;
+	public static fun isAcousticEchoCancelerSupported ()Z
+	public static fun isAutomaticGainControlSupported ()Z
+	public static fun isDefaultSampleRateOverridden ()Z
+	public static fun isNoiseSuppressorSupported ()Z
+	public static fun runningOnEmulator ()Z
+	public static fun setDefaultSampleRateHz (I)V
+	public static fun setWebRtcBasedAcousticEchoCanceler (Z)V
+	public static fun setWebRtcBasedAutomaticGainControl (Z)V
+	public static fun setWebRtcBasedNoiseSuppressor (Z)V
+	public static fun useWebRtcBasedAcousticEchoCanceler ()Z
+	public static fun useWebRtcBasedAutomaticGainControl ()Z
+	public static fun useWebRtcBasedNoiseSuppressor ()Z
+}
+

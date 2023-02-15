@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (c) 2014-2023 Stream.io Inc. All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="36"
+    android:viewportHeight="36">
+  <path
+      android:pathData="M25.407,15.777V10.592C25.407,9.777 24.741,9.11 23.926,9.11H6.148C5.333,9.11 4.667,9.777 4.667,10.592V25.407C4.667,26.222 5.333,26.888 6.148,26.888H23.926C24.741,26.888 25.407,26.222 25.407,25.407V20.222L29.626,24.44C30.256,25.07 31.333,24.624 31.333,23.733V12.265C31.333,11.374 30.256,10.928 29.626,11.558L25.407,15.777Z"
+      android:fillColor="#000000"/>
+</vector>
