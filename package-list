@@ -1,0 +1,13 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:stream-webrtc-android
+org.webrtc
+org.webrtc.audio
+org.webrtc.voiceengine
+module:stream-webrtc-android-compose
+io.getstream.webrtc.android.compose
+module:stream-webrtc-android-ktx
+io.getstream.webrtc.android.ktx
+module:stream-webrtc-android-ui
+io.getstream.webrtc.android.ui
