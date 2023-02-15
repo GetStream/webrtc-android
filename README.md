@@ -67,19 +67,20 @@ Once you import this library, you can use all of the `org.webrtc` packge functio
 
 Here are the most commonly used APIs in the WebRTC library, and you can reference the documentation below:
 
-- [PeerConnection](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-peer-connection/index.html?query=open%20class%20PeerConnection)
-- [PeerConnectionFactory]()
-- [EglBase](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-egl-base/index.html?query=interface%20EglBase)
-- [VideoTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-track/index.html?query=open%20class%20VideoTrack%20:%20MediaStreamTrack)
-- [VideoSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-source/index.html?query=open%20class%20VideoSource%20:%20MediaSource)
-- [AudioTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-track/index.html)
-- [AudioSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-source/index.html?query=open%20class%20AudioSource%20:%20MediaSource)
-- [MediaStreamTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-media-stream-track/index.html?query=open%20class%20MediaStreamTrack)
+- [PeerConnection](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-peer-connection/index.html?query=open%20class%20PeerConnection): Provides methods to create and set an SDP offer/answer, add ICE candidates, potentially connect to a remote peer, monitor the connection, and close the connection once it’s no longer needed.
+- [PeerConnectionFactory](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-peer-connection-factory/index.html?query=open%20class%20PeerConnectionFactory): Create a `PeerConnection` instance.
+- [EglBase](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-egl-base/index.html?query=interface%20EglBase): 
+Holds EGL state and utility methods for handling an egl 1.0 EGLContext, an EGLDisplay, and an EGLSurface.
+- [VideoTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-track/index.html?query=open%20class%20VideoTrack%20:%20MediaStreamTrack): Manages multiple `VideoSink` objects, which receive a stream of video frames in real-time and it allows you to control the `VideoSink` objects, such as adding, removing, enabling, and disabling.
+- [VideoSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-video-source/index.html?query=open%20class%20VideoSource%20:%20MediaSource): Used to create video tracks and add VideoProcessor, which is a lightweight abstraction for an object that can receive video frames, process them, and pass them on to another object.
+- [AudioTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-track/index.html): Manages multiple `AudioSink` objects, which receive a stream of video frames in real-time and it allows you to control the `AudioSink` objects, such as adding, removing, enabling, and disabling.
+- [AudioSource](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-audio-source/index.html?query=open%20class%20AudioSource%20:%20MediaSource): Used to create audio tracks.
+- [MediaStreamTrack](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-media-stream-track/index.html?query=open%20class%20MediaStreamTrack): Java wrapper for a C++ `MediaStreamTrackInterface`.
 - [IceCandidate](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-ice-candidate/index.html?query=open%20class%20IceCandidate): Representation of a single ICE Candidate, mirroring `IceCandidateInterface` in the C++ API.
 - [SessionDescription](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-session-description/index.html?query=open%20class%20SessionDescription): Description of an RFC 4566 Session. SDPs are passed as serialized Strings in Java-land and are materialized to SessionDescriptionInterface as appropriate in the JNI layer.
-- [Camera2Capturer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-capturer/index.html?query=open%20class%20Camera2Capturer%20:%20CameraCapturer)
-- [Camera2Enumerator](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-enumerator/index.html?query=open%20class%20Camera2Enumerator%20:%20CameraEnumerator)
 - [SurfaceViewRenderer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-surface-view-renderer/index.html?query=open%20class%20SurfaceViewRenderer%20:%20SurfaceView,%20SurfaceHolder.Callback,%20VideoSink,%20RendererCommon.RendererEvents): Display the video stream on a SurfaceView.
+- [Camera2Capturer](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-capturer/index.html?query=open%20class%20Camera2Capturer%20:%20CameraCapturer): The `Camera2Capturer` class is used to provide video frames for a `VideoTrack` (typically local) from the provided cameraId. `Camera2Capturer` must be run on devices `Build.VERSION_CODES.LOLLIPOP` or higher.
+- [Camera2Enumerator](https://getstream.github.io/stream-webrtc-android/stream-webrtc-android/org.webrtc/-camera2-enumerator/index.html?query=open%20class%20Camera2Enumerator%20:%20CameraEnumerator)
 
 If you want to learn more about building a video chat application for Android using WebRTC, check out the blog post below:
 
