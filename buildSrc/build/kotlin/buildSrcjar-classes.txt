@@ -1,0 +1,1 @@
+/Users/jaewoongeum/Desktop/projects/stream-webrtc-android/buildSrc/build/classes/kotlin/main/io/getstream/Configurations.class
