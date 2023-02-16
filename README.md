@@ -14,7 +14,7 @@
 ## Agenda
 Since Google no longer supports [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shutdown, so the library is not available now), we decided to build our own pre-compiled [WebRTC](https://getstream.io/glossary/webrtc-protocol/) core library that reflects recent WebRTC commits with some improvements.
 
-## Demo projects
+## Use Cases
 
 You can see the use cases of this library in the repositories below:
 
