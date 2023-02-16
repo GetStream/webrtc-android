@@ -14,11 +14,18 @@
 ## Agenda
 Since Google no longer supports [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shutdown, so the library is not available now), we decided to build our own pre-compiled [WebRTC](https://getstream.io/glossary/webrtc-protocol/) core library that reflects recent WebRTC commits with some improvements.
 
-## Use Cases
+## 📱 Use Cases
 
 You can see the use cases of this library in the repositories below:
 
 - [webrtc-in-jetpack-compose](https://github.com/GetStream/webrtc-in-jetpack-compose): 📱 This project demonstrates WebRTC protocol to facilitate real-time video communications with Jetpack Compose.
+
+## ✍️ Technical Content
+
+If you want to have a better grasp of how WebRTC works, such as basic concepts of WebRTC, relevant terminologies, and how to establish a peer-to-peer connection and communicate with the signaling server in Android, check out the articles below:
+
+- **[Building a Video Chat App: WebRTC on Android (Part1)](https://getstream.io/blog/webrtc-on-android/)**
+- **[HTTP, WebSocket, gRPC or WebRTC: Which Communication Protocol is Best For Your App?](https://getstream.io/blog/communication-protocols/)**
 
 <a href="https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss">
 <img src="https://user-images.githubusercontent.com/24237865/138428440-b92e5fb7-89f8-41aa-96b1-71a5486c5849.png" align="right" width="12%"/>
