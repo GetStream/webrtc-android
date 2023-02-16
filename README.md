@@ -372,6 +372,8 @@ This process will take some time based on your machine specs and internet speed,
 
 Now, if you look in the `webrtc_android/src/` directory, It turns out that you will end up with the compilation and building of `libwebrtc.aar`.
 
+ <a href="https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss"><img src="https://user-images.githubusercontent.com/24237865/146505581-a79e8f7d-6eda-4611-b41a-d60f0189e7d4.jpeg" align="right" /></a>
+
 ## Find this Android library useful? 💙
 
 Support it by joining __[stargazers](https://github.com/getStream/stream-webrtc-android/stargazers)__ for this repository. ⭐️ <br>
