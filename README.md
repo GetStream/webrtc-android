@@ -9,7 +9,7 @@
   <a href="https://getstream.io"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HayesGordon/e7f3c4587859c17f3e593fd3ff5b13f4/raw/11d9d9385c9f34374ede25f6471dc743b977a914/badge.json" alt="Stream Feeds"></a>
 </p>
 
-🛰️ **WebRTC Android** is Google's WebRTC pre-compiled library for Android by [Stream](https://getstream.io?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss). It reflects the recent WebRTC updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
+🛰️ **WebRTC Android** is Google's WebRTC pre-compiled library for Android by [Stream](https://getstream.io?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss). It reflects the recent [WebRTC Protocol](https://getstream.io/glossary/webrtc-protocol/) updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
 
 ## Agenda
 Since Google no longer supported the [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shut down, so the library is not available now), we decided to build our own pre-compiled WebRTC core library that reflects recent WebRTC commits with some improvements.
