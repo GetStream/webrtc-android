@@ -1,6 +1,6 @@
 ![AndroidWebRTC-1200x630px](https://user-images.githubusercontent.com/24237865/218683564-e4279cf9-51c2-4b48-9ca4-45a258a6898a.jpg)
 
-<h1 align="center">Stream WebRTC Android</h1></br>
+<h1 align="center">WebRTC Android by Stream</h1></br>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -9,10 +9,24 @@
   <a href="https://getstream.io"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HayesGordon/e7f3c4587859c17f3e593fd3ff5b13f4/raw/11d9d9385c9f34374ede25f6471dc743b977a914/badge.json" alt="Stream Feeds"></a>
 </p>
 
-**Stream WebRTC Android** is Google's WebRTC pre-compiled library for Android. It reflects the recent WebRTC updates and supports functional UI components and extensions for Android and Jetpack Compose.
+🛰️ **WebRTC Android** is Google's WebRTC pre-compiled library for Android by [Stream](https://getstream.io?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss). It reflects the recent [WebRTC Protocol](https://getstream.io/glossary/webrtc-protocol/) updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
 
 ## Agenda
-Since Google no more supports [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shutdown, so the library is not available now), we decided to build our own pre-compiled WebRTC core library that reflects recent WebRTC commits with some improvements.
+Since Google no longer supported the [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shut down, so the library is not available now), we decided to build our own pre-compiled WebRTC core library that reflects recent WebRTC commits with some improvements.
+
+## 📱 Use Cases
+
+You can see the use cases of this library in the repositories below:
+
+- [webrtc-in-jetpack-compose](https://github.com/GetStream/webrtc-in-jetpack-compose): 📱 This project demonstrates WebRTC protocol to facilitate real-time video communications with Jetpack Compose.
+
+## ✍️ Technical Content
+
+If you want to have a better grasp of how WebRTC works, such as basic concepts of WebRTC, relevant terminologies, and how to establish a peer-to-peer connection and communicate with the signaling server in Android, check out the articles below:
+
+- **[Building a Video Chat App: WebRTC on Android (Part1)](https://getstream.io/blog/webrtc-on-android/)**
+- **[HTTP, WebSocket, gRPC or WebRTC: Which Communication Protocol is Best For Your App?](https://getstream.io/blog/communication-protocols/)**
+- **[WebRTC Protocol: What is it and how does it work?](https://getstream.io/glossary/webrtc-protocol/)**
 
 <a href="https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss">
 <img src="https://user-images.githubusercontent.com/24237865/138428440-b92e5fb7-89f8-41aa-96b1-71a5486c5849.png" align="right" width="12%"/>
@@ -21,7 +35,6 @@ Since Google no more supports [WebRTC library for Android](https://webrtc.github
 ## 🛥 Stream Chat and Voice & Video calling SDK
 
 If you’re interested in adding powerful In-App Messaging to your app, check out the __[Compose Chat SDK for Messaging](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)__! We're also planning to release voice & video calling SDK very soon! Check out the **[Video & Voice Calling API on Stream's Global Edge Network](https://getstream.io/video?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)**, if you want early access to our SDK.
-
 
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/io.getstream/stream-webrtc-android.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.getstream%22%20AND%20a:%22stream-webrtc-android%22)
@@ -360,7 +373,9 @@ This process will take some time based on your machine specs and internet speed,
 
 Now, if you look in the `webrtc_android/src/` directory, It turns out that you will end up with the compilation and building of `libwebrtc.aar`.
 
-## Find this library useful? 💙
+ <a href="https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss"><img src="https://user-images.githubusercontent.com/24237865/146505581-a79e8f7d-6eda-4611-b41a-d60f0189e7d4.jpeg" align="right" /></a>
+
+## Find this Android library useful? 💙
 
 Support it by joining __[stargazers](https://github.com/getStream/stream-webrtc-android/stargazers)__ for this repository. ⭐️ <br>
 Also, follow __[maintainers](https://github.com/skydoves)__ on GitHub for our next creations! 🤩
