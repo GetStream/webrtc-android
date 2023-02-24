@@ -1,11 +1,11 @@
 import io.getstream.Configurations
 
 plugins {
-  `java-platform`
+  kotlin("jvm")
 }
 
 rootProject.extra.apply {
-  set("PUBLISH_GROUP_ID", Configuration.artifactGroup)
+  set("PUBLISH_GROUP_ID", Configurations.artifactGroup)
   set("PUBLISH_ARTIFACT_ID", "stream-webrtc-android-bom")
   set("PUBLISH_VERSION", rootProject.extra.get("rootVersionName"))
 }
@@ -20,4 +20,3 @@ dependencies {
 }
 
 apply(from ="${rootDir}/scripts/publish-module.gradle")
-
