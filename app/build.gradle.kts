@@ -61,6 +61,7 @@ dependencies {
   implementation(project(":stream-webrtc-android-ktx"))
 
   // compose
+  implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.activity.compose)
   implementation(libs.androidx.compose.runtime)
   implementation(libs.androidx.compose.ui)
