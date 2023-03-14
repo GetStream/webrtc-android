@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
+import io.getstream.webrtc.android.compose.VideoScalingType.Companion.toCommonScalingType
 import io.getstream.webrtc.android.ui.VideoTextureViewRenderer
 import org.webrtc.EglBase.Context
 import org.webrtc.RendererCommon.RendererEvents
@@ -41,6 +42,7 @@ public fun VideoRenderer(
   modifier: Modifier = Modifier,
   videoTrack: VideoTrack,
   eglBaseContext: Context,
+  videoScalingType: VideoScalingType = VideoScalingType.SCALE_ASPECT_BALANCED,
   rendererEvents: RendererEvents
 ) {
   val trackState: MutableState<VideoTrack?> = remember { mutableStateOf(null) }
@@ -56,6 +58,7 @@ public fun VideoRenderer(
     factory = { context ->
       VideoTextureViewRenderer(context).apply {
         init(eglBaseContext, rendererEvents)
+        setScalingType(scalingType = videoScalingType.toCommonScalingType())
         setupVideo(trackState, videoTrack, this)
         view = this
       }

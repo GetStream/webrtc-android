@@ -13,10 +13,13 @@ public class io/getstream/webrtc/android/ui/VideoTextureViewRenderer : android/v
 	protected fun onDetachedFromWindow ()V
 	public fun onFrame (Lorg/webrtc/VideoFrame;)V
 	protected fun onLayout (ZIIII)V
+	protected fun onMeasure (II)V
 	public fun onSurfaceTextureAvailable (Landroid/graphics/SurfaceTexture;II)V
 	public fun onSurfaceTextureDestroyed (Landroid/graphics/SurfaceTexture;)Z
 	public fun onSurfaceTextureSizeChanged (Landroid/graphics/SurfaceTexture;II)V
 	public fun onSurfaceTextureUpdated (Landroid/graphics/SurfaceTexture;)V
 	public final fun setMirror (Z)V
+	public final fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;)V
+	public final fun setScalingType (Lorg/webrtc/RendererCommon$ScalingType;Lorg/webrtc/RendererCommon$ScalingType;)V
 }
 
