@@ -10,6 +10,14 @@ public final class io/getstream/webrtc/android/compose/FloatingVideoRendererKt {
 }
 
 public final class io/getstream/webrtc/android/compose/VideoRendererKt {
-	public static final fun VideoRenderer (Landroidx/compose/ui/Modifier;Lorg/webrtc/VideoTrack;Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;Landroidx/compose/runtime/Composer;II)V
+	public static final fun VideoRenderer (Landroidx/compose/ui/Modifier;Lorg/webrtc/VideoTrack;Lorg/webrtc/EglBase$Context;Lio/getstream/webrtc/android/compose/VideoScalingType;Lorg/webrtc/RendererCommon$RendererEvents;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class io/getstream/webrtc/android/compose/VideoScalingType : java/lang/Enum {
+	public static final field SCALE_ASPECT_BALANCED Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static final field SCALE_ASPECT_FIT Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static final field SCAPE_ASPECT_FILL Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static fun valueOf (Ljava/lang/String;)Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static fun values ()[Lio/getstream/webrtc/android/compose/VideoScalingType;
 }
 
