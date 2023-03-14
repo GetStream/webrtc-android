@@ -914,6 +914,7 @@ if (current_os == "linux" || is_android) {
       ":libvpx_vp8_jni",
       ":libvpx_vp9_jni",
       ":native_api_jni",
+      ":simulcast_jni",
       ":video_jni",
       "../../api/video_codecs:builtin_video_decoder_factory",
       "../../api/video_codecs:builtin_video_encoder_factory",
