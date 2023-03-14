@@ -18,6 +18,7 @@ package io.getstream.webrtc.android.ui
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.os.Handler
 import android.os.Looper
@@ -28,6 +29,8 @@ import org.webrtc.EglBase
 import org.webrtc.EglRenderer
 import org.webrtc.GlRectDrawer
 import org.webrtc.RendererCommon.RendererEvents
+import org.webrtc.RendererCommon.ScalingType
+import org.webrtc.RendererCommon.VideoLayoutMeasure
 import org.webrtc.ThreadUtils
 import org.webrtc.VideoFrame
 import org.webrtc.VideoSink
@@ -45,6 +48,11 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
    * Cached resource name.
    */
   private val resourceName: String = getResourceName()
+
+  /**
+   * Measuring a video layout.
+   */
+  private val videoLayoutMeasure = VideoLayoutMeasure()
 
   /**
    * Renderer used to render the video.
@@ -95,6 +103,27 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
   }
 
   /**
+   * Set how the video will fill the allowed layout area.
+   */
+  public fun setScalingType(scalingType: ScalingType?) {
+    ThreadUtils.checkIsOnMainThread()
+    videoLayoutMeasure.setScalingType(scalingType)
+    requestLayout()
+  }
+
+  /**
+   * Set how the video will fill the allowed layout area.
+   */
+  public fun setScalingType(
+    scalingTypeMatchOrientation: ScalingType?,
+    scalingTypeMismatchOrientation: ScalingType?
+  ) {
+    ThreadUtils.checkIsOnMainThread()
+    videoLayoutMeasure.setScalingType(scalingTypeMatchOrientation, scalingTypeMismatchOrientation)
+    requestLayout()
+  }
+
+  /**
    * Called when a new frame is received. Sends the frame to be rendered.
    *
    * @param videoFrame The [VideoFrame] received from WebRTC connection to draw on the screen.
@@ -102,6 +131,14 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
   override fun onFrame(videoFrame: VideoFrame) {
     eglRenderer.onFrame(videoFrame)
     updateFrameData(videoFrame)
+  }
+
+  // View layout interface.
+  override fun onMeasure(widthSpec: Int, heightSpec: Int) {
+    ThreadUtils.checkIsOnMainThread()
+    val size: Point =
+      videoLayoutMeasure.measure(widthSpec, heightSpec, rotatedFrameWidth, rotatedFrameHeight)
+    setMeasuredDimension(size.x, size.y)
   }
 
   /**
