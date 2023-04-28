@@ -32,14 +32,22 @@ import org.webrtc.RendererCommon
  */
 public enum class VideoScalingType {
   SCALE_ASPECT_FIT,
-  SCAPE_ASPECT_FILL,
+  SCALE_ASPECT_FILL,
   SCALE_ASPECT_BALANCED;
 
-  internal companion object {
+  public companion object {
+
+    @Deprecated(
+      message = "Use SCALE_ASPECT_FILL instead",
+      replaceWith = ReplaceWith("VideoScalingType.SCALE_ASPECT_FILL")
+    )
+    @JvmField
+    public val SCAPE_ASPECT_FILL: VideoScalingType = SCALE_ASPECT_FILL
+
     internal fun VideoScalingType.toCommonScalingType(): RendererCommon.ScalingType {
       return when (this) {
         SCALE_ASPECT_FIT -> RendererCommon.ScalingType.SCALE_ASPECT_FIT
-        SCAPE_ASPECT_FILL -> RendererCommon.ScalingType.SCALE_ASPECT_FILL
+        SCALE_ASPECT_FILL -> RendererCommon.ScalingType.SCALE_ASPECT_FILL
         SCALE_ASPECT_BALANCED -> RendererCommon.ScalingType.SCALE_ASPECT_BALANCED
       }
     }
