@@ -14,10 +14,15 @@ public final class io/getstream/webrtc/android/compose/VideoRendererKt {
 }
 
 public final class io/getstream/webrtc/android/compose/VideoScalingType : java/lang/Enum {
+	public static final field Companion Lio/getstream/webrtc/android/compose/VideoScalingType$Companion;
 	public static final field SCALE_ASPECT_BALANCED Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static final field SCALE_ASPECT_FILL Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static final field SCALE_ASPECT_FIT Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static final field SCAPE_ASPECT_FILL Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static fun valueOf (Ljava/lang/String;)Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static fun values ()[Lio/getstream/webrtc/android/compose/VideoScalingType;
+}
+
+public final class io/getstream/webrtc/android/compose/VideoScalingType$Companion {
 }
 
