@@ -17,6 +17,7 @@ rootProject.extra.apply {
 apply(from = "${rootDir}/scripts/publish-module.gradle")
 
 android {
+  namespace = "io.getstream.webrtc.android.ktx"
   compileSdk = Configurations.compileSdk
 
   defaultConfig {

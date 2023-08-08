@@ -17,6 +17,7 @@ rootProject.extra.apply {
 apply(from ="${rootDir}/scripts/publish-module.gradle")
 
 android {
+  namespace = "org.webrtc"
   compileSdk = Configurations.compileSdk
 
   defaultConfig {
