@@ -283,7 +283,12 @@ class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     } catch (IllegalStateException e) {
       Logging.e(TAG, "queueInputBuffer failed", e);
       frameInfos.pollLast();
-      return VideoCodecStatus.ERROR;
+      if (e instanceof MediaCodec.CodecException) {
+        // For codec exceptions we can try to use the software fallback
+        return VideoCodecStatus.FALLBACK_SOFTWARE;
+      } else {
+        return VideoCodecStatus.ERROR;
+      }
     }
     if (keyFrameRequired) {
       keyFrameRequired = false;
