@@ -1,6 +1,6 @@
 [versions]
 streamLog = "1.1.4"
-landscapist = "2.1.9"
+landscapist = "2.2.5"
 androidGradlePlugin = "8.0.2"
 androidxActivity = "1.4.0"
 androidxAppCompat = "1.4.2"
