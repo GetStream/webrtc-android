@@ -22,6 +22,7 @@ plugins {
 }
 
 android {
+  namespace = "io.getstream.webrtc.android.benchmark"
   compileSdk = Configurations.compileSdk
 
   compileOptions {
