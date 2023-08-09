@@ -24,6 +24,13 @@ public class org/webrtc/AudioTrack : org/webrtc/MediaStreamTrack {
 	public fun setVolume (D)V
 }
 
+public final class org/webrtc/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
 public class org/webrtc/BuiltinAudioDecoderFactoryFactory : org/webrtc/AudioDecoderFactoryFactory {
 	public fun <init> ()V
 	public fun createNativeAudioDecoderFactory ()J
