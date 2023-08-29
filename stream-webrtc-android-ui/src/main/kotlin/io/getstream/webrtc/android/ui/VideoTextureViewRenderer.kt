@@ -145,7 +145,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
    * Updates the frame data and notifies [rendererEvents] about the changes.
    */
   private fun updateFrameData(videoFrame: VideoFrame) {
-    if (isFirstFrameRendered) {
+    if (!isFirstFrameRendered) {
       rendererEvents?.onFirstFrameRendered()
       isFirstFrameRendered = true
     }
