@@ -22,7 +22,6 @@ android {
 
   defaultConfig {
     minSdk = Configurations.minSdk
-    targetSdk = Configurations.targetSdk
     consumerProguardFiles("consumer-rules.pro")
   }
 
@@ -35,6 +34,16 @@ android {
   lint {
     abortOnError = false
   }
+
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+  }
+}
+
+tasks.withType(JavaCompile::class.java).configureEach {
+  this.targetCompatibility = libs.versions.jvmTarget.get()
+  this.sourceCompatibility = libs.versions.jvmTarget.get()
 }
 
 dependencies {
