@@ -158,7 +158,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
       rotatedFrameHeight = videoFrame.rotatedHeight
       frameRotation = videoFrame.rotation
 
-      requestLayout()
+      post { requestLayout() }
 
       uiThreadHandler.post {
         rendererEvents?.onFrameResolutionChanged(
