@@ -1,10 +1,3 @@
-public final class io/getstream/webrtc/android/compose/BuildConfig {
-	public static final field BUILD_TYPE Ljava/lang/String;
-	public static final field DEBUG Z
-	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
-	public fun <init> ()V
-}
-
 public final class io/getstream/webrtc/android/compose/FloatingVideoRendererKt {
 	public static final fun FloatingVideoRenderer-_BRzflo (Landroidx/compose/ui/Modifier;Lorg/webrtc/VideoTrack;JLandroidx/compose/foundation/layout/PaddingValues;Lorg/webrtc/EglBase$Context;Lorg/webrtc/RendererCommon$RendererEvents;Landroidx/compose/runtime/Composer;II)V
 }
@@ -19,6 +12,7 @@ public final class io/getstream/webrtc/android/compose/VideoScalingType : java/l
 	public static final field SCALE_ASPECT_FILL Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static final field SCALE_ASPECT_FIT Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static final field SCAPE_ASPECT_FILL Lio/getstream/webrtc/android/compose/VideoScalingType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lio/getstream/webrtc/android/compose/VideoScalingType;
 	public static fun values ()[Lio/getstream/webrtc/android/compose/VideoScalingType;
 }
