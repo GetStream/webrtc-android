@@ -1,10 +1,3 @@
-public final class io/getstream/webrtc/android/ktx/BuildConfig {
-	public static final field BUILD_TYPE Ljava/lang/String;
-	public static final field DEBUG Z
-	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
-	public fun <init> ()V
-}
-
 public final class io/getstream/webrtc/android/ktx/PeerConnectionExtensionsKt {
 	public static final fun addRtcIceCandidate (Lorg/webrtc/PeerConnection;Lorg/webrtc/IceCandidate;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
