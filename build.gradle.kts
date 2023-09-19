@@ -18,7 +18,7 @@ apiValidation {
 
 subprojects {
   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_11.toString()
   }
 
   apply(plugin = rootProject.libs.plugins.spotless.get().pluginId)
