@@ -1974,6 +1974,10 @@ public abstract interface class org/webrtc/audio/AudioDeviceModule {
 	public abstract fun setSpeakerMute (Z)V
 }
 
+public abstract interface class org/webrtc/audio/AudioRecordDataCallback {
+	public abstract fun onAudioDataRecorded (IIILjava/nio/ByteBuffer;)V
+}
+
 public class org/webrtc/audio/JavaAudioDeviceModule : org/webrtc/audio/AudioDeviceModule {
 	public static fun builder (Landroid/content/Context;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun getNativeAudioDeviceModulePointer ()J
@@ -2033,6 +2037,7 @@ public class org/webrtc/audio/JavaAudioDeviceModule$Builder {
 	public fun createAudioDeviceModule ()Lorg/webrtc/audio/JavaAudioDeviceModule;
 	public fun setAudioAttributes (Landroid/media/AudioAttributes;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioFormat (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioRecordDataCallback (Lorg/webrtc/audio/AudioRecordDataCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordErrorCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordErrorCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordStateCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStateCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioSource (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
