@@ -104,6 +104,7 @@ class WebRtcAudioRecord {
 
   private final @Nullable AudioRecordErrorCallback errorCallback;
   private final @Nullable AudioRecordStateCallback stateCallback;
+  private final @Nullable AudioRecordDataCallback audioRecordDataCallback;
   private final @Nullable SamplesReadyCallback audioSamplesReadyCallback;
   private final boolean isAcousticEchoCancelerSupported;
   private final boolean isNoiseSuppressorSupported;
@@ -153,6 +154,13 @@ class WebRtcAudioRecord {
                 captureTimeNs = audioTimestamp.nanoTime;
               }
             }
+
+            // Allow the client to intercept the ByteBuffer (to modify it)
+            if (audioRecordDataCallback != null) {
+              audioRecordDataCallback.onAudioDataRecorded(audioRecord.getAudioFormat(),
+                audioRecord.getChannelCount(), audioRecord.getSampleRate(), byteBuffer);
+            }
+
             nativeDataIsRecorded(nativeAudioRecord, bytesRead, captureTimeNs);
           }
           if (audioSamplesReadyCallback != null) {
@@ -196,7 +204,8 @@ class WebRtcAudioRecord {
   WebRtcAudioRecord(Context context, AudioManager audioManager) {
     this(context, newDefaultScheduler() /* scheduler */, audioManager, DEFAULT_AUDIO_SOURCE,
         DEFAULT_AUDIO_FORMAT, null /* errorCallback */, null /* stateCallback */,
-        null /* audioSamplesReadyCallback */, WebRtcAudioEffects.isAcousticEchoCancelerSupported(),
+        null /* audioSamplesReadyCallback */, /* audioRecordCallback */ null,
+        WebRtcAudioEffects.isAcousticEchoCancelerSupported(),
         WebRtcAudioEffects.isNoiseSuppressorSupported());
   }
 
@@ -205,6 +214,7 @@ class WebRtcAudioRecord {
       @Nullable AudioRecordErrorCallback errorCallback,
       @Nullable AudioRecordStateCallback stateCallback,
       @Nullable SamplesReadyCallback audioSamplesReadyCallback,
+      @Nullable AudioRecordDataCallback audioRecordDataCallback,
       boolean isAcousticEchoCancelerSupported, boolean isNoiseSuppressorSupported) {
     if (isAcousticEchoCancelerSupported && !WebRtcAudioEffects.isAcousticEchoCancelerSupported()) {
       throw new IllegalArgumentException("HW AEC not supported");
@@ -219,6 +229,7 @@ class WebRtcAudioRecord {
     this.audioFormat = audioFormat;
     this.errorCallback = errorCallback;
     this.stateCallback = stateCallback;
+    this.audioRecordDataCallback = audioRecordDataCallback;
     this.audioSamplesReadyCallback = audioSamplesReadyCallback;
     this.isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported;
     this.isNoiseSuppressorSupported = isNoiseSuppressorSupported;
