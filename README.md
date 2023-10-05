@@ -111,7 +111,7 @@ If you want to learn more about building a video chat application for Android us
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.getstream/stream-webrtc-android-ui.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.getstream%22%20AND%20a:%22stream-webrtc-android-ui%22)
 
-**Stream WebRTC Android** supports some uesful UI components for WebRTC, such as `VideoTextureViewRenderer`. First, add the dependency below to your **module's** `build.gradle` file:
+**Stream WebRTC Android** supports some useful UI components for WebRTC, such as `VideoTextureViewRenderer`. First, add the dependency below to your **module's** `build.gradle` file:
 
 ```gradle
 dependencies {
