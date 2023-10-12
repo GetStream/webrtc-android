@@ -43,6 +43,7 @@ public fun VideoRenderer(
   videoTrack: VideoTrack,
   eglBaseContext: Context,
   videoScalingType: VideoScalingType = VideoScalingType.SCALE_ASPECT_BALANCED,
+  onTextureViewCreated: (VideoTextureViewRenderer) -> Unit = { },
   rendererEvents: RendererEvents
 ) {
   val trackState: MutableState<VideoTrack?> = remember { mutableStateOf(null) }
@@ -60,6 +61,7 @@ public fun VideoRenderer(
         init(eglBaseContext, rendererEvents)
         setScalingType(scalingType = videoScalingType.toCommonScalingType())
         setupVideo(trackState, videoTrack, this)
+        onTextureViewCreated.invoke(this)
         view = this
       }
     },
