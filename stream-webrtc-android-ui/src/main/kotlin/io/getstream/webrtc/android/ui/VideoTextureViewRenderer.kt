@@ -193,6 +193,16 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
     eglRenderer.init(sharedContext, EglBase.CONFIG_PLAIN, GlRectDrawer())
   }
 
+  /** Pause the egl renderer by reducing fps to 0. */
+  public fun pauseVideo() {
+    eglRenderer.pauseVideo()
+  }
+
+  /** Resume the egl renderer by reducing fps to positive. */
+  public fun resumeVideo() {
+    eglRenderer.disableFpsReduction()
+  }
+
   /**
    * [SurfaceTextureListener] callback that lets us know when a surface texture is ready and we can draw on it.
    */
