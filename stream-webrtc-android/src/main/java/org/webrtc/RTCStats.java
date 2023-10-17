@@ -10,7 +10,6 @@
 
 package org.webrtc;
 
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -54,7 +53,7 @@ public class RTCStats {
   /**
    * Returns map of member names to values. Returns as an ordered map so that
    * the stats object can be serialized with a consistent ordering.
-   * <p>
+   *
    * Values will be one of the following objects:
    * - Boolean
    * - Integer (for 32-bit signed integers)
@@ -72,15 +71,17 @@ public class RTCStats {
   @Override
   public String toString() {
     StringBuilder builder = new StringBuilder();
-    builder.append("{ timestampUs: ").append(this.timestampUs).append(", type: ").append(this.type).append(", id: ").append(this.id);
-    Iterator iterator = this.members.entrySet().iterator();
-
-    while (iterator.hasNext()) {
-      Map.Entry<String, Object> entry = (Map.Entry) iterator.next();
-      builder.append(", ").append((String) entry.getKey()).append(": ");
+    builder.append("{ timestampUs: ")
+        .append(timestampUs)
+        .append(", type: ")
+        .append(type)
+        .append(", id: ")
+        .append(id);
+    boolean first = true;
+    for (Map.Entry<String, Object> entry : members.entrySet()) {
+      builder.append(", ").append(entry.getKey()).append(": ");
       appendValue(builder, entry.getValue());
     }
-
     builder.append(" }");
     return builder.toString();
   }
