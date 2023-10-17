@@ -59,7 +59,7 @@ public fun FloatingVideoRenderer(
   parentBounds: IntSize,
   paddingValues: PaddingValues,
   eglBaseContext: EglBase.Context,
-  rendererEvents: RendererCommon.RendererEvents
+  rendererEvents: RendererCommon.RendererEvents,
 ) {
   var videoSize by remember { mutableStateOf(IntSize(0, 0)) }
   var offsetX by remember { mutableStateOf(0f) }
@@ -89,11 +89,11 @@ public fun FloatingVideoRenderer(
                 paddingValues = paddingValues,
                 floatingVideoSize = videoSize,
                 density = density,
-                offset = paddingOffset * 2
-              )
+                offset = paddingOffset * 2,
+              ),
             )
             .coerceAtMost(
-              0f
+              0f,
             )
 
           val newOffsetY = (offsetY + dragAmount.y)
@@ -104,8 +104,8 @@ public fun FloatingVideoRenderer(
                 paddingValues = paddingValues,
                 floatingVideoSize = videoSize,
                 density = density,
-                offset = paddingOffset * 2
-              )
+                offset = paddingOffset * 2,
+              ),
             )
 
           offsetX = newOffsetX
@@ -115,7 +115,7 @@ public fun FloatingVideoRenderer(
       .then(modifier)
       .padding(16.dp)
       .onGloballyPositioned { videoSize = it.size },
-    shape = RoundedCornerShape(16.dp)
+    shape = RoundedCornerShape(16.dp),
   ) {
     VideoRenderer(
       modifier = Modifier
@@ -123,7 +123,7 @@ public fun FloatingVideoRenderer(
         .clip(RoundedCornerShape(16.dp)),
       videoTrack = videoTrack,
       eglBaseContext = eglBaseContext,
-      rendererEvents = rendererEvents
+      rendererEvents = rendererEvents,
     )
   }
 }
@@ -133,7 +133,7 @@ private fun calculateHorizontalOffsetBounds(
   paddingValues: PaddingValues,
   floatingVideoSize: IntSize,
   density: Density,
-  offset: Float
+  offset: Float,
 ): Float {
   val rightPadding =
     density.run { paddingValues.calculateRightPadding(LayoutDirection.Ltr).toPx() }
@@ -146,7 +146,7 @@ private fun calculateVerticalOffsetBounds(
   paddingValues: PaddingValues,
   floatingVideoSize: IntSize,
   density: Density,
-  offset: Float
+  offset: Float,
 ): Float {
   val bottomPadding =
     density.run { paddingValues.calculateBottomPadding().toPx() }

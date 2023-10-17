@@ -44,7 +44,7 @@ public fun VideoRenderer(
   eglBaseContext: Context,
   videoScalingType: VideoScalingType = VideoScalingType.SCALE_ASPECT_BALANCED,
   onTextureViewCreated: (VideoTextureViewRenderer) -> Unit = { },
-  rendererEvents: RendererEvents
+  rendererEvents: RendererEvents,
 ) {
   val trackState: MutableState<VideoTrack?> = remember { mutableStateOf(null) }
   var view: VideoTextureViewRenderer? by remember { mutableStateOf(null) }
@@ -66,13 +66,13 @@ public fun VideoRenderer(
       }
     },
     update = { v -> setupVideo(trackState, videoTrack, v) },
-    modifier = modifier
+    modifier = modifier,
   )
 }
 
 private fun cleanTrack(
   view: VideoTextureViewRenderer?,
-  trackState: MutableState<VideoTrack?>
+  trackState: MutableState<VideoTrack?>,
 ) {
   view?.let { trackState.value?.removeSink(it) }
   trackState.value = null
@@ -81,7 +81,7 @@ private fun cleanTrack(
 private fun setupVideo(
   trackState: MutableState<VideoTrack?>,
   track: VideoTrack,
-  renderer: VideoTextureViewRenderer
+  renderer: VideoTextureViewRenderer,
 ) {
   if (trackState.value == track) {
     return

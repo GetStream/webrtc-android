@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
     WebRtcSessionManagerImpl(
       context = this,
       signalingClient = SignalingClient(),
-      peerConnectionFactory = StreamPeerConnectionFactory(this)
+      peerConnectionFactory = StreamPeerConnectionFactory(this),
     )
   }
 
@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
           // A surface container using the 'background' color from the theme
           Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colors.background,
           ) {
             var onCallScreen by remember { mutableStateOf(BuildConfig.BUILD_TYPE == "benchmark") }
             val state by sessionManager.signalingClient.sessionStateFlow.collectAsState()

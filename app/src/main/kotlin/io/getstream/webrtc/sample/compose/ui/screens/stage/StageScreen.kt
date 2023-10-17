@@ -36,7 +36,7 @@ import io.getstream.webrtc.sample.compose.webrtc.WebRTCSessionState
 @Composable
 fun StageScreen(
   state: WebRTCSessionState,
-  onJoinCall: () -> Unit
+  onJoinCall: () -> Unit,
 ) {
   Box(modifier = Modifier.fillMaxSize()) {
     var enabledCall by remember { mutableStateOf(false) }
@@ -67,12 +67,12 @@ fun StageScreen(
     Button(
       modifier = Modifier.align(Alignment.Center),
       enabled = enabledCall,
-      onClick = { onJoinCall.invoke() }
+      onClick = { onJoinCall.invoke() },
     ) {
       Text(
         text = text,
         fontSize = 26.sp,
-        fontWeight = FontWeight.Bold
+        fontWeight = FontWeight.Bold,
       )
     }
   }

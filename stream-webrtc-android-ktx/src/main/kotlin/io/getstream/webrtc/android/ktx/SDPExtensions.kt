@@ -22,7 +22,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 public suspend inline fun createSessionDescription(
-  crossinline call: (SdpObserver) -> Unit
+  crossinline call: (SdpObserver) -> Unit,
 ): Result<SessionDescription> = suspendCoroutine {
   val observer = object : SdpObserver {
 
@@ -57,7 +57,7 @@ public suspend inline fun createSessionDescription(
 }
 
 public suspend inline fun suspendSdpObserver(
-  crossinline call: (SdpObserver) -> Unit
+  crossinline call: (SdpObserver) -> Unit,
 ): Result<Unit> = suspendCoroutine {
   val observer = object : SdpObserver {
     /**

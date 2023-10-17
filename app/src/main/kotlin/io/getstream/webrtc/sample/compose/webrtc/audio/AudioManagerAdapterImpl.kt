@@ -29,7 +29,7 @@ internal class AudioManagerAdapterImpl(
   private val context: Context,
   private val audioManager: AudioManager,
   private val audioFocusRequest: AudioFocusRequestWrapper = AudioFocusRequestWrapper(),
-  private val audioFocusChangeListener: AudioManager.OnAudioFocusChangeListener
+  private val audioFocusChangeListener: AudioManager.OnAudioFocusChangeListener,
 ) : AudioManagerAdapter {
 
   private val logger by taggedLogger("Call:AudioManager")
@@ -69,15 +69,21 @@ internal class AudioManagerAdapterImpl(
       audioRequest = audioFocusRequest.buildRequest(audioFocusChangeListener)
       audioRequest?.let {
         val result = audioManager.requestAudioFocus(it)
-        logger.i { "[setAudioFocus] #new; completed: ${result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED}" }
+        logger.i {
+          "[setAudioFocus] #new; completed: " +
+            "${result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED}"
+        }
       }
     } else {
       val result = audioManager.requestAudioFocus(
         audioFocusChangeListener,
         AudioManager.STREAM_VOICE_CALL,
-        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT
+        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT,
       )
-      logger.i { "[setAudioFocus] #old; completed: ${result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED}" }
+      logger.i {
+        "[setAudioFocus] #old; completed: " +
+          "${result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED}"
+      }
     }
     /*
      * Start by setting MODE_IN_COMMUNICATION as default audio mode. It is

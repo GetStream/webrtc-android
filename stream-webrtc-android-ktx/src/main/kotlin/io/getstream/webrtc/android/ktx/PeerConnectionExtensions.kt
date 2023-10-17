@@ -40,7 +40,7 @@ public suspend fun PeerConnection.addRtcIceCandidate(iceCandidate: IceCandidate)
         override fun onAddFailure(error: String?) {
           cont.resume(Result.failure(WebRTCException(message = error)))
         }
-      }
+      },
     )
   }
 }

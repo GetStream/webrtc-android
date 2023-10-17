@@ -41,7 +41,7 @@ import java.util.concurrent.CountDownLatch
  */
 public open class VideoTextureViewRenderer @JvmOverloads constructor(
   context: Context,
-  attrs: AttributeSet? = null
+  attrs: AttributeSet? = null,
 ) : TextureView(context, attrs), VideoSink, SurfaceTextureListener {
 
   /**
@@ -116,7 +116,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
    */
   public fun setScalingType(
     scalingTypeMatchOrientation: ScalingType?,
-    scalingTypeMismatchOrientation: ScalingType?
+    scalingTypeMismatchOrientation: ScalingType?,
   ) {
     ThreadUtils.checkIsOnMainThread()
     videoLayoutMeasure.setScalingType(scalingTypeMatchOrientation, scalingTypeMismatchOrientation)
@@ -164,7 +164,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
         rendererEvents?.onFrameResolutionChanged(
           rotatedFrameWidth,
           rotatedFrameHeight,
-          frameRotation
+          frameRotation,
         )
       }
     }
@@ -186,7 +186,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
    */
   public fun init(
     sharedContext: EglBase.Context,
-    rendererEvents: RendererEvents
+    rendererEvents: RendererEvents,
   ) {
     ThreadUtils.checkIsOnMainThread()
     this.rendererEvents = rendererEvents
@@ -224,7 +224,7 @@ public open class VideoTextureViewRenderer @JvmOverloads constructor(
   override fun onSurfaceTextureSizeChanged(
     surfaceTexture: SurfaceTexture,
     width: Int,
-    height: Int
+    height: Int,
   ) {
   }
 
