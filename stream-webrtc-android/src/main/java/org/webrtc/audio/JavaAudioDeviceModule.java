@@ -15,11 +15,8 @@ import android.media.AudioAttributes;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
-
 import androidx.annotation.RequiresApi;
-
 import java.util.concurrent.ScheduledExecutorService;
-
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
 
@@ -219,9 +216,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
       return this;
     }
 
-    /**
-     * Disables the volume logger on the audio output track.
-     */
+    /** Disables the volume logger on the audio output track. */
     public Builder setEnableVolumeLogger(boolean enableVolumeLogger) {
       this.enableVolumeLogger = enableVolumeLogger;
       return this;
@@ -270,13 +265,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         executor = WebRtcAudioRecord.newDefaultScheduler();
       }
       final WebRtcAudioRecord audioInput = new WebRtcAudioRecord(context, executor, audioManager,
-        audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
-        samplesReadyCallback, audioRecordDataCallback, useHardwareAcousticEchoCanceler, useHardwareNoiseSuppressor);
+          audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
+          samplesReadyCallback, audioRecordDataCallback, useHardwareAcousticEchoCanceler, useHardwareNoiseSuppressor);
       final WebRtcAudioTrack audioOutput =
-        new WebRtcAudioTrack(context, audioManager, audioAttributes, audioTrackErrorCallback,
-          audioTrackStateCallback, useLowLatency, enableVolumeLogger);
+          new WebRtcAudioTrack(context, audioManager, audioAttributes, audioTrackErrorCallback,
+              audioTrackStateCallback, useLowLatency, enableVolumeLogger);
       return new JavaAudioDeviceModule(context, audioManager, audioInput, audioOutput,
-        inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
+          inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
     }
   }
 
@@ -289,18 +284,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
   public static interface AudioRecordErrorCallback {
     void onWebRtcAudioRecordInitError(String errorMessage);
-
     void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode errorCode, String errorMessage);
-
     void onWebRtcAudioRecordError(String errorMessage);
   }
 
-  /**
-   * Called when audio recording starts and stops.
-   */
+  /** Called when audio recording starts and stops. */
   public static interface AudioRecordStateCallback {
     void onWebRtcAudioRecordStart();
-
     void onWebRtcAudioRecordStop();
   }
 
@@ -308,8 +298,11 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
    * Contains audio sample information.
    */
   public static class AudioSamples {
+    /** See {@link AudioRecord#getAudioFormat()} */
     private final int audioFormat;
+    /** See {@link AudioRecord#getChannelCount()} */
     private final int channelCount;
+    /** See {@link AudioRecord#getSampleRate()} */
     private final int sampleRate;
 
     private final byte[] data;
@@ -338,9 +331,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
   }
 
-  /**
-   * Called when new audio samples are ready. This should only be set for debug purposes
-   */
+  /** Called when new audio samples are ready. This should only be set for debug purposes */
   public static interface SamplesReadyCallback {
     void onWebRtcAudioRecordSamplesReady(AudioSamples samples);
   }
@@ -354,18 +345,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
   public static interface AudioTrackErrorCallback {
     void onWebRtcAudioTrackInitError(String errorMessage);
-
     void onWebRtcAudioTrackStartError(AudioTrackStartErrorCode errorCode, String errorMessage);
-
     void onWebRtcAudioTrackError(String errorMessage);
   }
 
-  /**
-   * Called when audio playout starts and stops.
-   */
+  /** Called when audio playout starts and stops. */
   public static interface AudioTrackStateCallback {
     void onWebRtcAudioTrackStart();
-
     void onWebRtcAudioTrackStop();
   }
 
@@ -398,8 +384,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
   private long nativeAudioDeviceModule;
 
   private JavaAudioDeviceModule(Context context, AudioManager audioManager,
-                                WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput, int inputSampleRate,
-                                int outputSampleRate, boolean useStereoInput, boolean useStereoOutput) {
+      WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput, int inputSampleRate,
+      int outputSampleRate, boolean useStereoInput, boolean useStereoOutput) {
     this.context = context;
     this.audioManager = audioManager;
     this.audioInput = audioInput;
@@ -415,7 +401,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     synchronized (nativeLock) {
       if (nativeAudioDeviceModule == 0) {
         nativeAudioDeviceModule = nativeCreateAudioDeviceModule(context, audioManager, audioInput,
-          audioOutput, inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
+            audioOutput, inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
       }
       return nativeAudioDeviceModule;
     }
@@ -456,6 +442,6 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
   }
 
   private static native long nativeCreateAudioDeviceModule(Context context,
-                                                           AudioManager audioManager, WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput,
-                                                           int inputSampleRate, int outputSampleRate, boolean useStereoInput, boolean useStereoOutput);
+      AudioManager audioManager, WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput,
+      int inputSampleRate, int outputSampleRate, boolean useStereoInput, boolean useStereoOutput);
 }

@@ -204,7 +204,7 @@ class WebRtcAudioRecord {
   WebRtcAudioRecord(Context context, AudioManager audioManager) {
     this(context, newDefaultScheduler() /* scheduler */, audioManager, DEFAULT_AUDIO_SOURCE,
         DEFAULT_AUDIO_FORMAT, null /* errorCallback */, null /* stateCallback */,
-        null /* audioSamplesReadyCallback */, /* audioRecordCallback */ null,
+        null /* audioSamplesReadyCallback */, null /* audioRecordCallback */,
         WebRtcAudioEffects.isAcousticEchoCancelerSupported(),
         WebRtcAudioEffects.isNoiseSuppressorSupported());
   }
@@ -229,8 +229,8 @@ class WebRtcAudioRecord {
     this.audioFormat = audioFormat;
     this.errorCallback = errorCallback;
     this.stateCallback = stateCallback;
-    this.audioRecordDataCallback = audioRecordDataCallback;
     this.audioSamplesReadyCallback = audioSamplesReadyCallback;
+    this.audioRecordDataCallback = audioRecordDataCallback;
     this.isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported;
     this.isNoiseSuppressorSupported = isNoiseSuppressorSupported;
     Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());

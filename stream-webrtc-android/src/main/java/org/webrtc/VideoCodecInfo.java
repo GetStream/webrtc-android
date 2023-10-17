@@ -34,6 +34,7 @@ public class VideoCodecInfo {
 
   public final String name;
   public final Map<String, String> params;
+  public int[] scalabilityModes;
   @Deprecated public final int payload;
 
   @CalledByNative
@@ -41,6 +42,7 @@ public class VideoCodecInfo {
     this.payload = 0;
     this.name = name;
     this.params = params;
+    this.scalabilityModes = new int[0];
   }
 
   @Deprecated
@@ -48,6 +50,7 @@ public class VideoCodecInfo {
     this.payload = payload;
     this.name = name;
     this.params = params;
+    this.scalabilityModes = new int[0];
   }
 
   @Override
@@ -83,4 +86,16 @@ public class VideoCodecInfo {
   Map getParams() {
     return params;
   }
+
+  @CalledByNative
+  int[] getScalabilityModes() {
+    return scalabilityModes;
+  }
+
+  @CalledByNative
+  void setScalabilityModes(int[] values) {
+    scalabilityModes = values;
+  }
+
+
 }

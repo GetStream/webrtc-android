@@ -54,6 +54,24 @@ public class VideoTrack extends MediaStreamTrack {
     }
   }
 
+  /**
+   * For a remote video track, starts/stops receiving the video stream.
+   * 
+   * If this is a local video track, this is a no-op.
+   */
+  public void setShouldReceive(boolean shouldReceive){
+    nativeSetShouldReceive(getNativeMediaStreamTrack(), shouldReceive);
+  }
+
+  /**
+   * The current receive status for a remote video track.
+   * 
+   * This has no meaning for a local video track.
+   */
+  public boolean shouldReceive(){
+    return nativeGetShouldReceive(getNativeMediaStreamTrack());
+  }
+
   @Override
   public void dispose() {
     for (long nativeSink : sinks.values()) {
@@ -73,4 +91,6 @@ public class VideoTrack extends MediaStreamTrack {
   private static native void nativeRemoveSink(long track, long nativeSink);
   private static native long nativeWrapSink(VideoSink sink);
   private static native void nativeFreeSink(long sink);
+  private static native void nativeSetShouldReceive(long track, boolean shouldReceive);
+  private static native boolean nativeGetShouldReceive(long track);
 }
