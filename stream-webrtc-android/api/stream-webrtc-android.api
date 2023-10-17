@@ -863,8 +863,8 @@ public class org/webrtc/PeerConnection {
 	public fun getRemoteDescription ()Lorg/webrtc/SessionDescription;
 	public fun getSenders ()Ljava/util/List;
 	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;)V
-	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;Lorg/webrtc/RtpReceiver;)V
-	public fun getStats (Lorg/webrtc/RTCStatsCollectorCallback;Lorg/webrtc/RtpSender;)V
+	public fun getStats (Lorg/webrtc/RtpReceiver;Lorg/webrtc/RTCStatsCollectorCallback;)V
+	public fun getStats (Lorg/webrtc/RtpSender;Lorg/webrtc/RTCStatsCollectorCallback;)V
 	public fun getStats (Lorg/webrtc/StatsObserver;Lorg/webrtc/MediaStreamTrack;)Z
 	public fun getTransceivers ()Ljava/util/List;
 	public fun iceConnectionState ()Lorg/webrtc/PeerConnection$IceConnectionState;
@@ -1041,7 +1041,6 @@ public class org/webrtc/PeerConnection$RTCConfiguration {
 	public field continualGatheringPolicy Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
 	public field cryptoOptions Lorg/webrtc/CryptoOptions;
 	public field disableIPv6OnWifi Z
-	public field disableIpv6 Z
 	public field enableCpuOveruseDetection Z
 	public field enableDscp Z
 	public field enableImplicitRollback Z
@@ -1142,6 +1141,8 @@ public class org/webrtc/PeerConnectionFactory {
 	public static fun fieldTrialsFindFullName (Ljava/lang/String;)Ljava/lang/String;
 	public fun getNativeOwnedFactoryAndThreads ()J
 	public fun getNativePeerConnectionFactory ()J
+	public fun getRtpReceiverCapabilities (Lorg/webrtc/MediaStreamTrack$MediaType;)Lorg/webrtc/RtpCapabilities;
+	public fun getRtpSenderCapabilities (Lorg/webrtc/MediaStreamTrack$MediaType;)Lorg/webrtc/RtpCapabilities;
 	public static fun initialize (Lorg/webrtc/PeerConnectionFactory$InitializationOptions;)V
 	public static fun initializeFieldTrials (Ljava/lang/String;)V
 	public fun printInternalStackTraces (Z)V
@@ -1182,6 +1183,13 @@ public class org/webrtc/PeerConnectionFactory$InitializationOptions$Builder {
 }
 
 public class org/webrtc/PeerConnectionFactory$Options {
+	public static final field ADAPTER_TYPE_ANY I
+	public static final field ADAPTER_TYPE_CELLULAR I
+	public static final field ADAPTER_TYPE_ETHERNET I
+	public static final field ADAPTER_TYPE_LOOPBACK I
+	public static final field ADAPTER_TYPE_UNKNOWN I
+	public static final field ADAPTER_TYPE_VPN I
+	public static final field ADAPTER_TYPE_WIFI I
 	public field disableEncryption Z
 	public field disableNetworkMonitor Z
 	public field networkIgnoreMask I
@@ -1280,6 +1288,29 @@ public class org/webrtc/RtcCertificatePem {
 	public static fun generateCertificate (Lorg/webrtc/PeerConnection$KeyType;J)Lorg/webrtc/RtcCertificatePem;
 }
 
+public class org/webrtc/RtpCapabilities {
+	public field codecs Ljava/util/List;
+	public field headerExtensions Ljava/util/List;
+	public fun getHeaderExtensions ()Ljava/util/List;
+}
+
+public class org/webrtc/RtpCapabilities$CodecCapability {
+	public field clockRate Ljava/lang/Integer;
+	public field kind Lorg/webrtc/MediaStreamTrack$MediaType;
+	public field mimeType Ljava/lang/String;
+	public field name Ljava/lang/String;
+	public field numChannels Ljava/lang/Integer;
+	public field parameters Ljava/util/Map;
+	public field preferredPayloadType I
+	public fun <init> ()V
+}
+
+public class org/webrtc/RtpCapabilities$HeaderExtensionCapability {
+	public fun getPreferredEncrypted ()Z
+	public fun getPreferredId ()I
+	public fun getUri ()Ljava/lang/String;
+}
+
 public class org/webrtc/RtpParameters {
 	public final field codecs Ljava/util/List;
 	public field degradationPreference Lorg/webrtc/RtpParameters$DegradationPreference;
@@ -1316,6 +1347,7 @@ public class org/webrtc/RtpParameters$Encoding {
 	public field networkPriority I
 	public field numTemporalLayers Ljava/lang/Integer;
 	public field rid Ljava/lang/String;
+	public field scalabilityMode Ljava/lang/String;
 	public field scaleResolutionDownBy Ljava/lang/Double;
 	public field ssrc Ljava/lang/Long;
 	public fun <init> (Ljava/lang/String;ZLjava/lang/Double;)V
@@ -1370,6 +1402,7 @@ public class org/webrtc/RtpTransceiver {
 	public fun getReceiver ()Lorg/webrtc/RtpReceiver;
 	public fun getSender ()Lorg/webrtc/RtpSender;
 	public fun isStopped ()Z
+	public fun setCodecPreferences (Ljava/util/List;)V
 	public fun setDirection (Lorg/webrtc/RtpTransceiver$RtpTransceiverDirection;)Z
 	public fun stop ()V
 	public fun stopInternal ()V
@@ -1625,6 +1658,7 @@ public class org/webrtc/VideoCodecInfo {
 	public final field name Ljava/lang/String;
 	public final field params Ljava/util/Map;
 	public final field payload I
+	public field scalabilityModes [I
 	public fun <init> (ILjava/lang/String;Ljava/util/Map;)V
 	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
 	public fun equals (Ljava/lang/Object;)Z
@@ -1862,6 +1896,17 @@ public final class org/webrtc/VideoFrame$TextureBuffer$Type : java/lang/Enum {
 	public static fun values ()[Lorg/webrtc/VideoFrame$TextureBuffer$Type;
 }
 
+public abstract interface annotation class org/webrtc/VideoFrameBufferType : java/lang/annotation/Annotation {
+	public static final field I010 I
+	public static final field I210 I
+	public static final field I420 I
+	public static final field I420A I
+	public static final field I422 I
+	public static final field I444 I
+	public static final field NATIVE I
+	public static final field NV12 I
+}
+
 public class org/webrtc/VideoFrameDrawer {
 	public static final field TAG Ljava/lang/String;
 	public fun <init> ()V
@@ -1918,6 +1963,8 @@ public class org/webrtc/VideoTrack : org/webrtc/MediaStreamTrack {
 	public fun addSink (Lorg/webrtc/VideoSink;)V
 	public fun dispose ()V
 	public fun removeSink (Lorg/webrtc/VideoSink;)V
+	public fun setShouldReceive (Z)V
+	public fun shouldReceive ()Z
 }
 
 public final class org/webrtc/WebRTCException : java/lang/RuntimeException {
@@ -1946,6 +1993,12 @@ public abstract class org/webrtc/WrappedNativeVideoEncoder : org/webrtc/VideoEnc
 	public final fun setRateAllocation (Lorg/webrtc/VideoEncoder$BitrateAllocation;I)Lorg/webrtc/VideoCodecStatus;
 }
 
+public class org/webrtc/WrappedVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;)V
+	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
 public final class org/webrtc/YuvConverter {
 	public fun <init> ()V
 	public fun <init> (Lorg/webrtc/VideoFrameDrawer;)V
@@ -1957,6 +2010,7 @@ public class org/webrtc/YuvHelper {
 	public fun <init> ()V
 	public static fun ABGRToI420 (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
 	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)V
+	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;IIII)V
 	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;IIIIII)V
 	public static fun I420Copy (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
 	public static fun I420Rotate (Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;ILjava/nio/ByteBuffer;III)V
@@ -2058,6 +2112,14 @@ public class org/webrtc/audio/JavaAudioDeviceModule$Builder {
 
 public abstract interface class org/webrtc/audio/JavaAudioDeviceModule$SamplesReadyCallback {
 	public abstract fun onWebRtcAudioRecordSamplesReady (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioSamples;)V
+}
+
+public class org/webrtc/audio/LegacyAudioDeviceModule : org/webrtc/audio/AudioDeviceModule {
+	public fun <init> ()V
+	public fun getNativeAudioDeviceModulePointer ()J
+	public fun release ()V
+	public fun setMicrophoneMute (Z)V
+	public fun setSpeakerMute (Z)V
 }
 
 public final class org/webrtc/voiceengine/BuildInfo {
