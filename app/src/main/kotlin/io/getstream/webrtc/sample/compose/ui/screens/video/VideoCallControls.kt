@@ -36,20 +36,21 @@ import androidx.compose.ui.unit.dp
 fun VideoCallControls(
   modifier: Modifier,
   callMediaState: CallMediaState,
-  actions: List<VideoCallControlAction> = buildDefaultCallControlActions(callMediaState = callMediaState),
-  onCallAction: (CallAction) -> Unit
+  actions: List<VideoCallControlAction> =
+    buildDefaultCallControlActions(callMediaState = callMediaState),
+  onCallAction: (CallAction) -> Unit,
 ) {
   LazyRow(
     modifier = modifier.padding(bottom = 12.dp),
     verticalAlignment = Alignment.CenterVertically,
-    horizontalArrangement = Arrangement.SpaceEvenly
+    horizontalArrangement = Arrangement.SpaceEvenly,
   ) {
     items(actions) { action ->
       Box(
         modifier = Modifier
           .size(56.dp)
           .clip(CircleShape)
-          .background(action.background)
+          .background(action.background),
       ) {
         Icon(
           modifier = Modifier
@@ -58,7 +59,7 @@ fun VideoCallControls(
             .clickable { onCallAction(action.callAction) },
           tint = action.iconTint,
           painter = action.icon,
-          contentDescription = null
+          contentDescription = null,
         )
       }
     }

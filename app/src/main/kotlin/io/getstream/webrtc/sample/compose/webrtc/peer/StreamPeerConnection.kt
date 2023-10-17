@@ -61,7 +61,7 @@ class StreamPeerConnection(
   private val onStreamAdded: ((MediaStream) -> Unit)?,
   private val onNegotiationNeeded: ((StreamPeerConnection, StreamPeerType) -> Unit)?,
   private val onIceCandidate: ((IceCandidate, StreamPeerType) -> Unit)?,
-  private val onVideoTrack: ((RtpTransceiver?) -> Unit)?
+  private val onVideoTrack: ((RtpTransceiver?) -> Unit)?,
 ) : PeerConnection.Observer {
 
   private val typeTag = type.stringify()
@@ -133,19 +133,25 @@ class StreamPeerConnection(
    * @return An empty [Result], if the operation has been successful or not.
    */
   suspend fun setRemoteDescription(sessionDescription: SessionDescription): Result<Unit> {
-    logger.d { "[setRemoteDescription] #sfu; #$typeTag; answerSdp: ${sessionDescription.stringify()}" }
+    logger.d {
+      "[setRemoteDescription] #sfu; #$typeTag; " +
+        "answerSdp: ${sessionDescription.stringify()}"
+    }
     return suspendSdpObserver {
       connection.setRemoteDescription(
         it,
         SessionDescription(
           sessionDescription.type,
-          sessionDescription.description.mungeCodecs()
-        )
+          sessionDescription.description.mungeCodecs(),
+        ),
       )
     }.also {
       pendingIceMutex.withLock {
         pendingIceCandidates.forEach { iceCandidate ->
-          logger.i { "[setRemoteDescription] #sfu; #subscriber; pendingRtcIceCandidate: $iceCandidate" }
+          logger.i {
+            "[setRemoteDescription] #sfu; #subscriber; " +
+              "pendingRtcIceCandidate: $iceCandidate"
+          }
           connection.addRtcIceCandidate(iceCandidate)
         }
         pendingIceCandidates.clear()
@@ -163,9 +169,12 @@ class StreamPeerConnection(
   suspend fun setLocalDescription(sessionDescription: SessionDescription): Result<Unit> {
     val sdp = SessionDescription(
       sessionDescription.type,
-      sessionDescription.description.mungeCodecs()
+      sessionDescription.description.mungeCodecs(),
     )
-    logger.d { "[setLocalDescription] #sfu; #$typeTag; offerSdp: ${sessionDescription.stringify()}" }
+    logger.d {
+      "[setLocalDescription] #sfu; #$typeTag; " +
+        "offerSdp: ${sessionDescription.stringify()}"
+    }
     return suspendSdpObserver { connection.setLocalDescription(it, sdp) }
   }
 
@@ -178,7 +187,10 @@ class StreamPeerConnection(
    */
   suspend fun addIceCandidate(iceCandidate: IceCandidate): Result<Unit> {
     if (connection.remoteDescription == null) {
-      logger.w { "[addIceCandidate] #sfu; #$typeTag; postponed (no remoteDescription): $iceCandidate" }
+      logger.w {
+        "[addIceCandidate] #sfu; #$typeTag;" +
+          " postponed (no remoteDescription): $iceCandidate"
+      }
       pendingIceMutex.withLock {
         pendingIceCandidates.add(iceCandidate)
       }
@@ -231,7 +243,10 @@ class StreamPeerConnection(
     mediaStreams?.forEach { mediaStream ->
       logger.v { "[onAddTrack] #sfu; #$typeTag; mediaStream: $mediaStream" }
       mediaStream.audioTracks?.forEach { remoteAudioTrack ->
-        logger.v { "[onAddTrack] #sfu; #$typeTag; remoteAudioTrack: ${remoteAudioTrack.stringify()}" }
+        logger.v {
+          "[onAddTrack] #sfu; #$typeTag; " +
+            "remoteAudioTrack: ${remoteAudioTrack.stringify()}"
+        }
         remoteAudioTrack.setEnabled(true)
       }
       onStreamAdded?.invoke(mediaStream)
@@ -263,7 +278,9 @@ class StreamPeerConnection(
     when (newState) {
       PeerConnection.IceConnectionState.CLOSED,
       PeerConnection.IceConnectionState.FAILED,
-      PeerConnection.IceConnectionState.DISCONNECTED -> statsJob?.cancel()
+      PeerConnection.IceConnectionState.DISCONNECTED,
+      -> statsJob?.cancel()
+
       PeerConnection.IceConnectionState.CONNECTED -> statsJob = observeStats()
       else -> Unit
     }
@@ -335,6 +352,7 @@ class StreamPeerConnection(
     "StreamPeerConnection(type='$typeTag', constraints=$mediaConstraints)"
 
   private fun String.mungeCodecs(): String {
-    return this.replace("vp9", "VP9").replace("vp8", "VP8").replace("h264", "H264")
+    return this.replace("vp9", "VP9")
+      .replace("vp8", "VP8").replace("h264", "H264")
   }
 }

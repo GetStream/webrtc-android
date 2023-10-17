@@ -62,7 +62,7 @@ val LocalWebRtcSessionManager: ProvidableCompositionLocal<WebRtcSessionManager> 
 class WebRtcSessionManagerImpl(
   private val context: Context,
   override val signalingClient: SignalingClient,
-  override val peerConnectionFactory: StreamPeerConnectionFactory
+  override val peerConnectionFactory: StreamPeerConnectionFactory,
 ) : WebRtcSessionManager {
   private val logger by taggedLogger("Call:LocalWebRtcSessionManager")
 
@@ -82,8 +82,8 @@ class WebRtcSessionManagerImpl(
     mandatory.addAll(
       listOf(
         MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"),
-        MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true")
-      )
+        MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"),
+      ),
     )
   }
 
@@ -108,7 +108,7 @@ class WebRtcSessionManagerImpl(
   // we need it to initialize video capturer
   private val surfaceTextureHelper = SurfaceTextureHelper.create(
     "SurfaceTextureHelperThread",
-    peerConnectionFactory.eglBaseContext
+    peerConnectionFactory.eglBaseContext,
   )
 
   private val videoSource by lazy {
@@ -121,7 +121,7 @@ class WebRtcSessionManagerImpl(
   private val localVideoTrack: VideoTrack by lazy {
     peerConnectionFactory.makeVideoTrack(
       source = videoSource,
-      trackId = "Video${UUID.randomUUID()}"
+      trackId = "Video${UUID.randomUUID()}",
     )
   }
 
@@ -146,7 +146,7 @@ class WebRtcSessionManagerImpl(
   private val localAudioTrack: AudioTrack by lazy {
     peerConnectionFactory.makeAudioTrack(
       source = audioSource,
-      trackId = "Audio${UUID.randomUUID()}"
+      trackId = "Audio${UUID.randomUUID()}",
     )
   }
 
@@ -161,7 +161,8 @@ class WebRtcSessionManagerImpl(
       onIceCandidateRequest = { iceCandidate, _ ->
         signalingClient.sendCommand(
           SignalingCommand.ICE,
-          "${iceCandidate.sdpMid}$ICE_SEPARATOR${iceCandidate.sdpMLineIndex}$ICE_SEPARATOR${iceCandidate.sdp}"
+          "${iceCandidate.sdpMid}$ICE_SEPARATOR" +
+            "${iceCandidate.sdpMLineIndex}$ICE_SEPARATOR${iceCandidate.sdp}",
         )
       },
       onVideoTrack = { rtpTransceiver ->
@@ -172,7 +173,7 @@ class WebRtcSessionManagerImpl(
             _remoteVideoSinkFlow.emit(videoTrack)
           }
         }
-      }
+      },
     )
   }
 
@@ -244,7 +245,7 @@ class WebRtcSessionManagerImpl(
 
   private suspend fun sendAnswer() {
     peerConnection.setRemoteDescription(
-      SessionDescription(SessionDescription.Type.OFFER, offer)
+      SessionDescription(SessionDescription.Type.OFFER, offer),
     )
     val answer = peerConnection.createAnswer().getOrThrow()
     val result = peerConnection.setLocalDescription(answer)
@@ -262,7 +263,7 @@ class WebRtcSessionManagerImpl(
   private suspend fun handleAnswer(sdp: String) {
     logger.d { "[SDP] handle answer: $sdp" }
     peerConnection.setRemoteDescription(
-      SessionDescription(SessionDescription.Type.ANSWER, sdp)
+      SessionDescription(SessionDescription.Type.ANSWER, sdp),
     )
   }
 
@@ -272,8 +273,8 @@ class WebRtcSessionManagerImpl(
       IceCandidate(
         iceArray[0],
         iceArray[1].toInt(),
-        iceArray[2]
-      )
+        iceArray[2],
+      ),
     )
   }
 
@@ -307,24 +308,24 @@ class WebRtcSessionManagerImpl(
     val items = listOf(
       MediaConstraints.KeyValuePair(
         "googEchoCancellation",
-        true.toString()
+        true.toString(),
       ),
       MediaConstraints.KeyValuePair(
         "googAutoGainControl",
-        true.toString()
+        true.toString(),
       ),
       MediaConstraints.KeyValuePair(
         "googHighpassFilter",
-        true.toString()
+        true.toString(),
       ),
       MediaConstraints.KeyValuePair(
         "googNoiseSuppression",
-        true.toString()
+        true.toString(),
       ),
       MediaConstraints.KeyValuePair(
         "googTypingNoiseDetection",
-        true.toString()
-      )
+        true.toString(),
+      ),
     )
 
     return mediaConstraints.apply {

@@ -57,7 +57,7 @@ class AudioSwitchHandler constructor(private val context: Context) : AudioHandle
           context = context,
           audioFocusChangeListener = onAudioFocusChangeListener
             ?: defaultOnAudioFocusChangeListener,
-          preferredDeviceList = preferredDeviceList ?: defaultPreferredDeviceList
+          preferredDeviceList = preferredDeviceList ?: defaultPreferredDeviceList,
         )
         audioSwitch = switch
         switch.start(audioDeviceChangeListener ?: defaultAudioDeviceChangeListener)
@@ -84,7 +84,7 @@ class AudioSwitchHandler constructor(private val context: Context) : AudioHandle
       object : AudioDeviceChangeListener {
         override fun invoke(
           audioDevices: List<AudioDevice>,
-          selectedAudioDevice: AudioDevice?
+          selectedAudioDevice: AudioDevice?,
         ) {
           StreamLog.i(TAG) { "[onAudioDeviceChange] selectedAudioDevice: $selectedAudioDevice" }
         }
@@ -95,7 +95,7 @@ class AudioSwitchHandler constructor(private val context: Context) : AudioHandle
         AudioDevice.BluetoothHeadset::class.java,
         AudioDevice.WiredHeadset::class.java,
         AudioDevice.Earpiece::class.java,
-        AudioDevice.Speakerphone::class.java
+        AudioDevice.Speakerphone::class.java,
       )
     }
 

@@ -29,7 +29,8 @@ public fun MediaStreamTrack.stringify(): String {
 }
 
 public fun IceCandidateErrorEvent.stringify(): String {
-  return "IceCandidateErrorEvent(errorCode=$errorCode, $errorText, address=$address, port=$port, url=$url)"
+  return "IceCandidateErrorEvent(errorCode=$errorCode, $errorText, " +
+    "address=$address, port=$port, url=$url)"
 }
 
 public fun JavaAudioDeviceModule.AudioSamples.stringify(): String {

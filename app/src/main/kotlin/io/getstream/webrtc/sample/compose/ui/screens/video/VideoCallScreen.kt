@@ -51,7 +51,7 @@ fun VideoCallScreen() {
   }
 
   Box(
-    modifier = Modifier.fillMaxSize()
+    modifier = Modifier.fillMaxSize(),
   ) {
     var parentSize: IntSize by remember { mutableStateOf(IntSize(0, 0)) }
 
@@ -74,7 +74,7 @@ fun VideoCallScreen() {
           .fillMaxSize()
           .onSizeChanged { parentSize = it },
         eglBaseContext = sessionManager.peerConnectionFactory.eglBaseContext,
-        rendererEvents = rendererEvents
+        rendererEvents = rendererEvents,
       )
     }
 
@@ -88,7 +88,7 @@ fun VideoCallScreen() {
         parentBounds = parentSize,
         paddingValues = PaddingValues(0.dp),
         eglBaseContext = sessionManager.peerConnectionFactory.eglBaseContext,
-        rendererEvents = rendererEvents
+        rendererEvents = rendererEvents,
       )
     }
 
@@ -117,7 +117,7 @@ fun VideoCallScreen() {
             activity?.finish()
           }
         }
-      }
+      },
     )
   }
 }

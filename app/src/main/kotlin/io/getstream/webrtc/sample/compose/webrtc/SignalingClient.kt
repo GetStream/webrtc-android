@@ -99,12 +99,12 @@ enum class WebRTCSessionState {
   Creating, // Creating session, offer has been sent
   Ready, // Both clients available and ready to initiate session
   Impossible, // We have less than two clients connected to the server
-  Offline // unable to connect signaling server
+  Offline, // unable to connect signaling server
 }
 
 enum class SignalingCommand {
   STATE, // Command for WebRTCSessionState
   OFFER, // to send or receive offer
   ANSWER, // to send or receive answer
-  ICE // to send and receive ice candidates
+  ICE, // to send and receive ice candidates
 }

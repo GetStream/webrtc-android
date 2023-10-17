@@ -34,7 +34,7 @@ class BaselineProfileGenerator {
   fun startup() =
     baselineProfileRule.collect(
       packageName = "io.getstream.webrtc.sample.compose",
-      includeInStartupProfile = true
+      includeInStartupProfile = true,
     ) {
       pressHome()
       // This block defines the app's critical user journey. Here we are interested in

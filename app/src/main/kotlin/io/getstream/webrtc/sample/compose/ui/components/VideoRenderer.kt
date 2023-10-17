@@ -39,7 +39,7 @@ import org.webrtc.VideoTrack
 @Composable
 fun VideoRendererasd(
   videoTrack: VideoTrack,
-  modifier: Modifier = Modifier
+  modifier: Modifier = Modifier,
 ) {
   val trackState: MutableState<VideoTrack?> = remember { mutableStateOf(null) }
   var view: VideoTextureViewRenderer? by remember { mutableStateOf(null) }
@@ -60,20 +60,20 @@ fun VideoRendererasd(
             override fun onFirstFrameRendered() = Unit
 
             override fun onFrameResolutionChanged(p0: Int, p1: Int, p2: Int) = Unit
-          }
+          },
         )
         setupVideo(trackState, videoTrack, this)
         view = this
       }
     },
     update = { v -> setupVideo(trackState, videoTrack, v) },
-    modifier = modifier
+    modifier = modifier,
   )
 }
 
 private fun cleanTrack(
   view: VideoTextureViewRenderer?,
-  trackState: MutableState<VideoTrack?>
+  trackState: MutableState<VideoTrack?>,
 ) {
   view?.let { trackState.value?.removeSink(it) }
   trackState.value = null
@@ -82,7 +82,7 @@ private fun cleanTrack(
 private fun setupVideo(
   trackState: MutableState<VideoTrack?>,
   track: VideoTrack,
-  renderer: VideoTextureViewRenderer
+  renderer: VideoTextureViewRenderer,
 ) {
   if (trackState.value == track) {
     return
