@@ -51,7 +51,7 @@ Add the below dependency to your **module**'s `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "io.getstream:stream-webrtc-android:1.0.7"
+    implementation "io.getstream:stream-webrtc-android:1.1.0"
 }
 ```
 
@@ -74,7 +74,7 @@ repositories {
 Next, add the below dependency to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "io.getstream:stream-webrtc-android:1.0.8-SNAPSHOT"
+    implementation "io.getstream:stream-webrtc-android:1.1.1-SNAPSHOT"
 }
 ```
 
