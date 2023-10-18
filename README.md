@@ -23,6 +23,7 @@ Since Google no longer supported the [WebRTC library for Android](https://webrtc
 
 You can see the use cases of this library in the repositories below:
 
+- [stream-video-android](https://github.com/getstream/stream-video-android): 📲 An official Android Video SDK by Stream, which consists of versatile Core + Compose UI component libraries that allow you to build video calling, audio room, and, live streaming apps based on Webrtc running on Stream's global edge network.
 - [webrtc-in-jetpack-compose](https://github.com/GetStream/webrtc-in-jetpack-compose): 📱 This project demonstrates WebRTC protocol to facilitate real-time video communications with Jetpack Compose.
 
 ## ✍️ Technical Content
@@ -40,7 +41,7 @@ If you want to have a better grasp of how WebRTC works, such as basic concepts o
 
 ## 🛥 Stream Chat and Voice & Video calling SDK
 
-If you’re interested in adding powerful In-App Messaging to your app, check out the __[Compose Chat SDK for Messaging](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)__! We're also planning to release voice & video calling SDK very soon! Check out the **[Video & Voice Calling API on Stream's Global Edge Network](https://getstream.io/video?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)**, if you want early access to our SDK.
+If you’re interested in adding powerful In-App Messaging to your app, check out the __[Compose Chat SDK for Messaging](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)__! We're also planning to release voice & video calling SDK very soon! Check out the **[Video & Voice Calling API on Stream's Global Edge Network](https://getstream.io/video?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)**, if you want early access to our SDK. If you're interested in the real-time Android Video SDK, check out [Stream Video Android](https://github.com/GetStream/webrtc-android) repository.
 
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/io.getstream/stream-webrtc-android.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.getstream%22%20AND%20a:%22stream-webrtc-android%22)
