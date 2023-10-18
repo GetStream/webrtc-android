@@ -29,6 +29,7 @@ class MediaCodecUtils {
   static final String INTEL_PREFIX = "OMX.Intel.";
   static final String NVIDIA_PREFIX = "OMX.Nvidia.";
   static final String QCOM_PREFIX = "OMX.qcom.";
+  static final String MARVELL_PREFIX = "OMX.Marvell.";
   static final String[] SOFTWARE_IMPLEMENTATION_PREFIXES = {
       "OMX.google.", "OMX.SEC.", "c2.android"};
 
@@ -40,7 +41,9 @@ class MediaCodecUtils {
   static final int COLOR_QCOM_FORMATYUV420PackedSemiPlanar32m = 0x7FA30C04;
 
   // Color formats supported by hardware decoder - in order of preference.
-  static final int[] DECODER_COLOR_FORMATS = new int[] {CodecCapabilities.COLOR_FormatYUV420Planar,
+  static final int[] DECODER_COLOR_FORMATS = new int[] {
+      MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Flexible,
+      CodecCapabilities.COLOR_FormatYUV420Planar,
       CodecCapabilities.COLOR_FormatYUV420SemiPlanar,
       CodecCapabilities.COLOR_QCOM_FormatYUV420SemiPlanar,
       MediaCodecUtils.COLOR_QCOM_FORMATYVU420PackedSemiPlanar32m4ka,

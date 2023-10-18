@@ -12,6 +12,7 @@ package org.webrtc;
 
 import static org.webrtc.MediaCodecUtils.EXYNOS_PREFIX;
 import static org.webrtc.MediaCodecUtils.QCOM_PREFIX;
+import static org.webrtc.MediaCodecUtils.MARVELL_PREFIX;
 
 import android.media.MediaCodecInfo;
 import android.media.MediaCodecInfo.CodecCapabilities;
@@ -127,8 +128,8 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
 
   private boolean isH264HighProfileSupported(MediaCodecInfo info) {
     String name = info.getName();
-    // Support H.264 HP decoding on QCOM chips.
-    if (name.startsWith(QCOM_PREFIX)) {
+    // Support H.264 HP decoding on QCOM and Marvell chips
+    if (name.startsWith(QCOM_PREFIX) || name.startsWith(MARVELL_PREFIX)) {
       return true;
     }
     // Support H.264 HP decoding on Exynos chips for Android M and above.
