@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>PeerConnection</title>
-<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
-<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../../styles/main.css" rel="Stylesheet">
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
@@ -29,845 +32,862 @@
 <script type="text/javascript" src="../../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../../index.html">
-<span>stream-webrtc-android</span>            </a>    </div>
-    <div>1.0.0
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            stream-webrtc-android
+                    </a>            </div>
+            <div class="library-version">1.1.0
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":stream-webrtc-android:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="stream-webrtc-android::org.webrtc/PeerConnection///PointingToDeclaration//-1079168503">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="stream-webrtc-android::org.webrtc/PeerConnection///PointingToDeclaration//-1079168503">
   <div class="breadcrumbs"><a href="../../index.html">stream-webrtc-android</a><span class="delimiter">/</span><a href="../index.html">org.webrtc</a><span class="delimiter">/</span><span class="current">PeerConnection</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Peer</span><wbr><span><span>Connection</span></span></h1>
     <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">PeerConnection</a></div><p class="paragraph">Java-land version of the PeerConnection APIs; wraps the C++ API http://www.webrtc.org/reference/native-apis, which in turn is inspired by the JS APIs: http://dev.w3.org/2011/webrtc/editor/webrtc.html and http://www.w3.org/TR/mediacapture-streams/</p></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <h2 class="tabbedcontent">Constructors</h2>
-      <div class="table" data-togglable="Constructors"><a data-name="-1843865814%2FConstructors%2F-1079168503" anchor-label="PeerConnection" id="-1843865814%2FConstructors%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue TabbedContent">
-            <div class=""><span class="inline-flex">
-                <div><a href="-peer-connection.html"><span>Peer</span><wbr><span><span>Connection</span></span></a></div>
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1843865814%2FConstructors%2F-1079168503" anchor-label="PeerConnection" id="-1843865814%2FConstructors%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-peer-connection.html"><span>Peer</span><wbr><span><span>Connection</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1843865814%2FConstructors%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="-peer-connection.html"><span class="token function">PeerConnection</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">factory<span class="token operator">: </span><a href="../-native-peer-connection-factory/index.html">NativePeerConnectionFactory</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">factory<span class="token operator">: </span><a href="../-native-peer-connection-factory/index.html">NativePeerConnectionFactory</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Wraps a PeerConnection created by the factory.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Types</h2>
-      <div class="table" data-togglable="Types"><a data-name="-105978562%2FClasslikes%2F-1079168503" anchor-label="AdapterType" id="-105978562%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-adapter-type/index.html"><span>Adapter</span><wbr><span><span>Type</span></span></a></div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-105978562%2FClasslikes%2F-1079168503" anchor-label="AdapterType" id="-105978562%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-adapter-type/index.html"><span>Adapter</span><wbr><span><span>Type</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-105978562%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-adapter-type/index.html">AdapterType</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-adapter-type/index.html">AdapterType</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1527463673%2FClasslikes%2F-1079168503" anchor-label="BundlePolicy" id="-1527463673%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-bundle-policy/index.html"><span>Bundle</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-bundle-policy/index.html"><span>Bundle</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1527463673%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-bundle-policy/index.html">BundlePolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-bundle-policy/index.html">BundlePolicy</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-888087362%2FClasslikes%2F-1079168503" anchor-label="CandidateNetworkPolicy" id="-888087362%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-candidate-network-policy/index.html"><span>Candidate</span><wbr><span>Network</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-candidate-network-policy/index.html"><span>Candidate</span><wbr><span>Network</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-888087362%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-candidate-network-policy/index.html">CandidateNetworkPolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-candidate-network-policy/index.html">CandidateNetworkPolicy</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1508373205%2FClasslikes%2F-1079168503" anchor-label="ContinualGatheringPolicy" id="-1508373205%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-continual-gathering-policy/index.html"><span>Continual</span><wbr><span>Gathering</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-continual-gathering-policy/index.html"><span>Continual</span><wbr><span>Gathering</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1508373205%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-continual-gathering-policy/index.html">ContinualGatheringPolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-continual-gathering-policy/index.html">ContinualGatheringPolicy</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-494173677%2FClasslikes%2F-1079168503" anchor-label="IceConnectionState" id="-494173677%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-ice-connection-state/index.html"><span>Ice</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ice-connection-state/index.html"><span>Ice</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-494173677%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-connection-state/index.html">IceConnectionState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-connection-state/index.html">IceConnectionState</a></div><div class="brief ">Tracks PeerConnectionInterface::IceConnectionState</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1818577202%2FClasslikes%2F-1079168503" anchor-label="IceGatheringState" id="1818577202%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-ice-gathering-state/index.html"><span>Ice</span><wbr><span>Gathering</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ice-gathering-state/index.html"><span>Ice</span><wbr><span>Gathering</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1818577202%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-gathering-state/index.html">IceGatheringState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-gathering-state/index.html">IceGatheringState</a></div><div class="brief ">Tracks PeerConnectionInterface::IceGatheringState</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-819958823%2FClasslikes%2F-1079168503" anchor-label="IceServer" id="-819958823%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-ice-server/index.html"><span>Ice</span><wbr><span><span>Server</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ice-server/index.html"><span>Ice</span><wbr><span><span>Server</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-819958823%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-ice-server/index.html">IceServer</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-ice-server/index.html">IceServer</a></div><div class="brief ">Java version of PeerConnectionInterface.IceServer.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1058977400%2FClasslikes%2F-1079168503" anchor-label="IceTransportsType" id="1058977400%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-ice-transports-type/index.html"><span>Ice</span><wbr><span>Transports</span><wbr><span><span>Type</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ice-transports-type/index.html"><span>Ice</span><wbr><span>Transports</span><wbr><span><span>Type</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1058977400%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-transports-type/index.html">IceTransportsType</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-ice-transports-type/index.html">IceTransportsType</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-990052562%2FClasslikes%2F-1079168503" anchor-label="KeyType" id="-990052562%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-key-type/index.html"><span>Key</span><wbr><span><span>Type</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-type/index.html"><span>Key</span><wbr><span><span>Type</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-990052562%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-key-type/index.html">KeyType</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-key-type/index.html">KeyType</a></div><div class="brief ">Java version of rtc::KeyType</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1148953029%2FClasslikes%2F-1079168503" anchor-label="Observer" id="1148953029%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-observer/index.html"><span><span>Observer</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-observer/index.html"><span><span>Observer</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1148953029%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-observer/index.html">Observer</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-observer/index.html">Observer</a></div><div class="brief ">Java version of PeerConnectionObserver.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1235323690%2FClasslikes%2F-1079168503" anchor-label="PeerConnectionState" id="-1235323690%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-peer-connection-state/index.html"><span>Peer</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-peer-connection-state/index.html"><span>Peer</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1235323690%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-peer-connection-state/index.html">PeerConnectionState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-peer-connection-state/index.html">PeerConnectionState</a></div><div class="brief ">Tracks PeerConnectionInterface::PeerConnectionState</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1027021676%2FClasslikes%2F-1079168503" anchor-label="PortPrunePolicy" id="1027021676%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-port-prune-policy/index.html"><span>Port</span><wbr><span>Prune</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-port-prune-policy/index.html"><span>Port</span><wbr><span>Prune</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1027021676%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-port-prune-policy/index.html">PortPrunePolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-port-prune-policy/index.html">PortPrunePolicy</a></div><div class="brief ">Java version of webrtc::PortPrunePolicy</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="618146662%2FClasslikes%2F-1079168503" anchor-label="RTCConfiguration" id="618146662%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-r-t-c-configuration/index.html"><span><span>RTCConfiguration</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-r-t-c-configuration/index.html"><span><span>RTCConfiguration</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="618146662%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-r-t-c-configuration/index.html">RTCConfiguration</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-r-t-c-configuration/index.html">RTCConfiguration</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1085947508%2FClasslikes%2F-1079168503" anchor-label="RtcpMuxPolicy" id="1085947508%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-rtcp-mux-policy/index.html"><span>Rtcp</span><wbr><span>Mux</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-rtcp-mux-policy/index.html"><span>Rtcp</span><wbr><span>Mux</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1085947508%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-rtcp-mux-policy/index.html">RtcpMuxPolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-rtcp-mux-policy/index.html">RtcpMuxPolicy</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1816671405%2FClasslikes%2F-1079168503" anchor-label="SdpSemantics" id="1816671405%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-sdp-semantics/index.html"><span>Sdp</span><wbr><span><span>Semantics</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-sdp-semantics/index.html"><span>Sdp</span><wbr><span><span>Semantics</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1816671405%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-sdp-semantics/index.html">SdpSemantics</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-sdp-semantics/index.html">SdpSemantics</a></div><div class="brief ">Java version of webrtc::SdpSemantics.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1062425540%2FClasslikes%2F-1079168503" anchor-label="SignalingState" id="1062425540%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-signaling-state/index.html"><span>Signaling</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-signaling-state/index.html"><span>Signaling</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1062425540%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-signaling-state/index.html">SignalingState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-signaling-state/index.html">SignalingState</a></div><div class="brief ">Tracks PeerConnectionInterface::SignalingState</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-71646361%2FClasslikes%2F-1079168503" anchor-label="TcpCandidatePolicy" id="-71646361%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-tcp-candidate-policy/index.html"><span>Tcp</span><wbr><span>Candidate</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-tcp-candidate-policy/index.html"><span>Tcp</span><wbr><span>Candidate</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-71646361%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-tcp-candidate-policy/index.html">TcpCandidatePolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-tcp-candidate-policy/index.html">TcpCandidatePolicy</a></div><div class="brief ">Java version of PeerConnectionInterface.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1230185450%2FClasslikes%2F-1079168503" anchor-label="TlsCertPolicy" id="-1230185450%2FClasslikes%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="-tls-cert-policy/index.html"><span>Tls</span><wbr><span>Cert</span><wbr><span><span>Policy</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-tls-cert-policy/index.html"><span>Tls</span><wbr><span>Cert</span><wbr><span><span>Policy</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1230185450%2FClasslikes%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-tls-cert-policy/index.html">TlsCertPolicy</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-tls-cert-policy/index.html">TlsCertPolicy</a></div><div class="brief ">Tracks PeerConnectionInterface::TlsCertPolicy</div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Properties</h2>
-      <div class="table" data-togglable="Properties"><a data-name="1174897199%2FProperties%2F-1079168503" anchor-label="nativePeerConnection" id="1174897199%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="native-peer-connection.html"><span>native</span><wbr><span>Peer</span><wbr><span><span>Connection</span></span></a></div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1174897199%2FProperties%2F-1079168503" anchor-label="nativePeerConnection" id="1174897199%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="native-peer-connection.html"><span>native</span><wbr><span>Peer</span><wbr><span><span>Connection</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1174897199%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="1174897199%2FProperties%2F-1079168503" anchor-label="nativePeerConnection" id="1174897199%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="native-peer-connection.html">nativePeerConnection</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="native-peer-connection.html">nativePeerConnection</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="682745616%2FProperties%2F-1079168503" anchor-label="receivers" id="682745616%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="receivers.html"><span><span>receivers</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="receivers.html"><span><span>receivers</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="682745616%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="682745616%2FProperties%2F-1079168503" anchor-label="receivers" id="682745616%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="receivers.html">receivers</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-receiver/index.html">RtpReceiver</a><span class="token operator">&gt;</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="receivers.html">receivers</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-receiver/index.html">RtpReceiver</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="68093334%2FProperties%2F-1079168503" anchor-label="senders" id="68093334%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="senders.html"><span><span>senders</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="senders.html"><span><span>senders</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="68093334%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="68093334%2FProperties%2F-1079168503" anchor-label="senders" id="68093334%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="senders.html">senders</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-sender/index.html">RtpSender</a><span class="token operator">&gt;</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="senders.html">senders</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-sender/index.html">RtpSender</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="412033463%2FProperties%2F-1079168503" anchor-label="transceivers" id="412033463%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="transceivers.html"><span><span>transceivers</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="transceivers.html"><span><span>transceivers</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="412033463%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="412033463%2FProperties%2F-1079168503" anchor-label="transceivers" id="412033463%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="transceivers.html">transceivers</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a><span class="token operator">&gt;</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="transceivers.html">transceivers</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="-1982852544%2FFunctions%2F-1079168503" anchor-label="addIceCandidate" id="-1982852544%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="add-ice-candidate.html"><span>add</span><wbr><span>Ice</span><wbr><span><span>Candidate</span></span></a></div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1982852544%2FFunctions%2F-1079168503" anchor-label="addIceCandidate" id="-1982852544%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-ice-candidate.html"><span>add</span><wbr><span>Ice</span><wbr><span><span>Candidate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1982852544%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-ice-candidate.html"><span class="token function">addIceCandidate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidate<span class="token operator">: </span><a href="../-ice-candidate/index.html">IceCandidate</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-ice-candidate.html"><span class="token function">addIceCandidate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidate<span class="token operator">: </span><a href="../-ice-candidate/index.html">IceCandidate</a><span class="token punctuation">, </span></span><span class="parameter ">observer<span class="token operator">: </span><a href="../-add-ice-observer/index.html">AddIceObserver</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-ice-candidate.html"><span class="token function">addIceCandidate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidate<span class="token operator">: </span><a href="../-ice-candidate/index.html">IceCandidate</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-ice-candidate.html"><span class="token function">addIceCandidate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidate<span class="token operator">: </span><a href="../-ice-candidate/index.html">IceCandidate</a><span class="token punctuation">, </span></span><span class="parameter ">observer<span class="token operator">: </span><a href="../-add-ice-observer/index.html">AddIceObserver</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1590112422%2FFunctions%2F-1079168503" anchor-label="addStream" id="1590112422%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="add-stream.html"><span>add</span><wbr><span><span>Stream</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-stream.html"><span>add</span><wbr><span><span>Stream</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1590112422%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-stream.html"><span class="token function">addStream</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stream<span class="token operator">: </span><a href="../-media-stream/index.html">MediaStream</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-stream.html"><span class="token function">addStream</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stream<span class="token operator">: </span><a href="../-media-stream/index.html">MediaStream</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Adds a new MediaStream to be sent on this peer connection.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="262625016%2FFunctions%2F-1079168503" anchor-label="addTrack" id="262625016%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="add-track.html"><span>add</span><wbr><span><span>Track</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-track.html"><span>add</span><wbr><span><span>Track</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="262625016%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-track.html"><span class="token function">addTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-track.html"><span class="token function">addTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a><span class="token punctuation">, </span></span><span class="parameter ">streamIds<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-track.html"><span class="token function">addTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div><div class="brief ">Adds a new media stream track to be sent on this peer connection, and returns the newly created RtpSender.</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-track.html"><span class="token function">addTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a><span class="token punctuation">, </span></span><span class="parameter ">streamIds<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1111440342%2FFunctions%2F-1079168503" anchor-label="addTransceiver" id="1111440342%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="add-transceiver.html"><span>add</span><wbr><span><span>Transceiver</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-transceiver.html"><span>add</span><wbr><span><span>Transceiver</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1111440342%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mediaType<span class="token operator">: </span><a href="../-media-stream-track/-media-type/index.html">MediaStreamTrack.MediaType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>init<span class="token operator">: </span><a href="../-rtp-transceiver/-rtp-transceiver-init/index.html">RtpTransceiver.RtpTransceiverInit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mediaType<span class="token operator">: </span><a href="../-media-stream-track/-media-type/index.html">MediaStreamTrack.MediaType</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>init<span class="token operator">: </span><a href="../-rtp-transceiver/-rtp-transceiver-init/index.html">RtpTransceiver.RtpTransceiverInit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="brief ">Creates a new RtpTransceiver and adds it to the set of transceivers.</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mediaType<span class="token operator">: </span><a href="../-media-stream-track/-media-type/index.html">MediaStreamTrack.MediaType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>init<span class="token operator">: </span><a href="../-rtp-transceiver/-rtp-transceiver-init/index.html">RtpTransceiver.RtpTransceiverInit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-transceiver.html"><span class="token function">addTransceiver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mediaType<span class="token operator">: </span><a href="../-media-stream-track/-media-type/index.html">MediaStreamTrack.MediaType</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>init<span class="token operator">: </span><a href="../-rtp-transceiver/-rtp-transceiver-init/index.html">RtpTransceiver.RtpTransceiverInit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-transceiver/index.html">RtpTransceiver</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1094731908%2FFunctions%2F-1079168503" anchor-label="close" id="-1094731908%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="close.html"><span><span>close</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="close.html"><span><span>close</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1094731908%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1703917761%2FFunctions%2F-1079168503" anchor-label="connectionState" id="1703917761%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="connection-state.html"><span>connection</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connection-state.html"><span>connection</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1703917761%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="connection-state.html"><span class="token function">connectionState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-peer-connection-state/index.html">PeerConnection.PeerConnectionState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="connection-state.html"><span class="token function">connectionState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-peer-connection-state/index.html">PeerConnection.PeerConnectionState</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1532592840%2FFunctions%2F-1079168503" anchor-label="createAnswer" id="1532592840%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-answer.html"><span>create</span><wbr><span><span>Answer</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-answer.html"><span>create</span><wbr><span><span>Answer</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1532592840%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-answer.html"><span class="token function">createAnswer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">constraints<span class="token operator">: </span><a href="../-media-constraints/index.html">MediaConstraints</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-answer.html"><span class="token function">createAnswer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">constraints<span class="token operator">: </span><a href="../-media-constraints/index.html">MediaConstraints</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1424622905%2FFunctions%2F-1079168503" anchor-label="createDataChannel" id="1424622905%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-data-channel.html"><span>create</span><wbr><span>Data</span><wbr><span><span>Channel</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-data-channel.html"><span>create</span><wbr><span>Data</span><wbr><span><span>Channel</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1424622905%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-data-channel.html"><span class="token function">createDataChannel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">label<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">init<span class="token operator">: </span><a href="../-data-channel/-init/index.html">DataChannel.Init</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-data-channel/index.html">DataChannel</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-data-channel.html"><span class="token function">createDataChannel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">label<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">init<span class="token operator">: </span><a href="../-data-channel/-init/index.html">DataChannel.Init</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-data-channel/index.html">DataChannel</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="381604592%2FFunctions%2F-1079168503" anchor-label="createNativePeerConnectionObserver" id="381604592%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-native-peer-connection-observer.html"><span>create</span><wbr><span>Native</span><wbr><span>Peer</span><wbr><span>Connection</span><wbr><span><span>Observer</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-native-peer-connection-observer.html"><span>create</span><wbr><span>Native</span><wbr><span>Peer</span><wbr><span>Connection</span><wbr><span><span>Observer</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="381604592%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-native-peer-connection-observer.html"><span class="token function">createNativePeerConnectionObserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="-observer/index.html">PeerConnection.Observer</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-native-peer-connection-observer.html"><span class="token function">createNativePeerConnectionObserver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="-observer/index.html">PeerConnection.Observer</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1853743952%2FFunctions%2F-1079168503" anchor-label="createOffer" id="-1853743952%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-offer.html"><span>create</span><wbr><span><span>Offer</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-offer.html"><span>create</span><wbr><span><span>Offer</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1853743952%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-offer.html"><span class="token function">createOffer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">constraints<span class="token operator">: </span><a href="../-media-constraints/index.html">MediaConstraints</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-offer.html"><span class="token function">createOffer</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">constraints<span class="token operator">: </span><a href="../-media-constraints/index.html">MediaConstraints</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1226883210%2FFunctions%2F-1079168503" anchor-label="createSender" id="1226883210%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-sender.html"><span>create</span><wbr><span><span>Sender</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-sender.html"><span>create</span><wbr><span><span>Sender</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1226883210%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-sender.html"><span class="token function">createSender</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kind<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">stream_id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-sender.html"><span class="token function">createSender</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">kind<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">stream_id<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></div><div class="brief ">Creates an RtpSender without a track.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-678082699%2FFunctions%2F-1079168503" anchor-label="dispose" id="-678082699%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="dispose.html"><span><span>dispose</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dispose.html"><span><span>dispose</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-678082699%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="dispose.html"><span class="token function">dispose</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="dispose.html"><span class="token function">dispose</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Free native resources associated with this PeerConnection instance.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1931734437%2FFunctions%2F-1079168503" anchor-label="getCertificate" id="1931734437%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="get-certificate.html"><span>get</span><wbr><span><span>Certificate</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-certificate.html"><span>get</span><wbr><span><span>Certificate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1931734437%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-certificate.html"><span class="token function">getCertificate</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtc-certificate-pem/index.html">RtcCertificatePem</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-certificate.html"><span class="token function">getCertificate</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-rtc-certificate-pem/index.html">RtcCertificatePem</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1701975309%2FFunctions%2F-1079168503" anchor-label="getLocalDescription" id="1701975309%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="get-local-description.html"><span>get</span><wbr><span>Local</span><wbr><span><span>Description</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-local-description.html"><span>get</span><wbr><span>Local</span><wbr><span><span>Description</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1701975309%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-local-description.html"><span class="token function">getLocalDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-local-description.html"><span class="token function">getLocalDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1454504698%2FFunctions%2F-1079168503" anchor-label="getRemoteDescription" id="-1454504698%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="get-remote-description.html"><span>get</span><wbr><span>Remote</span><wbr><span><span>Description</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-remote-description.html"><span>get</span><wbr><span>Remote</span><wbr><span><span>Description</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1454504698%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-remote-description.html"><span class="token function">getRemoteDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-remote-description.html"><span class="token function">getRemoteDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="1059626212%2FFunctions%2F-1079168503" anchor-label="getStats" id="1059626212%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="get-stats.html"><span>get</span><wbr><span><span>Stats</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1059626212%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a><span class="token punctuation">, </span></span><span class="parameter ">receiver<span class="token operator">: </span><a href="../-rtp-receiver/index.html">RtpReceiver</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a><span class="token punctuation">, </span></span><span class="parameter ">sender<span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function"><strike>getStats</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-stats-observer/index.html">StatsObserver</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+<a data-name="236401036%2FFunctions%2F-1079168503" anchor-label="getStats" id="236401036%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-stats.html"><span>get</span><wbr><span><span>Stats</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="236401036%2FFunctions%2F-1079168503"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">receiver<span class="token operator">: </span><a href="../-rtp-receiver/index.html">RtpReceiver</a><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function">getStats</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sender<span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><a href="../-r-t-c-stats-collector-callback/index.html">RTCStatsCollectorCallback</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Gets stats using the new stats collection API, see webrtc/api/stats/.</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stats.html"><span class="token function"><strike>getStats</strike></span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-stats-observer/index.html">StatsObserver</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>track<span class="token operator">: </span><a href="../-media-stream-track/index.html">MediaStreamTrack</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="2106790174%2FFunctions%2F-1079168503" anchor-label="iceConnectionState" id="2106790174%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="ice-connection-state.html"><span>ice</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ice-connection-state.html"><span>ice</span><wbr><span>Connection</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2106790174%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="ice-connection-state.html"><span class="token function">iceConnectionState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ice-connection-state/index.html">PeerConnection.IceConnectionState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="ice-connection-state.html"><span class="token function">iceConnectionState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ice-connection-state/index.html">PeerConnection.IceConnectionState</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1849338207%2FFunctions%2F-1079168503" anchor-label="iceGatheringState" id="1849338207%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="ice-gathering-state.html"><span>ice</span><wbr><span>Gathering</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ice-gathering-state.html"><span>ice</span><wbr><span>Gathering</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1849338207%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="ice-gathering-state.html"><span class="token function">iceGatheringState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ice-gathering-state/index.html">PeerConnection.IceGatheringState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="ice-gathering-state.html"><span class="token function">iceGatheringState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-ice-gathering-state/index.html">PeerConnection.IceGatheringState</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-208571436%2FFunctions%2F-1079168503" anchor-label="removeIceCandidates" id="-208571436%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="remove-ice-candidates.html"><span>remove</span><wbr><span>Ice</span><wbr><span><span>Candidates</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-ice-candidates.html"><span>remove</span><wbr><span>Ice</span><wbr><span><span>Candidates</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-208571436%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-ice-candidates.html"><span class="token function">removeIceCandidates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidates<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="../-ice-candidate/index.html">IceCandidate</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-ice-candidates.html"><span class="token function">removeIceCandidates</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">candidates<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="../-ice-candidate/index.html">IceCandidate</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-646235819%2FFunctions%2F-1079168503" anchor-label="removeStream" id="-646235819%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="remove-stream.html"><span>remove</span><wbr><span><span>Stream</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-stream.html"><span>remove</span><wbr><span><span>Stream</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-646235819%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-stream.html"><span class="token function">removeStream</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stream<span class="token operator">: </span><a href="../-media-stream/index.html">MediaStream</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-stream.html"><span class="token function">removeStream</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">stream<span class="token operator">: </span><a href="../-media-stream/index.html">MediaStream</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Removes the given media stream from this peer connection.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1686727007%2FFunctions%2F-1079168503" anchor-label="removeTrack" id="-1686727007%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="remove-track.html"><span>remove</span><wbr><span><span>Track</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-track.html"><span>remove</span><wbr><span><span>Track</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1686727007%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-track.html"><span class="token function">removeTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sender<span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-track.html"><span class="token function">removeTrack</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sender<span class="token operator">: </span><a href="../-rtp-sender/index.html">RtpSender</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Stops sending media from sender.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1535355670%2FFunctions%2F-1079168503" anchor-label="restartIce" id="-1535355670%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="restart-ice.html"><span>restart</span><wbr><span><span>Ice</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="restart-ice.html"><span>restart</span><wbr><span><span>Ice</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1535355670%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="restart-ice.html"><span class="token function">restartIce</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="restart-ice.html"><span class="token function">restartIce</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Tells the PeerConnection that ICE should be restarted.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1527377844%2FFunctions%2F-1079168503" anchor-label="setAudioPlayout" id="-1527377844%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-playout.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Playout</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-playout.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Playout</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1527377844%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-playout.html"><span class="token function">setAudioPlayout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">playout<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-playout.html"><span class="token function">setAudioPlayout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">playout<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Enables/disables playout of received audio streams.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1178033821%2FFunctions%2F-1079168503" anchor-label="setAudioRecording" id="-1178033821%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-recording.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Recording</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-recording.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Recording</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1178033821%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-recording.html"><span class="token function">setAudioRecording</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">recording<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-recording.html"><span class="token function">setAudioRecording</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">recording<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Enables/disables recording of transmitted audio streams.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-483210673%2FFunctions%2F-1079168503" anchor-label="setBitrate" id="-483210673%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-bitrate.html"><span>set</span><wbr><span><span>Bitrate</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-bitrate.html"><span>set</span><wbr><span><span>Bitrate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-483210673%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-bitrate.html"><span class="token function">setBitrate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">min<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a><span class="token punctuation">, </span></span><span class="parameter ">current<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a><span class="token punctuation">, </span></span><span class="parameter ">max<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-bitrate.html"><span class="token function">setBitrate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">min<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a><span class="token punctuation">, </span></span><span class="parameter ">current<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a><span class="token punctuation">, </span></span><span class="parameter ">max<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Integer.html">Integer</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Limits the bandwidth allocated for all RTP streams sent by this PeerConnection.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1977152666%2FFunctions%2F-1079168503" anchor-label="setConfiguration" id="-1977152666%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-configuration.html"><span>set</span><wbr><span><span>Configuration</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-configuration.html"><span>set</span><wbr><span><span>Configuration</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1977152666%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-configuration.html"><span class="token function">setConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="-r-t-c-configuration/index.html">PeerConnection.RTCConfiguration</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-configuration.html"><span class="token function">setConfiguration</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="-r-t-c-configuration/index.html">PeerConnection.RTCConfiguration</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="511241376%2FFunctions%2F-1079168503" anchor-label="setLocalDescription" id="511241376%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-local-description.html"><span>set</span><wbr><span>Local</span><wbr><span><span>Description</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-local-description.html"><span>set</span><wbr><span>Local</span><wbr><span><span>Description</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="511241376%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-local-description.html"><span class="token function">setLocalDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-local-description.html"><span class="token function">setLocalDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">sdp<span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-local-description.html"><span class="token function">setLocalDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-local-description.html"><span class="token function">setLocalDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">sdp<span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="913062842%2FFunctions%2F-1079168503" anchor-label="setRemoteDescription" id="913062842%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-remote-description.html"><span>set</span><wbr><span>Remote</span><wbr><span><span>Description</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-remote-description.html"><span>set</span><wbr><span>Remote</span><wbr><span><span>Description</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="913062842%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-remote-description.html"><span class="token function">setRemoteDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">sdp<span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-remote-description.html"><span class="token function">setRemoteDescription</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">observer<span class="token operator">: </span><a href="../-sdp-observer/index.html">SdpObserver</a><span class="token punctuation">, </span></span><span class="parameter ">sdp<span class="token operator">: </span><a href="../-session-description/index.html">SessionDescription</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-427984305%2FFunctions%2F-1079168503" anchor-label="signalingState" id="-427984305%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="signaling-state.html"><span>signaling</span><wbr><span><span>State</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="signaling-state.html"><span>signaling</span><wbr><span><span>State</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-427984305%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="signaling-state.html"><span class="token function">signalingState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-signaling-state/index.html">PeerConnection.SignalingState</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="signaling-state.html"><span class="token function">signalingState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-signaling-state/index.html">PeerConnection.SignalingState</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1141025750%2FFunctions%2F-1079168503" anchor-label="startRtcEventLog" id="-1141025750%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="start-rtc-event-log.html"><span>start</span><wbr><span>Rtc</span><wbr><span>Event</span><wbr><span><span>Log</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-rtc-event-log.html"><span>start</span><wbr><span>Rtc</span><wbr><span>Event</span><wbr><span><span>Log</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1141025750%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="start-rtc-event-log.html"><span class="token function">startRtcEventLog</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">file_descriptor<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">max_size_bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="start-rtc-event-log.html"><span class="token function">startRtcEventLog</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">file_descriptor<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">max_size_bytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Starts recording an RTC event log.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-223904917%2FFunctions%2F-1079168503" anchor-label="stopRtcEventLog" id="-223904917%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="stop-rtc-event-log.html"><span>stop</span><wbr><span>Rtc</span><wbr><span>Event</span><wbr><span><span>Log</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop-rtc-event-log.html"><span>stop</span><wbr><span>Rtc</span><wbr><span>Event</span><wbr><span><span>Log</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-223904917%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="stop-rtc-event-log.html"><span class="token function">stopRtcEventLog</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="stop-rtc-event-log.html"><span class="token function">stopRtcEventLog</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Stops recording an RTC event log.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -879,8 +899,9 @@
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 

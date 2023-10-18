@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>Builder</title>
-<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../../styles/style.css" rel="Stylesheet">
-<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
@@ -29,314 +32,340 @@
 <script type="text/javascript" src="../../../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../../../index.html">
-<span>stream-webrtc-android</span>            </a>    </div>
-    <div>1.0.0
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            stream-webrtc-android
+                    </a>            </div>
+            <div class="library-version">1.1.0
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":stream-webrtc-android:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="stream-webrtc-android::org.webrtc.audio/JavaAudioDeviceModule.Builder///PointingToDeclaration//-1079168503">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="stream-webrtc-android::org.webrtc.audio/JavaAudioDeviceModule.Builder///PointingToDeclaration//-1079168503">
   <div class="breadcrumbs"><a href="../../../index.html">stream-webrtc-android</a><span class="delimiter">/</span><a href="../../index.html">org.webrtc.audio</a><span class="delimiter">/</span><a href="../index.html">JavaAudioDeviceModule</a><span class="delimiter">/</span><span class="current">Builder</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Builder</span></span></h1>
     <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">Builder</a></div></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="-432408739%2FFunctions%2F-1079168503" anchor-label="createAudioDeviceModule" id="-432408739%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="create-audio-device-module.html"><span>create</span><wbr><span>Audio</span><wbr><span>Device</span><wbr><span><span>Module</span></span></a></div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-432408739%2FFunctions%2F-1079168503" anchor-label="createAudioDeviceModule" id="-432408739%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-audio-device-module.html"><span>create</span><wbr><span>Audio</span><wbr><span>Device</span><wbr><span><span>Module</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-432408739%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-audio-device-module.html"><span class="token function">createAudioDeviceModule</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">JavaAudioDeviceModule</a></div><div class="brief ">Construct an AudioDeviceModule based on the supplied arguments.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-audio-device-module.html"><span class="token function">createAudioDeviceModule</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../index.html">JavaAudioDeviceModule</a></div><div class="brief ">Construct an AudioDeviceModule based on the supplied arguments.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1664511320%2FFunctions%2F-1079168503" anchor-label="setAudioAttributes" id="-1664511320%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-attributes.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Attributes</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-attributes.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Attributes</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1664511320%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-attributes.html"><span class="token function">setAudioAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioAttributes<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/media/AudioAttributes.html">AudioAttributes</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set custom <a href="https://developer.android.com/reference/kotlin/android/media/AudioAttributes.html">AudioAttributes</a> to use.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-attributes.html"><span class="token function">setAudioAttributes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioAttributes<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/media/AudioAttributes.html">AudioAttributes</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set custom <a href="https://developer.android.com/reference/kotlin/android/media/AudioAttributes.html">AudioAttributes</a> to use.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="488805917%2FFunctions%2F-1079168503" anchor-label="setAudioFormat" id="488805917%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-format.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Format</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-format.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Format</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="488805917%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-format.html"><span class="token function">setAudioFormat</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioFormat<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this to change the audio format.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-format.html"><span class="token function">setAudioFormat</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioFormat<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this to change the audio format.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+<a data-name="-180992026%2FFunctions%2F-1079168503" anchor-label="setAudioRecordDataCallback" id="-180992026%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-record-data-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Record</span><wbr><span>Data</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-180992026%2FFunctions%2F-1079168503"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-record-data-callback.html"><span class="token function">setAudioRecordDataCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioRecordDataCallback<span class="token operator">: </span><a href="../../-audio-record-data-callback/index.html">AudioRecordDataCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Can be used to gain access to the raw ByteBuffer from the recording device before it's fed into WebRTC.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-563747900%2FFunctions%2F-1079168503" anchor-label="setAudioRecordErrorCallback" id="-563747900%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-record-error-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Record</span><wbr><span>Error</span><wbr><span><span>Callback</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-record-error-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Record</span><wbr><span>Error</span><wbr><span><span>Callback</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-563747900%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-record-error-callback.html"><span class="token function">setAudioRecordErrorCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioRecordErrorCallback<span class="token operator">: </span><a href="../-audio-record-error-callback/index.html">JavaAudioDeviceModule.AudioRecordErrorCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve errors from the AudioRecord.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-record-error-callback.html"><span class="token function">setAudioRecordErrorCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioRecordErrorCallback<span class="token operator">: </span><a href="../-audio-record-error-callback/index.html">JavaAudioDeviceModule.AudioRecordErrorCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve errors from the AudioRecord.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1076668068%2FFunctions%2F-1079168503" anchor-label="setAudioRecordStateCallback" id="1076668068%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-record-state-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Record</span><wbr><span>State</span><wbr><span><span>Callback</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-record-state-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Record</span><wbr><span>State</span><wbr><span><span>Callback</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1076668068%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-record-state-callback.html"><span class="token function">setAudioRecordStateCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioRecordStateCallback<span class="token operator">: </span><a href="../-audio-record-state-callback/index.html">JavaAudioDeviceModule.AudioRecordStateCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve information from the AudioRecord on when audio starts and stops.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-record-state-callback.html"><span class="token function">setAudioRecordStateCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioRecordStateCallback<span class="token operator">: </span><a href="../-audio-record-state-callback/index.html">JavaAudioDeviceModule.AudioRecordStateCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve information from the AudioRecord on when audio starts and stops.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-830003135%2FFunctions%2F-1079168503" anchor-label="setAudioSource" id="-830003135%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-source.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Source</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-source.html"><span>set</span><wbr><span>Audio</span><wbr><span><span>Source</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-830003135%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-source.html"><span class="token function">setAudioSource</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioSource<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this to change the audio source.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-source.html"><span class="token function">setAudioSource</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioSource<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this to change the audio source.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1197636890%2FFunctions%2F-1079168503" anchor-label="setAudioTrackErrorCallback" id="1197636890%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-track-error-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Track</span><wbr><span>Error</span><wbr><span><span>Callback</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-track-error-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Track</span><wbr><span>Error</span><wbr><span><span>Callback</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1197636890%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-track-error-callback.html"><span class="token function">setAudioTrackErrorCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioTrackErrorCallback<span class="token operator">: </span><a href="../-audio-track-error-callback/index.html">JavaAudioDeviceModule.AudioTrackErrorCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve errors from the AudioTrack.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-track-error-callback.html"><span class="token function">setAudioTrackErrorCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioTrackErrorCallback<span class="token operator">: </span><a href="../-audio-track-error-callback/index.html">JavaAudioDeviceModule.AudioTrackErrorCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve errors from the AudioTrack.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1892663864%2FFunctions%2F-1079168503" anchor-label="setAudioTrackStateCallback" id="-1892663864%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-audio-track-state-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Track</span><wbr><span>State</span><wbr><span><span>Callback</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-audio-track-state-callback.html"><span>set</span><wbr><span>Audio</span><wbr><span>Track</span><wbr><span>State</span><wbr><span><span>Callback</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1892663864%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-track-state-callback.html"><span class="token function">setAudioTrackStateCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioTrackStateCallback<span class="token operator">: </span><a href="../-audio-track-state-callback/index.html">JavaAudioDeviceModule.AudioTrackStateCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve information from the AudioTrack on when audio starts and stop.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-audio-track-state-callback.html"><span class="token function">setAudioTrackStateCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">audioTrackStateCallback<span class="token operator">: </span><a href="../-audio-track-state-callback/index.html">JavaAudioDeviceModule.AudioTrackStateCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to retrieve information from the AudioTrack on when audio starts and stop.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1330393040%2FFunctions%2F-1079168503" anchor-label="setEnableVolumeLogger" id="1330393040%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-enable-volume-logger.html"><span>set</span><wbr><span>Enable</span><wbr><span>Volume</span><wbr><span><span>Logger</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-enable-volume-logger.html"><span>set</span><wbr><span>Enable</span><wbr><span>Volume</span><wbr><span><span>Logger</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1330393040%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-enable-volume-logger.html"><span class="token function">setEnableVolumeLogger</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enableVolumeLogger<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Disables the volume logger on the audio output track.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-enable-volume-logger.html"><span class="token function">setEnableVolumeLogger</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">enableVolumeLogger<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Disables the volume logger on the audio output track.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="385520196%2FFunctions%2F-1079168503" anchor-label="setInputSampleRate" id="385520196%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-input-sample-rate.html"><span>set</span><wbr><span>Input</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-input-sample-rate.html"><span>set</span><wbr><span>Input</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="385520196%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-input-sample-rate.html"><span class="token function">setInputSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inputSampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method to specifically override input sample rate.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-input-sample-rate.html"><span class="token function">setInputSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">inputSampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method to specifically override input sample rate.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1585239879%2FFunctions%2F-1079168503" anchor-label="setOutputSampleRate" id="1585239879%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-output-sample-rate.html"><span>set</span><wbr><span>Output</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-output-sample-rate.html"><span>set</span><wbr><span>Output</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1585239879%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-output-sample-rate.html"><span class="token function">setOutputSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">outputSampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method to specifically override output sample rate.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-output-sample-rate.html"><span class="token function">setOutputSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">outputSampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method to specifically override output sample rate.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1113542810%2FFunctions%2F-1079168503" anchor-label="setSampleRate" id="-1113542810%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-sample-rate.html"><span>set</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-sample-rate.html"><span>set</span><wbr><span>Sample</span><wbr><span><span>Rate</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1113542810%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-sample-rate.html"><span class="token function">setSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method if the default handling of querying the native sample rate shall be overridden.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-sample-rate.html"><span class="token function">setSampleRate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">sampleRate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Call this method if the default handling of querying the native sample rate shall be overridden.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1956835492%2FFunctions%2F-1079168503" anchor-label="setSamplesReadyCallback" id="1956835492%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-samples-ready-callback.html"><span>set</span><wbr><span>Samples</span><wbr><span>Ready</span><wbr><span><span>Callback</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-samples-ready-callback.html"><span>set</span><wbr><span>Samples</span><wbr><span>Ready</span><wbr><span><span>Callback</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1956835492%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-samples-ready-callback.html"><span class="token function">setSamplesReadyCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">samplesReadyCallback<span class="token operator">: </span><a href="../-samples-ready-callback/index.html">JavaAudioDeviceModule.SamplesReadyCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to listen to the raw audio input from the AudioRecord.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-samples-ready-callback.html"><span class="token function">setSamplesReadyCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">samplesReadyCallback<span class="token operator">: </span><a href="../-samples-ready-callback/index.html">JavaAudioDeviceModule.SamplesReadyCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Set a callback to listen to the raw audio input from the AudioRecord.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1385838638%2FFunctions%2F-1079168503" anchor-label="setScheduler" id="1385838638%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-scheduler.html"><span>set</span><wbr><span><span>Scheduler</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-scheduler.html"><span>set</span><wbr><span><span>Scheduler</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1385838638%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-scheduler.html"><span class="token function">setScheduler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scheduler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/concurrent/ScheduledExecutorService.html">ScheduledExecutorService</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-scheduler.html"><span class="token function">setScheduler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scheduler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/util/concurrent/ScheduledExecutorService.html">ScheduledExecutorService</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="355893589%2FFunctions%2F-1079168503" anchor-label="setUseHardwareAcousticEchoCanceler" id="355893589%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-use-hardware-acoustic-echo-canceler.html"><span>set</span><wbr><span>Use</span><wbr><span>Hardware</span><wbr><span>Acoustic</span><wbr><span>Echo</span><wbr><span><span>Canceler</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-use-hardware-acoustic-echo-canceler.html"><span>set</span><wbr><span>Use</span><wbr><span>Hardware</span><wbr><span>Acoustic</span><wbr><span>Echo</span><wbr><span><span>Canceler</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355893589%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-hardware-acoustic-echo-canceler.html"><span class="token function">setUseHardwareAcousticEchoCanceler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useHardwareAcousticEchoCanceler<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the built-in HW acoustic echo canceler should be used or not.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-hardware-acoustic-echo-canceler.html"><span class="token function">setUseHardwareAcousticEchoCanceler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useHardwareAcousticEchoCanceler<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the built-in HW acoustic echo canceler should be used or not.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="52153574%2FFunctions%2F-1079168503" anchor-label="setUseHardwareNoiseSuppressor" id="52153574%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-use-hardware-noise-suppressor.html"><span>set</span><wbr><span>Use</span><wbr><span>Hardware</span><wbr><span>Noise</span><wbr><span><span>Suppressor</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-use-hardware-noise-suppressor.html"><span>set</span><wbr><span>Use</span><wbr><span>Hardware</span><wbr><span>Noise</span><wbr><span><span>Suppressor</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="52153574%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-hardware-noise-suppressor.html"><span class="token function">setUseHardwareNoiseSuppressor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useHardwareNoiseSuppressor<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the built-in HW noise suppressor should be used or not.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-hardware-noise-suppressor.html"><span class="token function">setUseHardwareNoiseSuppressor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useHardwareNoiseSuppressor<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the built-in HW noise suppressor should be used or not.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1026766408%2FFunctions%2F-1079168503" anchor-label="setUseLowLatency" id="1026766408%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-use-low-latency.html"><span>set</span><wbr><span>Use</span><wbr><span>Low</span><wbr><span><span>Latency</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-use-low-latency.html"><span>set</span><wbr><span>Use</span><wbr><span>Low</span><wbr><span><span>Latency</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1026766408%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-low-latency.html"><span class="token function">setUseLowLatency</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useLowLatency<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the low-latency mode should be used.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-low-latency.html"><span class="token function">setUseLowLatency</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useLowLatency<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if the low-latency mode should be used.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1887591666%2FFunctions%2F-1079168503" anchor-label="setUseStereoInput" id="-1887591666%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-use-stereo-input.html"><span>set</span><wbr><span>Use</span><wbr><span>Stereo</span><wbr><span><span>Input</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-use-stereo-input.html"><span>set</span><wbr><span>Use</span><wbr><span>Stereo</span><wbr><span><span>Input</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1887591666%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-stereo-input.html"><span class="token function">setUseStereoInput</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useStereoInput<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if stereo input should be used or not.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-stereo-input.html"><span class="token function">setUseStereoInput</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useStereoInput<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if stereo input should be used or not.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1821964777%2FFunctions%2F-1079168503" anchor-label="setUseStereoOutput" id="-1821964777%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="set-use-stereo-output.html"><span>set</span><wbr><span>Use</span><wbr><span>Stereo</span><wbr><span><span>Output</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-use-stereo-output.html"><span>set</span><wbr><span>Use</span><wbr><span>Stereo</span><wbr><span><span>Output</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1821964777%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-stereo-output.html"><span class="token function">setUseStereoOutput</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useStereoOutput<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if stereo output should be used or not.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-use-stereo-output.html"><span class="token function">setUseStereoOutput</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">useStereoOutput<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">JavaAudioDeviceModule.Builder</a></div><div class="brief ">Control if stereo output should be used or not.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -348,8 +377,9 @@
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 

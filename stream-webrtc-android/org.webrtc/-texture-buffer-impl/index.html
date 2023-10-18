@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>TextureBufferImpl</title>
-<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
-<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../../styles/main.css" rel="Stylesheet">
 <link href="../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
@@ -29,275 +32,292 @@
 <script type="text/javascript" src="../../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../../index.html">
-<span>stream-webrtc-android</span>            </a>    </div>
-    <div>1.0.0
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            stream-webrtc-android
+                    </a>            </div>
+            <div class="library-version">1.1.0
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":stream-webrtc-android:dokkaHtmlPartial/release">androidJvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="stream-webrtc-android::org.webrtc/TextureBufferImpl///PointingToDeclaration//-1079168503">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="stream-webrtc-android::org.webrtc/TextureBufferImpl///PointingToDeclaration//-1079168503">
   <div class="breadcrumbs"><a href="../../index.html">stream-webrtc-android</a><span class="delimiter">/</span><a href="../index.html">org.webrtc</a><span class="delimiter">/</span><span class="current">TextureBufferImpl</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Texture</span><wbr><span>Buffer</span><wbr><span><span>Impl</span></span></h1>
     <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">TextureBufferImpl</a> : <a href="../-video-frame/-texture-buffer/index.html">VideoFrame.TextureBuffer</a></div><p class="paragraph">Android texture buffer that glues together the necessary information together with a generic release callback. ToI420() is implemented by providing a Handler and a YuvConverter.</p></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Inherited functions">Inherited functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <h2 class="tabbedcontent">Constructors</h2>
-      <div class="table" data-togglable="Constructors"><a data-name="1433521006%2FConstructors%2F-1079168503" anchor-label="TextureBufferImpl" id="1433521006%2FConstructors%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue TabbedContent">
-            <div class=""><span class="inline-flex">
-                <div><a href="-texture-buffer-impl.html"><span>Texture</span><wbr><span>Buffer</span><wbr><span><span>Impl</span></span></a></div>
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1433521006%2FConstructors%2F-1079168503" anchor-label="TextureBufferImpl" id="1433521006%2FConstructors%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-texture-buffer-impl.html"><span>Texture</span><wbr><span>Buffer</span><wbr><span><span>Impl</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1433521006%2FConstructors%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="-texture-buffer-impl.html"><span class="token function">TextureBufferImpl</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">width<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">height<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="../-video-frame/-texture-buffer/-type/index.html">VideoFrame.TextureBuffer.Type</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">transformMatrix<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a><span class="token punctuation">, </span></span><span class="parameter ">toI420Handler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a><span class="token punctuation">, </span></span><span class="parameter ">yuvConverter<span class="token operator">: </span><a href="../-yuv-converter/index.html">YuvConverter</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>releaseCallback<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Runnable.html">Runnable</a></span></span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">width<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">height<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="../-video-frame/-texture-buffer/-type/index.html">VideoFrame.TextureBuffer.Type</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">transformMatrix<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a><span class="token punctuation">, </span></span><span class="parameter ">toI420Handler<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a><span class="token punctuation">, </span></span><span class="parameter ">yuvConverter<span class="token operator">: </span><a href="../-yuv-converter/index.html">YuvConverter</a><span class="token punctuation">, </span></span><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/Nullable.html"><span class="token annotation builtin">Nullable</span></a>&nbsp;</span>releaseCallback<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/lang/Runnable.html">Runnable</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Properties</h2>
-      <div class="table" data-togglable="Properties"><a data-name="835463434%2FProperties%2F-1079168503" anchor-label="height" id="835463434%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="height.html"><span><span>height</span></span></a></div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="835463434%2FProperties%2F-1079168503" anchor-label="height" id="835463434%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="height.html"><span><span>height</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="835463434%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="835463434%2FProperties%2F-1079168503" anchor-label="height" id="835463434%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="height.html">height</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="height.html">height</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1591975491%2FProperties%2F-1079168503" anchor-label="toI420Handler" id="1591975491%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="to-i420-handler.html"><span>to</span><wbr><span><span>I420Handler</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-i420-handler.html"><span>to</span><wbr><span><span>I420Handler</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1591975491%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="1591975491%2FProperties%2F-1079168503" anchor-label="toI420Handler" id="1591975491%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="to-i420-handler.html">toI420Handler</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="to-i420-handler.html">toI420Handler</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/os/Handler.html">Handler</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1993232380%2FProperties%2F-1079168503" anchor-label="transformMatrix" id="1993232380%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="transform-matrix.html"><span>transform</span><wbr><span><span>Matrix</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="transform-matrix.html"><span>transform</span><wbr><span><span>Matrix</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1993232380%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="1993232380%2FProperties%2F-1079168503" anchor-label="transformMatrix" id="1993232380%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="transform-matrix.html">transformMatrix</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="transform-matrix.html">transformMatrix</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="488319831%2FProperties%2F-1079168503" anchor-label="type" id="488319831%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="type.html"><span><span>type</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="488319831%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="488319831%2FProperties%2F-1079168503" anchor-label="type" id="488319831%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="../-video-frame/-texture-buffer/-type/index.html">VideoFrame.TextureBuffer.Type</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="../-video-frame/-texture-buffer/-type/index.html">VideoFrame.TextureBuffer.Type</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-209981865%2FProperties%2F-1079168503" anchor-label="unscaledHeight" id="-209981865%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="unscaled-height.html"><span>unscaled</span><wbr><span><span>Height</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unscaled-height.html"><span>unscaled</span><wbr><span><span>Height</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-209981865%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="-209981865%2FProperties%2F-1079168503" anchor-label="unscaledHeight" id="-209981865%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="unscaled-height.html">unscaledHeight</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="unscaled-height.html">unscaledHeight</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-2045374794%2FProperties%2F-1079168503" anchor-label="unscaledWidth" id="-2045374794%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="unscaled-width.html"><span>unscaled</span><wbr><span><span>Width</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unscaled-width.html"><span>unscaled</span><wbr><span><span>Width</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2045374794%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="-2045374794%2FProperties%2F-1079168503" anchor-label="unscaledWidth" id="-2045374794%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="unscaled-width.html">unscaledWidth</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="unscaled-width.html">unscaledWidth</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1313485219%2FProperties%2F-1079168503" anchor-label="width" id="1313485219%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="width.html"><span><span>width</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="width.html"><span><span>width</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1313485219%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="1313485219%2FProperties%2F-1079168503" anchor-label="width" id="1313485219%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="width.html">width</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="width.html">width</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1052071467%2FProperties%2F-1079168503" anchor-label="yuvConverter" id="1052071467%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="yuv-converter.html"><span>yuv</span><wbr><span><span>Converter</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="yuv-converter.html"><span>yuv</span><wbr><span><span>Converter</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1052071467%2FProperties%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><a data-name="1052071467%2FProperties%2F-1079168503" anchor-label="yuvConverter" id="1052071467%2FProperties%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="yuv-converter.html">yuvConverter</a><span class="token operator">: </span><a href="../-yuv-converter/index.html">YuvConverter</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="yuv-converter.html">yuvConverter</a><span class="token operator">: </span><a href="../-yuv-converter/index.html">YuvConverter</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="1024599091%2FFunctions%2F-1079168503" anchor-label="applyTransformMatrix" id="1024599091%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="apply-transform-matrix.html"><span>apply</span><wbr><span>Transform</span><wbr><span><span>Matrix</span></span></a></div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1024599091%2FFunctions%2F-1079168503" anchor-label="applyTransformMatrix" id="1024599091%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="apply-transform-matrix.html"><span>apply</span><wbr><span>Transform</span><wbr><span><span>Matrix</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1024599091%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="apply-transform-matrix.html"><span class="token function">applyTransformMatrix</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transformMatrix<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a><span class="token punctuation">, </span></span><span class="parameter ">newWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">newHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TextureBufferImpl</a></div><div class="brief ">Create a new TextureBufferImpl with an applied transform matrix and a new size.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="apply-transform-matrix.html"><span class="token function">applyTransformMatrix</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">transformMatrix<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/graphics/Matrix.html">Matrix</a><span class="token punctuation">, </span></span><span class="parameter ">newWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">newHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">TextureBufferImpl</a></div><div class="brief ">Create a new TextureBufferImpl with an applied transform matrix and a new size.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-846663223%2FFunctions%2F-1079168503" anchor-label="cropAndScale" id="-846663223%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="crop-and-scale.html"><span>crop</span><wbr><span>And</span><wbr><span><span>Scale</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="crop-and-scale.html"><span>crop</span><wbr><span>And</span><wbr><span><span>Scale</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-846663223%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="crop-and-scale.html"><span class="token function">cropAndScale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cropX<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropY<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">scaleWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">scaleHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-video-frame/-buffer/index.html">VideoFrame.Buffer</a></div><div class="brief ">Crops a region defined by `cropx`, `cropY`, `cropWidth` and `cropHeight`.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="crop-and-scale.html"><span class="token function">cropAndScale</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cropX<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropY<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">cropHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">scaleWidth<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">scaleHeight<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-video-frame/-buffer/index.html">VideoFrame.Buffer</a></div><div class="brief ">Crops a region defined by `cropx`, `cropY`, `cropWidth` and `cropHeight`.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1479673743%2FFunctions%2F-1079168503" anchor-label="getTextureId" id="-1479673743%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="get-texture-id.html"><span>get</span><wbr><span>Texture</span><wbr><span><span>Id</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-texture-id.html"><span>get</span><wbr><span>Texture</span><wbr><span><span>Id</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1479673743%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-texture-id.html"><span class="token function">getTextureId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-texture-id.html"><span class="token function">getTextureId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="2104625026%2FFunctions%2F-1079168503" anchor-label="release" id="2104625026%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="release.html"><span><span>release</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="release.html"><span><span>release</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2104625026%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="release.html"><span class="token function">release</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Decreases ref count by one.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="release.html"><span class="token function">release</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Decreases ref count by one.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1386594028%2FFunctions%2F-1079168503" anchor-label="retain" id="1386594028%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="retain.html"><span><span>retain</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="retain.html"><span><span>retain</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1386594028%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="retain.html"><span class="token function">retain</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Increases ref count by one.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="retain.html"><span class="token function">retain</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Increases ref count by one.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="2063571789%2FFunctions%2F-1079168503" anchor-label="toI420" id="2063571789%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="to-i420.html"><span>to</span><wbr><span><span>I420</span></span></a></div>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-i420.html"><span>to</span><wbr><span><span>I420</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2063571789%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-i420.html"><span class="token function">toI420</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-video-frame/-i420-buffer/index.html">VideoFrame.I420Buffer</a></div><div class="brief ">Returns a memory-backed frame in I420 format.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="to-i420.html"><span class="token function">toI420</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-video-frame/-i420-buffer/index.html">VideoFrame.I420Buffer</a></div><div class="brief ">Returns a memory-backed frame in I420 format.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Inherited functions</h2>
-      <div class="table" data-togglable="Inherited functions"><a data-name="-1657102888%2FFunctions%2F-1079168503" anchor-label="getBufferType" id="-1657102888%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
-        <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="../-video-frame/-buffer/get-buffer-type.html"><span>get</span><wbr><span>Buffer</span><wbr><span><span>Type</span></span></a></div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Inherited functions</h2>
+        <div class="table"><a data-name="-1657102888%2FFunctions%2F-1079168503" anchor-label="getBufferType" id="-1657102888%2FFunctions%2F-1079168503" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release"></a>
+          <div class="table-row" data-filterable-current=":stream-webrtc-android:dokkaHtmlPartial/release" data-filterable-set=":stream-webrtc-android:dokkaHtmlPartial/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-video-frame/-buffer/get-buffer-type.html"><span>get</span><wbr><span>Buffer</span><wbr><span><span>Type</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1657102888%2FFunctions%2F-1079168503"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-video-frame/-buffer/get-buffer-type.html"><span class="token function">getBufferType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Representation of the underlying buffer.</div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":stream-webrtc-android:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-video-frame/-buffer/get-buffer-type.html"><span class="token function">getBufferType</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Representation of the underlying buffer.</div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -309,8 +329,9 @@
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 
