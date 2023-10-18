@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-import io.getstream.Configurations
+//import io.getstream.Configurations
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -8,6 +8,7 @@ plugins {
   id(libs.plugins.kotlin.android.get().pluginId)
 }
 
+/*
 rootProject.extra.apply {
   set("PUBLISH_GROUP_ID", Configurations.artifactGroup)
   set("PUBLISH_ARTIFACT_ID", "stream-webrtc-android")
@@ -15,13 +16,14 @@ rootProject.extra.apply {
 }
 
 apply(from ="${rootDir}/scripts/publish-module.gradle")
+*/
 
 android {
   namespace = "org.webrtc"
-  compileSdk = Configurations.compileSdk
+  compileSdk = 34 //Configurations.compileSdk
 
   defaultConfig {
-    minSdk = Configurations.minSdk
+    minSdk = 26 //Configurations.minSdk
     consumerProguardFiles("consumer-rules.pro")
   }
 
@@ -38,6 +40,9 @@ android {
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
+  }
+  kotlinOptions {
+    jvmTarget = "11"
   }
 }
 
