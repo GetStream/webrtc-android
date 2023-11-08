@@ -1,6 +1,6 @@
 [versions]
 streamLog = "1.1.4"
-landscapist = "2.2.11"
+landscapist = "2.2.12"
 jvmTarget = "11"
 androidGradlePlugin = "8.1.2"
 androidxActivity = "1.8.0"
