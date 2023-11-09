@@ -258,6 +258,13 @@ public class org/webrtc/Dav1dDecoder : org/webrtc/WrappedNativeVideoDecoder {
 	public fun createNativeVideoDecoder ()J
 }
 
+public final class org/webrtc/DefaultAlignedVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;ZZLorg/webrtc/ResolutionAdjustment;)V
+	public synthetic fun <init> (Lorg/webrtc/EglBase$Context;ZZLorg/webrtc/ResolutionAdjustment;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
 public class org/webrtc/DefaultVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
 	public fun <init> (Lorg/webrtc/EglBase$Context;)V
 	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
@@ -1278,6 +1285,18 @@ public class org/webrtc/RendererCommon$VideoLayoutMeasure {
 	public fun setVisibleFraction (FF)V
 }
 
+public final class org/webrtc/ResolutionAdjustment : java/lang/Enum {
+	public static final field MULTIPLE_OF_16 Lorg/webrtc/ResolutionAdjustment;
+	public static final field MULTIPLE_OF_2 Lorg/webrtc/ResolutionAdjustment;
+	public static final field MULTIPLE_OF_4 Lorg/webrtc/ResolutionAdjustment;
+	public static final field MULTIPLE_OF_8 Lorg/webrtc/ResolutionAdjustment;
+	public static final field NONE Lorg/webrtc/ResolutionAdjustment;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getValue ()I
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/ResolutionAdjustment;
+	public static fun values ()[Lorg/webrtc/ResolutionAdjustment;
+}
+
 public class org/webrtc/RtcCertificatePem {
 	public final field certificate Ljava/lang/String;
 	public final field privateKey Ljava/lang/String;
@@ -1465,6 +1484,13 @@ public final class org/webrtc/SessionDescription$Type : java/lang/Enum {
 	public static fun fromCanonicalForm (Ljava/lang/String;)Lorg/webrtc/SessionDescription$Type;
 	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/SessionDescription$Type;
 	public static fun values ()[Lorg/webrtc/SessionDescription$Type;
+}
+
+public final class org/webrtc/SimulcastAlignedVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;ZZLorg/webrtc/ResolutionAdjustment;)V
+	public synthetic fun <init> (Lorg/webrtc/EglBase$Context;ZZLorg/webrtc/ResolutionAdjustment;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun createEncoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoEncoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
 }
 
 public class org/webrtc/SimulcastVideoEncoder : org/webrtc/WrappedNativeVideoEncoder {
