@@ -237,7 +237,7 @@ dependencies {
 ```kotlin
 pendingIceMutex.withLock {
     pendingIceCandidates.forEach { iceCandidate ->
-    connection.addRtcIceCandidate(iceCandidate)
+        connection.addRtcIceCandidate(iceCandidate)
     }
     pendingIceCandidates.clear()
 }
