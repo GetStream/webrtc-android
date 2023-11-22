@@ -39,9 +39,15 @@ If you want to have a better grasp of how WebRTC works, such as basic concepts o
 <img src="https://user-images.githubusercontent.com/24237865/138428440-b92e5fb7-89f8-41aa-96b1-71a5486c5849.png" align="right" width="12%"/>
 </a>
 
-## 🛥 Stream Chat and Voice & Video calling SDK
+## 🛥 Stream Chat and Voice & Video Calling SDK
 
-If you’re interested in adding powerful In-App Messaging to your app, check out the __[Compose Chat SDK for Messaging](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)__! We're also planning to release voice & video calling SDK very soon! Check out the **[Video & Voice Calling API on Stream's Global Edge Network](https://getstream.io/video?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)**, if you want early access to our SDK. If you're interested in the real-time Android Video SDK, check out [Stream Video Android](https://github.com/GetStream/webrtc-android) repository.
+__[Stream Video SDK for Compose](https://getstream.io/video/docs/android?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)__ is the official Android SDK for [Stream Video](https://getstream.io/video/?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss), a service for building video calls, audio rooms, and live-streaming applications. Stream's versatile Video SDK has been built with this **webrtc-android** library, and you can check out the tutorials below if you want to get more information.
+
+- [Stream Video SDK for Android on GitHub](https://github.com/getstream/stream-video-android?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_TwitchCompose&utm_term=DevRelOss)
+- [Video Call Tutorial](https://getstream.io/video/docs/android/tutorials/video-calling?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_TwitchCompose&utm_term=DevRelOss)
+- [Audio Room Tutorial](https://getstream.io/video/docs/android/tutorials/audio-room?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_TwitchCompose&utm_term=DevRelOss)
+- [Livestream Tutorial](https://getstream.io/video/docs/android/tutorials/livestream?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_TwitchCompose&utm_term=DevRelOss)
+
 
 ## Download
 [![Maven Central](https://img.shields.io/maven-central/v/io.getstream/stream-webrtc-android.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.getstream%22%20AND%20a:%22stream-webrtc-android%22)
