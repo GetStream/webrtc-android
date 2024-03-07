@@ -2,7 +2,7 @@
 # Who's using WebRTC Android?
 If your product uses WebRTC Android, welcome to contribute by creating a pull request or let me know through other contacts! 🤗
 
-## [Stream Video SDK](https://getstream.io/video?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)
+## [Stream Video SDK](https://getstream.io/video?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss)
 
 ![logo2](https://user-images.githubusercontent.com/24237865/225775639-c9fddf13-d9e4-48f9-89cb-2b8bf227d4db.png)
 
