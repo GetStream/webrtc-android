@@ -298,11 +298,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
    * Contains audio sample information.
    */
   public static class AudioSamples {
-    /** See {@link AudioRecord#getAudioFormat()} */
     private final int audioFormat;
-    /** See {@link AudioRecord#getChannelCount()} */
     private final int channelCount;
-    /** See {@link AudioRecord#getSampleRate()} */
     private final int sampleRate;
 
     private final byte[] data;
