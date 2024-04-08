@@ -68,5 +68,5 @@ android-library = { id = "com.android.library", version.ref = "androidGradlePlug
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 dokka = { id = "org.jetbrains.dokka", version = "1.9.20" }
-nexusPlugin = { id = "io.github.gradle-nexus.publish-plugin", version = "1.3.0" }
+nexusPlugin = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
 kotlinBinaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version = "0.14.0" }
