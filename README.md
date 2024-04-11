@@ -312,7 +312,7 @@ To install all required dependencies for linux, a script is provided for Ubuntu,
 cd src && ./build/install-build-deps.sh
 ```
 
-You can see the available latest branches looks like the screenshoos below:
+You can see the available latest branches looks like the image below:
 
 <img width="270" alt="Screenshot 2023-02-14 at 5 26 32 PM" src="https://user-images.githubusercontent.com/24237865/218680102-d7522dd5-1cf1-4c3b-ba61-463b75f5f714.png">
 
