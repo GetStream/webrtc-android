@@ -32,6 +32,7 @@ If you want to have a better grasp of how WebRTC works, such as basic concepts o
 
 - **[Building a Video Chat App: WebRTC on Android (Part1)](https://getstream.io/blog/webrtc-on-android/)**
 - **[Building a Video Chat App: WebRTC in Jetpack Compose (Part2)](https://getstream.io/blog/webrtc-jetpack-compose/)**
+- **[Pre-built Android WebRTC Library: Buld Your Own WebRTC Library for Android](https://getstream.io/resources/projects/webrtc/library/android/)**
 - **[HTTP, WebSocket, gRPC or WebRTC: Which Communication Protocol is Best For Your App?](https://getstream.io/blog/communication-protocols/)**
 - **[WebRTC Protocol: What is it and how does it work?](https://getstream.io/glossary/webrtc-protocol/)**
 
