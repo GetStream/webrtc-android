@@ -43,6 +43,14 @@ public interface CameraVideoCapturer extends VideoCapturer {
     void onCameraClosed();
   }
 
+  public interface TorchHandler {
+    void onTorchSuccess();
+
+    void onTorchError(String var1);
+
+    void onTorchUnsupported();
+  }
+
   /**
    * Camera switch handler - one of these functions are invoked with the result of switchCamera().
    * The callback may be called on an arbitrary thread.
