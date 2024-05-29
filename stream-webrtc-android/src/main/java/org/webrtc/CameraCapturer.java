@@ -368,6 +368,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     });
   }
 
+  @Override
   public void torch(final boolean state, final CameraVideoCapturer.TorchHandler torchHandler) {
     Logging.d("CameraCapturer", "torch");
     this.cameraThreadHandler.post(new Runnable() {

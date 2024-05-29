@@ -75,6 +75,8 @@ public interface CameraVideoCapturer extends VideoCapturer {
    */
   void switchCamera(CameraSwitchHandler switchEventsHandler, String cameraName);
 
+  public void torch(final boolean state, final CameraVideoCapturer.TorchHandler torchHandler);
+
   /**
    * MediaRecorder add/remove handler - one of these functions are invoked with the result of
    * addMediaRecorderToCamera() or removeMediaRecorderFromCamera calls.
