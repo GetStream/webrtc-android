@@ -43,6 +43,10 @@ public interface CameraVideoCapturer extends VideoCapturer {
     void onCameraClosed();
   }
 
+  /**
+   * Camera torch handler - one of these functions are invoked with the result of torch().
+   * The callback may be called on an arbitrary thread.
+   */
   public interface TorchHandler {
     void onTorchSuccess();
 
@@ -75,6 +79,9 @@ public interface CameraVideoCapturer extends VideoCapturer {
    */
   void switchCamera(CameraSwitchHandler switchEventsHandler, String cameraName);
 
+  /**
+   * Switch torch on or off
+   */
   public void torch(final boolean state, final CameraVideoCapturer.TorchHandler torchHandler);
 
   /**

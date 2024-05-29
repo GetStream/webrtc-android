@@ -201,7 +201,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   private String cameraName; /* guarded by stateLock */
   private String pendingCameraName; /* guarded by stateLock */
 
-  private boolean torch;
+  private boolean torch; /* guarded by stateLock */
   private int width; /* guarded by stateLock */
   private int height; /* guarded by stateLock */
   private int framerate; /* guarded by stateLock */
