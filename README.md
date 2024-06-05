@@ -57,9 +57,9 @@ __[Stream Video SDK for Compose](https://getstream.io/video/docs/android?utm_sou
 
 Add the below dependency to your **module**'s `build.gradle` file:
 
-```gradle
+```kotlin
 dependencies {
-    implementation "io.getstream:stream-webrtc-android:1.1.2"
+    implementation("io.getstream:stream-webrtc-android:1.1.3")
 }
 ```
 
