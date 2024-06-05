@@ -6,6 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.compose.compiler.get().pluginId)
 }
 
 android {
@@ -32,10 +33,6 @@ android {
   buildFeatures {
     compose = true
     buildConfig = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
   }
 
   compileOptions {

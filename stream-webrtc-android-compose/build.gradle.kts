@@ -6,6 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.compose.compiler.get().pluginId)
 }
 
 rootProject.extra.apply {
@@ -33,10 +34,6 @@ android {
     compose = true
   }
 
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
-  }
-
   packaging {
     resources {
       excludes.add("/META-INF/{AL2.0,LGPL2.1}")
@@ -45,6 +42,11 @@ android {
 
   lint {
     abortOnError = false
+  }
+
+  composeCompiler {
+    enableStrongSkippingMode = true
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
   }
 }
 
