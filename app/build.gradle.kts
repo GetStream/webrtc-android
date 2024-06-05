@@ -21,7 +21,10 @@ android {
     buildConfigField(
       "String",
       "SIGNALING_SERVER_IP_ADDRESS",
-      "\"" + com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir)
+      "\"" + com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(
+        rootDir,
+        providers
+      )
         .getProperty("SIGNALING_SERVER_IP_ADDRESS", "") + "\""
     )
   }
