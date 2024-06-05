@@ -6,6 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.compose.compiler.get().pluginId)
 }
 
 android {
@@ -21,7 +22,10 @@ android {
     buildConfigField(
       "String",
       "SIGNALING_SERVER_IP_ADDRESS",
-      "\"" + com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir)
+      "\"" + com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(
+        rootDir,
+        providers
+      )
         .getProperty("SIGNALING_SERVER_IP_ADDRESS", "") + "\""
     )
   }
@@ -29,10 +33,6 @@ android {
   buildFeatures {
     compose = true
     buildConfig = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
   }
 
   compileOptions {
