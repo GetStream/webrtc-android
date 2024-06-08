@@ -16,6 +16,8 @@ import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
+
+import java.nio.ByteBuffer;
 import java.util.concurrent.ScheduledExecutorService;
 import org.webrtc.JniCommon;
 import org.webrtc.Logging;
@@ -52,6 +54,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     private boolean useLowLatency;
     private boolean enableVolumeLogger;
     private AudioRecordDataCallback audioRecordDataCallback;
+    private boolean useExternalAudioInputBuffer;
+    private ByteBuffer externalAudioInputBuffer;
 
     private Builder(Context context) {
       this.context = context;
@@ -233,6 +237,22 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /**
+     * Control if the input audio should come from a external buffer.
+     */
+    public Builder setUseExternalAudioInputBuffer(boolean useExternalAudioInputBuffer) {
+      this.useExternalAudioInputBuffer = useExternalAudioInputBuffer;
+      return this;
+    }
+
+    /**
+     * Sets the external input audio byte buffer.
+     */
+    public Builder setExternalAudioInputBuffer(ByteBuffer externalAudioInputBuffer) {
+      this.externalAudioInputBuffer = externalAudioInputBuffer;
+      return this;
+    }
+
+    /**
      * Construct an AudioDeviceModule based on the supplied arguments. The caller takes ownership
      * and is responsible for calling release().
      */
@@ -265,8 +285,9 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         executor = WebRtcAudioRecord.newDefaultScheduler();
       }
       final WebRtcAudioRecord audioInput = new WebRtcAudioRecord(context, executor, audioManager,
-          audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
-          samplesReadyCallback, audioRecordDataCallback, useHardwareAcousticEchoCanceler, useHardwareNoiseSuppressor);
+        audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
+        samplesReadyCallback, audioRecordDataCallback, useHardwareAcousticEchoCanceler,
+        useHardwareNoiseSuppressor, useExternalAudioInputBuffer, externalAudioInputBuffer);
       final WebRtcAudioTrack audioOutput =
           new WebRtcAudioTrack(context, audioManager, audioAttributes, audioTrackErrorCallback,
               audioTrackStateCallback, useLowLatency, enableVolumeLogger);
@@ -366,6 +387,10 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
    */
   public static boolean isBuiltInNoiseSuppressorSupported() {
     return WebRtcAudioEffects.isNoiseSuppressorSupported();
+  }
+
+  public void notifyExternalDataIsRecorded(int bytesRead, long captureTimeNs) {
+    audioInput.notifyExternalDataIsRecorded(bytesRead, captureTimeNs);
   }
 
   private final Context context;
