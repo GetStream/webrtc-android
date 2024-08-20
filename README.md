@@ -9,8 +9,7 @@
   <a href="https://getstream.io"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/HayesGordon/e7f3c4587859c17f3e593fd3ff5b13f4/raw/11d9d9385c9f34374ede25f6471dc743b977a914/badge.json" alt="Stream Feeds"></a>
 </p>
 
-
-🛰️ **WebRTC Android** is Google's WebRTC pre-compiled library for Android by [Stream](https://getstream.io?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss). It reflects the recent [WebRTC Protocol](https://getstream.io/glossary/webrtc-protocol/) updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
+🛰️ **WebRTC Android** is Google's WebRTC pre-compiled library for Android by [Stream](https://getstream.io?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Feb2023_Jaewoong_StreamWebRTCAndroid&utm_term=DevRelOss). It reflects the recent [GetStream/webrtc](https://github.com/getstream/webrtc) updates to facilitate real-time video chat using functional UI components, Kotlin extensions for Android, and Compose.
 
 ## Agenda
 Since Google no longer supported the [WebRTC library for Android](https://webrtc.github.io/webrtc-org/native-code/android/) for many years (even JCenter has been shut down, so the library is not available now), we decided to build our own pre-compiled WebRTC core library that reflects recent WebRTC commits with some improvements.
@@ -30,6 +29,7 @@ You can see the use cases of this library in the repositories below:
 
 If you want to have a better grasp of how WebRTC works, such as basic concepts of WebRTC, relevant terminologies, and how to establish a peer-to-peer connection and communicate with the signaling server in Android, check out the articles below:
 
+- **[WebRTC for the Brave](https://getstream.io/resources/projects/webrtc/)**: This lesson consists of several modules aimed at helping developers better understand the concepts of WebRTC. From making your first call using peer-to-peer to deep technical breakdowns of common WebRTC architectures, we provide a step-by-step guide to understanding the nuances of the framework.
 - **[Building a Video Chat App: WebRTC on Android (Part1)](https://getstream.io/blog/webrtc-on-android/)**
 - **[Building a Video Chat App: WebRTC in Jetpack Compose (Part2)](https://getstream.io/blog/webrtc-jetpack-compose/)**
 - **[Pre-built Android WebRTC Library: Buld Your Own WebRTC Library for Android](https://getstream.io/resources/projects/webrtc/library/android/)**
