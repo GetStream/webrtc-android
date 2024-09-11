@@ -68,6 +68,16 @@ public interface CameraVideoCapturer extends VideoCapturer {
   void switchCamera(CameraSwitchHandler switchEventsHandler, String cameraName);
 
   /**
+   * Make camera image mirror
+   * @return if success return true else false
+   */
+  boolean mirrorCamera(boolean isMirror);
+
+  boolean isMirrorCamera();
+
+  boolean isUsingFrontCamera();
+
+  /**
    * MediaRecorder add/remove handler - one of these functions are invoked with the result of
    * addMediaRecorderToCamera() or removeMediaRecorderFromCamera calls.
    * The callback may be called on an arbitrary thread.

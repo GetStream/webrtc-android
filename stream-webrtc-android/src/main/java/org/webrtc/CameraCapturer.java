@@ -359,6 +359,36 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   }
 
   @Override
+  public boolean isMirrorCamera() {
+    CameraSession s = currentSession;
+    if (s != null) {
+      return s.isMirrorCamera();
+    } else {
+      return false;
+    }
+  }
+
+  @Override
+  public boolean mirrorCamera(boolean isMirror) {
+    CameraSession s = currentSession;
+    if (s != null) {
+      return s.mirrorCamera(isMirror);
+    } else {
+      return false;
+    }
+  }
+
+  @Override
+  public boolean isUsingFrontCamera() {
+    CameraSession s = currentSession;
+    if (s != null) {
+      return s.isUsingFrontCamera();
+    } else {
+      return false;
+    }
+  }
+
+  @Override
   public boolean isScreencast() {
     return false;
   }

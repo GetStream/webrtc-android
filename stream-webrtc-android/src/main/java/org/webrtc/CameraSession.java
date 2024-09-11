@@ -34,6 +34,16 @@ interface CameraSession {
   }
 
   /**
+   * Make camera image mirror
+   * @return if success return true else false
+   */
+  boolean mirrorCamera(boolean isMirror);
+
+  boolean isMirrorCamera();
+
+  boolean isUsingFrontCamera();
+
+  /**
    * Stops the capture. Waits until no more calls to capture observer will be made.
    * If waitCameraStop is true, also waits for the camera to stop.
    */

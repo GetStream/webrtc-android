@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.webrtc.CameraEnumerationAndroid.CaptureFormat;
 
 @SuppressWarnings("deprecation")
@@ -33,6 +35,8 @@ class Camera1Session implements CameraSession {
       "WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
 
   private static enum SessionState { RUNNING, STOPPED }
+
+  private final AtomicBoolean mirrorCamera = new AtomicBoolean(false);
 
   private final Handler cameraThreadHandler;
   private final Events events;
@@ -189,9 +193,25 @@ class Camera1Session implements CameraSession {
   }
 
   @Override
+  public boolean mirrorCamera(boolean isMirror) {
+    return mirrorCamera.compareAndSet(!isMirror, isMirror);
+  }
+
+  @Override
+  public boolean isMirrorCamera() {
+    return mirrorCamera.get();
+  }
+
+  @Override
+  public boolean isUsingFrontCamera() {
+    return info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT;
+  }
+
+  @Override
   public void stop() {
     Logging.d(TAG, "Stop camera1 session on camera " + cameraId);
     checkIsOnCameraThread();
+    mirrorCamera.set(false);
     if (state != SessionState.STOPPED) {
       final long stopStartTime = System.nanoTime();
       stopInternal();
@@ -278,7 +298,7 @@ class Camera1Session implements CameraSession {
       final VideoFrame modifiedFrame =
           new VideoFrame(CameraSession.createTextureBufferWithModifiedTransformMatrix(
                              (TextureBufferImpl) frame.getBuffer(),
-                             /* mirror= */ info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT,
+                             /* mirror= */ mirrorCamera.get(),
                              /* rotation= */ 0),
               /* rotation= */ getFrameOrientation(), frame.getTimestampNs());
       events.onFrameCaptured(Camera1Session.this, modifiedFrame);

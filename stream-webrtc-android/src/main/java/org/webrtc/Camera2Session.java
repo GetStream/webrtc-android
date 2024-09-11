@@ -26,6 +26,8 @@ import androidx.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.webrtc.CameraEnumerationAndroid.CaptureFormat;
 
 class Camera2Session implements CameraSession {
@@ -50,6 +52,8 @@ class Camera2Session implements CameraSession {
   private final int width;
   private final int height;
   private final int framerate;
+
+  private final AtomicBoolean mirrorCamera = new AtomicBoolean(false);
 
   // Initialized at start
   private CameraCharacteristics cameraCharacteristics;
@@ -199,7 +203,7 @@ class Camera2Session implements CameraSession {
         final VideoFrame modifiedFrame =
             new VideoFrame(CameraSession.createTextureBufferWithModifiedTransformMatrix(
                                (TextureBufferImpl) frame.getBuffer(),
-                               /* mirror= */ isCameraFrontFacing,
+                               /* mirror= */ mirrorCamera.get(),
                                /* rotation= */ -cameraOrientation),
                 /* rotation= */ getFrameOrientation(), frame.getTimestampNs());
         events.onFrameCaptured(Camera2Session.this, modifiedFrame);
@@ -362,9 +366,25 @@ class Camera2Session implements CameraSession {
   }
 
   @Override
+  public boolean mirrorCamera(boolean isMirror) {
+    return mirrorCamera.compareAndSet(!isMirror, isMirror);
+  }
+
+  @Override
+  public boolean isMirrorCamera() {
+    return mirrorCamera.get();
+  }
+
+  @Override
+  public boolean isUsingFrontCamera() {
+    return isCameraFrontFacing;
+  }
+
+  @Override
   public void stop() {
     Logging.d(TAG, "Stop camera2 session on camera " + cameraId);
     checkIsOnCameraThread();
+    mirrorCamera.set(false);
     if (state != SessionState.STOPPED) {
       final long stopStartTime = System.nanoTime();
       state = SessionState.STOPPED;
