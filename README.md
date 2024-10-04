@@ -395,6 +395,12 @@ Support it by joining __[stargazers](https://github.com/getStream/stream-webrtc-
 Also, follow __[maintainers](https://github.com/skydoves)__ on GitHub for our next creations! 🤩
 
 # License
+
+- Mirrors [GetStream/WebRTC](https://github.com/getstream/webrtc) patches.
+- [WebRTC](https://webrtc.org) software is licensed under the [BSD license](https://github.com/GetStream/webrtc/blob/main/LICENSE).
+- Includes patches from [sora-android-sdk](https://github.com/shiguredo/sora-android-sdk), licensed under the [Apache 2.0](https://github.com/shiguredo/sora-android-sdk?tab=Apache-2.0-1-ov-file#readme).
+- Includes modifications from [webrtc-sdk/webrtc](https://github.com/webrtc-sdk/webrtc), licensed under the [BSD license](https://github.com/webrtc-sdk/webrtc/blob/master/LICENSE).
+
 ```xml
 Copyright 2023 Stream.IO, Inc. All Rights Reserved.
 
