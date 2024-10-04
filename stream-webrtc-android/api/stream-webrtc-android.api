@@ -629,6 +629,12 @@ public final class org/webrtc/Logging$TraceLevel : java/lang/Enum {
 	public static fun values ()[Lorg/webrtc/Logging$TraceLevel;
 }
 
+public abstract interface class org/webrtc/ManagedAudioProcessingFactory : org/webrtc/AudioProcessingFactory {
+	public abstract fun destroyNative ()V
+	public abstract fun isEnabled ()Z
+	public abstract fun setEnabled (Z)V
+}
+
 public class org/webrtc/MediaConstraints {
 	public final field mandatory Ljava/util/List;
 	public final field optional Ljava/util/List;
