@@ -422,6 +422,12 @@ public final class org/webrtc/EncodedImage$FrameType : java/lang/Enum {
 	public static fun values ()[Lorg/webrtc/EncodedImage$FrameType;
 }
 
+public class org/webrtc/ExternalAudioProcessingFactory : org/webrtc/AudioProcessingFactory {
+	public fun <init> (Ljava/lang/String;)V
+	public fun createNative ()J
+	public fun destroyNative ()V
+}
+
 public abstract interface class org/webrtc/FecControllerFactoryFactoryInterface {
 	public abstract fun createNative ()J
 }
