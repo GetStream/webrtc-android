@@ -265,6 +265,13 @@ public final class org/webrtc/DefaultAlignedVideoEncoderFactory : org/webrtc/Vid
 	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
 }
 
+public class org/webrtc/DefaultBlacklistedVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
+	public fun <init> (Lorg/webrtc/EglBase$Context;)V
+	public fun <init> (Lorg/webrtc/EglBase$Context;Ljava/util/function/Predicate;)V
+	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
+	public fun getSupportedCodecs ()[Lorg/webrtc/VideoCodecInfo;
+}
+
 public class org/webrtc/DefaultVideoDecoderFactory : org/webrtc/VideoDecoderFactory {
 	public fun <init> (Lorg/webrtc/EglBase$Context;)V
 	public fun createDecoder (Lorg/webrtc/VideoCodecInfo;)Lorg/webrtc/VideoDecoder;
