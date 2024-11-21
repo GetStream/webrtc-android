@@ -108,6 +108,8 @@ class WebRtcAudioRecord {
   private final @Nullable SamplesReadyCallback audioSamplesReadyCallback;
   private final boolean isAcousticEchoCancelerSupported;
   private final boolean isNoiseSuppressorSupported;
+  private final boolean useExternalAudioInputBuffer;
+  private boolean recording = false;
 
   /**
    * Audio thread which keeps calling ByteBuffer.read() waiting for audio
@@ -206,7 +208,7 @@ class WebRtcAudioRecord {
         DEFAULT_AUDIO_FORMAT, null /* errorCallback */, null /* stateCallback */,
         null /* audioSamplesReadyCallback */, null /* audioRecordCallback */,
         WebRtcAudioEffects.isAcousticEchoCancelerSupported(),
-        WebRtcAudioEffects.isNoiseSuppressorSupported());
+        WebRtcAudioEffects.isNoiseSuppressorSupported(), false, null);
   }
 
   public WebRtcAudioRecord(Context context, ScheduledExecutorService scheduler,
@@ -215,7 +217,8 @@ class WebRtcAudioRecord {
       @Nullable AudioRecordStateCallback stateCallback,
       @Nullable SamplesReadyCallback audioSamplesReadyCallback,
       @Nullable AudioRecordDataCallback audioRecordDataCallback,
-      boolean isAcousticEchoCancelerSupported, boolean isNoiseSuppressorSupported) {
+      boolean isAcousticEchoCancelerSupported, boolean isNoiseSuppressorSupported,
+      boolean useExternalAudioInputBuffer, @Nullable ByteBuffer externalAudioInputBuffer) {
     if (isAcousticEchoCancelerSupported && !WebRtcAudioEffects.isAcousticEchoCancelerSupported()) {
       throw new IllegalArgumentException("HW AEC not supported");
     }
@@ -233,6 +236,8 @@ class WebRtcAudioRecord {
     this.audioRecordDataCallback = audioRecordDataCallback;
     this.isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported;
     this.isNoiseSuppressorSupported = isNoiseSuppressorSupported;
+    this.useExternalAudioInputBuffer = useExternalAudioInputBuffer;
+    this.byteBuffer = externalAudioInputBuffer;
     Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
   }
 
@@ -293,7 +298,9 @@ class WebRtcAudioRecord {
     }
     final int bytesPerFrame = channels * getBytesPerSample(audioFormat);
     final int framesPerBuffer = sampleRate / BUFFERS_PER_SECOND;
-    byteBuffer = ByteBuffer.allocateDirect(bytesPerFrame * framesPerBuffer);
+    if (byteBuffer == null){
+      byteBuffer = ByteBuffer.allocateDirect(bytesPerFrame * framesPerBuffer);
+    }
     if (!(byteBuffer.hasArray())) {
       reportWebRtcAudioRecordInitError("ByteBuffer does not have backing array.");
       return -1;
@@ -304,6 +311,10 @@ class WebRtcAudioRecord {
     // the potentially expensive GetDirectBufferAddress) we simply have the
     // the native class cache the address to the memory once.
     nativeCacheDirectBufferAddress(nativeAudioRecord, byteBuffer);
+
+    if (useExternalAudioInputBuffer){
+      return framesPerBuffer;
+    }
 
     // Get the minimum buffer size required for the successful creation of
     // an AudioRecord object, in byte units.
@@ -385,6 +396,11 @@ class WebRtcAudioRecord {
   @CalledByNative
   private boolean startRecording() {
     Logging.d(TAG, "startRecording");
+    if (useExternalAudioInputBuffer){
+      recording = true;
+      return true;
+    }
+
     assertTrue(audioRecord != null);
     assertTrue(audioThread == null);
     try {
@@ -409,6 +425,12 @@ class WebRtcAudioRecord {
   @CalledByNative
   private boolean stopRecording() {
     Logging.d(TAG, "stopRecording");
+    if (useExternalAudioInputBuffer){
+      recording = false;
+      effects.release();
+      releaseAudioResources();
+      return true;
+    }
     assertTrue(audioThread != null);
     if (future != null) {
       if (!future.isDone()) {
@@ -441,6 +463,12 @@ class WebRtcAudioRecord {
                             .build())
         .setBufferSizeInBytes(bufferSizeInBytes)
         .build();
+  }
+
+  public void notifyExternalDataIsRecorded(int bytesRead, long captureTimeNs) {
+    if (useExternalAudioInputBuffer && recording){
+      nativeDataIsRecorded(nativeAudioRecord, bytesRead, captureTimeNs);
+    }
   }
 
   private static AudioRecord createAudioRecordOnLowerThanM(
