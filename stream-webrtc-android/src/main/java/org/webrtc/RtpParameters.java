@@ -76,6 +76,7 @@ public class RtpParameters {
     // If non-null, scale the width and height down by this factor for video. If null,
     // implementation default scaling factor will be used.
     @Nullable public Double scaleResolutionDownBy;
+    // Scalability modes are used to represent simulcast and SVC layers.
     @Nullable public String scalabilityMode;
     // SSRC to be used by this encoding.
     // Can't be changed between getParameters/setParameters.
@@ -93,9 +94,9 @@ public class RtpParameters {
 
     @CalledByNative("Encoding")
     Encoding(String rid, boolean active, double bitratePriority, @Priority int networkPriority,
-        Integer maxBitrateBps, Integer minBitrateBps, Integer maxFramerate,
-        Integer numTemporalLayers, Double scaleResolutionDownBy, String scalabilityMode, Long ssrc,
-        boolean adaptiveAudioPacketTime) {
+             Integer maxBitrateBps, Integer minBitrateBps, Integer maxFramerate,
+             Integer numTemporalLayers, Double scaleResolutionDownBy, String scalabilityMode,
+             Long ssrc, boolean adaptiveAudioPacketTime) {
       this.rid = rid;
       this.active = active;
       this.bitratePriority = bitratePriority;
@@ -195,7 +196,7 @@ public class RtpParameters {
 
     @CalledByNative("Codec")
     Codec(int payloadType, String name, MediaStreamTrack.MediaType kind, Integer clockRate,
-        Integer numChannels, Map<String, String> parameters) {
+          Integer numChannels, Map<String, String> parameters) {
       this.payloadType = payloadType;
       this.name = name;
       this.kind = kind;
@@ -307,7 +308,7 @@ public class RtpParameters {
 
   @CalledByNative
   RtpParameters(String transactionId, DegradationPreference degradationPreference, Rtcp rtcp,
-      List<HeaderExtension> headerExtensions, List<Encoding> encodings, List<Codec> codecs) {
+                List<HeaderExtension> headerExtensions, List<Encoding> encodings, List<Codec> codecs) {
     this.transactionId = transactionId;
     this.degradationPreference = degradationPreference;
     this.rtcp = rtcp;

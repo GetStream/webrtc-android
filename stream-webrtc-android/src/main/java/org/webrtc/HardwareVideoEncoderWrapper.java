@@ -191,8 +191,8 @@ class HardwareVideoEncoderWrapper implements VideoEncoder {
   }
 
   @Override
-  public long createNativeVideoEncoder() {
-    return internalEncoder.createNativeVideoEncoder();
+  public long createNative(long webrtcEnvRef) {
+    return internalEncoder.createNative(webrtcEnvRef);
   }
 
   @Override

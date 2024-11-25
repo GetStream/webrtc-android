@@ -9,14 +9,15 @@
  */
 
 package org.webrtc;
+import java.util.List;
 
 public class LibvpxVp9Encoder extends WrappedNativeVideoEncoder {
   @Override
-  public long createNativeVideoEncoder() {
-    return nativeCreateEncoder();
+  public long createNative(long webrtcEnvRef) {
+    return nativeCreate(webrtcEnvRef);
   }
 
-  static native long nativeCreateEncoder();
+  static native long nativeCreate(long webrtcEnvRef);
 
   @Override
   public boolean isHardwareEncoder() {
@@ -24,4 +25,10 @@ public class LibvpxVp9Encoder extends WrappedNativeVideoEncoder {
   }
 
   static native boolean nativeIsSupported();
+
+  static List<String> scalabilityModes() {
+    return nativeGetSupportedScalabilityModes();
+  }
+
+  static native List<String> nativeGetSupportedScalabilityModes();
 }
