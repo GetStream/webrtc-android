@@ -7,6 +7,7 @@ plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.compose.compiler.get().pluginId)
+  id(libs.plugins.baseline.profile.get().pluginId)
 }
 
 rootProject.extra.apply {
@@ -48,6 +49,13 @@ android {
     enableStrongSkippingMode = true
     reportsDestination = layout.buildDirectory.dir("compose_compiler")
   }
+
+  baselineProfile {
+    baselineProfileOutputDir = "."
+    filter {
+      include("io.getstream.webrtc.android.compose.**")
+    }
+  }
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -69,4 +77,6 @@ dependencies {
   implementation(libs.androidx.compose.runtime)
   implementation(libs.androidx.compose.foundation)
   implementation(libs.androidx.compose.material)
+
+  baselineProfile(project(":benchmark"))
 }

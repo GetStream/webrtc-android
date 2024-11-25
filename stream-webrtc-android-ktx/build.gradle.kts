@@ -6,6 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.baseline.profile.get().pluginId)
 }
 
 rootProject.extra.apply {
@@ -32,6 +33,13 @@ android {
   lint {
     abortOnError = false
   }
+
+  baselineProfile {
+    baselineProfileOutputDir = "."
+    filter {
+      include("io.getstream.webrtc.android.ktx.**")
+    }
+  }
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -47,4 +55,6 @@ tasks.withType(JavaCompile::class.java).configureEach {
 
 dependencies {
   api(project(":stream-webrtc-android"))
+
+  baselineProfile(project(":benchmark"))
 }
