@@ -43,13 +43,13 @@ public class NetworkMonitor {
 
   // Factory for creating NetworkChangeDetector.
   private NetworkChangeDetectorFactory networkChangeDetectorFactory =
-      new NetworkChangeDetectorFactory() {
-        @Override
-        public NetworkChangeDetector create(
-            NetworkChangeDetector.Observer observer, Context context) {
-          return new NetworkMonitorAutoDetect(observer, context);
-        }
-      };
+    new NetworkChangeDetectorFactory() {
+      @Override
+      public NetworkChangeDetector create(
+        NetworkChangeDetector.Observer observer, Context context) {
+        return new NetworkMonitorAutoDetect(observer, context);
+      }
+    };
 
   // Native observers of the connection type changes.
   private final ArrayList<Long> nativeNetworkObservers;
@@ -130,14 +130,14 @@ public class NetworkMonitor {
    */
   @CalledByNative
   private void startMonitoring(
-      @Nullable Context applicationContext, long nativeObserver, String fieldTrialsString) {
+    @Nullable Context applicationContext, long nativeObserver, String fieldTrialsString) {
     Logging.d(TAG,
-        "Start monitoring with native observer " + nativeObserver
-            + " fieldTrialsString: " + fieldTrialsString);
+      "Start monitoring with native observer " + nativeObserver
+        + " fieldTrialsString: " + fieldTrialsString);
 
     startMonitoring(
-        applicationContext != null ? applicationContext : ContextUtils.getApplicationContext(),
-        fieldTrialsString);
+      applicationContext != null ? applicationContext : ContextUtils.getApplicationContext(),
+      fieldTrialsString);
 
     synchronized (nativeNetworkObservers) {
       nativeNetworkObservers.add(nativeObserver);
@@ -189,7 +189,7 @@ public class NetworkMonitor {
   }
 
   private NetworkChangeDetector createNetworkChangeDetector(
-      Context appContext, String fieldTrialsString) {
+    Context appContext, String fieldTrialsString) {
     return networkChangeDetectorFactory.create(new NetworkChangeDetector.Observer() {
       @Override
       public void onConnectionTypeChanged(NetworkChangeDetector.ConnectionType newConnectionType) {
@@ -208,7 +208,7 @@ public class NetworkMonitor {
 
       @Override
       public void onNetworkPreference(
-          List<NetworkChangeDetector.ConnectionType> types, int preference) {
+        List<NetworkChangeDetector.ConnectionType> types, int preference) {
         notifyObserversOfNetworkPreference(types, preference);
       }
 
@@ -226,11 +226,14 @@ public class NetworkMonitor {
 
   /** Alerts all observers of a connection change. */
   private void notifyObserversOfConnectionTypeChange(
-      NetworkChangeDetector.ConnectionType newConnectionType) {
-    List<Long> nativeObservers = getNativeNetworkObserversSync();
-    for (Long nativeObserver : nativeObservers) {
-      nativeNotifyConnectionTypeChanged(nativeObserver);
+    NetworkChangeDetector.ConnectionType newConnectionType) {
+
+    synchronized (nativeNetworkObservers) {
+      for (Long nativeObserver : nativeNetworkObservers) {
+        nativeNotifyConnectionTypeChanged(nativeObserver);
+      }
     }
+
     // This avoids calling external methods while locking on an object.
     List<NetworkObserver> javaObservers;
     synchronized (networkObservers) {
@@ -242,26 +245,29 @@ public class NetworkMonitor {
   }
 
   private void notifyObserversOfNetworkConnect(
-      NetworkChangeDetector.NetworkInformation networkInfo) {
-    List<Long> nativeObservers = getNativeNetworkObserversSync();
-    for (Long nativeObserver : nativeObservers) {
-      nativeNotifyOfNetworkConnect(nativeObserver, networkInfo);
+    NetworkChangeDetector.NetworkInformation networkInfo) {
+    synchronized (nativeNetworkObservers) {
+      for (Long nativeObserver : nativeNetworkObservers) {
+        nativeNotifyOfNetworkConnect(nativeObserver, networkInfo);
+      }
     }
   }
 
   private void notifyObserversOfNetworkDisconnect(long networkHandle) {
-    List<Long> nativeObservers = getNativeNetworkObserversSync();
-    for (Long nativeObserver : nativeObservers) {
-      nativeNotifyOfNetworkDisconnect(nativeObserver, networkHandle);
+    synchronized (nativeNetworkObservers) {
+      for (Long nativeObserver : nativeNetworkObservers) {
+        nativeNotifyOfNetworkDisconnect(nativeObserver, networkHandle);
+      }
     }
   }
 
   private void notifyObserversOfNetworkPreference(
-      List<NetworkChangeDetector.ConnectionType> types, int preference) {
-    List<Long> nativeObservers = getNativeNetworkObserversSync();
-    for (NetworkChangeDetector.ConnectionType type : types) {
-      for (Long nativeObserver : nativeObservers) {
-        nativeNotifyOfNetworkPreference(nativeObserver, type, preference);
+    List<NetworkChangeDetector.ConnectionType> types, int preference) {
+    synchronized(nativeNetworkObservers) {
+      for (NetworkChangeDetector.ConnectionType type : types) {
+        for (Long nativeObserver : nativeNetworkObservers) {
+          nativeNotifyOfNetworkPreference(nativeObserver, type, preference);
+        }
       }
     }
   }
@@ -270,22 +276,16 @@ public class NetworkMonitor {
     List<NetworkChangeDetector.NetworkInformation> networkInfoList;
     synchronized (networkChangeDetectorLock) {
       networkInfoList =
-          (networkChangeDetector == null) ? null : networkChangeDetector.getActiveNetworkList();
+        (networkChangeDetector == null) ? null : networkChangeDetector.getActiveNetworkList();
     }
     if (networkInfoList == null) {
       return;
     }
 
     NetworkChangeDetector.NetworkInformation[] networkInfos =
-        new NetworkChangeDetector.NetworkInformation[networkInfoList.size()];
+      new NetworkChangeDetector.NetworkInformation[networkInfoList.size()];
     networkInfos = networkInfoList.toArray(networkInfos);
     nativeNotifyOfActiveNetworkList(nativeObserver, networkInfos);
-  }
-
-  private List<Long> getNativeNetworkObserversSync() {
-    synchronized (nativeNetworkObservers) {
-      return new ArrayList<>(nativeNetworkObservers);
-    }
   }
 
   /**
@@ -329,16 +329,16 @@ public class NetworkMonitor {
   private native void nativeNotifyConnectionTypeChanged(long nativeAndroidNetworkMonitor);
 
   private native void nativeNotifyOfNetworkConnect(
-      long nativeAndroidNetworkMonitor, NetworkChangeDetector.NetworkInformation networkInfo);
+    long nativeAndroidNetworkMonitor, NetworkChangeDetector.NetworkInformation networkInfo);
 
   private native void nativeNotifyOfNetworkDisconnect(
-      long nativeAndroidNetworkMonitor, long networkHandle);
+    long nativeAndroidNetworkMonitor, long networkHandle);
 
   private native void nativeNotifyOfActiveNetworkList(
-      long nativeAndroidNetworkMonitor, NetworkChangeDetector.NetworkInformation[] networkInfos);
+    long nativeAndroidNetworkMonitor, NetworkChangeDetector.NetworkInformation[] networkInfos);
 
   private native void nativeNotifyOfNetworkPreference(
-      long nativeAndroidNetworkMonitor, NetworkChangeDetector.ConnectionType type, int preference);
+    long nativeAndroidNetworkMonitor, NetworkChangeDetector.ConnectionType type, int preference);
 
   // For testing only.
   @Nullable
@@ -357,10 +357,10 @@ public class NetworkMonitor {
 
   // For testing only.
   static NetworkMonitorAutoDetect createAndSetAutoDetectForTest(
-      Context context, String fieldTrialsString) {
+    Context context, String fieldTrialsString) {
     NetworkMonitor networkMonitor = getInstance();
     NetworkChangeDetector networkChangeDetector =
-        networkMonitor.createNetworkChangeDetector(context, fieldTrialsString);
+      networkMonitor.createNetworkChangeDetector(context, fieldTrialsString);
     networkMonitor.networkChangeDetector = networkChangeDetector;
     return (NetworkMonitorAutoDetect) networkChangeDetector;
   }

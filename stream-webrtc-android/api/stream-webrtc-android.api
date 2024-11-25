@@ -21,7 +21,14 @@ public class org/webrtc/AudioSource : org/webrtc/MediaSource {
 
 public class org/webrtc/AudioTrack : org/webrtc/MediaStreamTrack {
 	public fun <init> (J)V
+	public fun addSink (Lorg/webrtc/AudioTrackSink;)V
+	public fun dispose ()V
+	public fun removeSink (Lorg/webrtc/AudioTrackSink;)V
 	public fun setVolume (D)V
+}
+
+public abstract interface class org/webrtc/AudioTrackSink {
+	public abstract fun onData (Ljava/nio/ByteBuffer;IIIIJ)V
 }
 
 public class org/webrtc/BuiltinAudioDecoderFactoryFactory : org/webrtc/AudioDecoderFactoryFactory {
@@ -450,6 +457,59 @@ public class org/webrtc/FileVideoCapturer : org/webrtc/VideoCapturer {
 	public fun tick ()V
 }
 
+public class org/webrtc/FrameCryptor {
+	public fun <init> (J)V
+	public fun dispose ()V
+	public fun getKeyIndex ()I
+	public fun getNativeFrameCryptor ()J
+	public fun isEnabled ()Z
+	public fun setEnabled (Z)V
+	public fun setKeyIndex (I)V
+	public fun setObserver (Lorg/webrtc/FrameCryptor$Observer;)V
+}
+
+public final class org/webrtc/FrameCryptor$FrameCryptionState : java/lang/Enum {
+	public static final field DECRYPTIONFAILED Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field ENCRYPTIONFAILED Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field INTERNALERROR Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field KEYRATCHETED Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field MISSINGKEY Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field NEW Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static final field OK Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/FrameCryptor$FrameCryptionState;
+	public static fun values ()[Lorg/webrtc/FrameCryptor$FrameCryptionState;
+}
+
+public abstract interface class org/webrtc/FrameCryptor$Observer {
+	public abstract fun onFrameCryptionStateChanged (Ljava/lang/String;Lorg/webrtc/FrameCryptor$FrameCryptionState;)V
+}
+
+public final class org/webrtc/FrameCryptorAlgorithm : java/lang/Enum {
+	public static final field AES_GCM Lorg/webrtc/FrameCryptorAlgorithm;
+	public static fun valueOf (Ljava/lang/String;)Lorg/webrtc/FrameCryptorAlgorithm;
+	public static fun values ()[Lorg/webrtc/FrameCryptorAlgorithm;
+}
+
+public class org/webrtc/FrameCryptorFactory {
+	public fun <init> ()V
+	public static fun createFrameCryptorForRtpReceiver (Lorg/webrtc/PeerConnectionFactory;Lorg/webrtc/RtpReceiver;Ljava/lang/String;Lorg/webrtc/FrameCryptorAlgorithm;Lorg/webrtc/FrameCryptorKeyProvider;)Lorg/webrtc/FrameCryptor;
+	public static fun createFrameCryptorForRtpSender (Lorg/webrtc/PeerConnectionFactory;Lorg/webrtc/RtpSender;Ljava/lang/String;Lorg/webrtc/FrameCryptorAlgorithm;Lorg/webrtc/FrameCryptorKeyProvider;)Lorg/webrtc/FrameCryptor;
+	public static fun createFrameCryptorKeyProvider (Z[BI[BIIZ)Lorg/webrtc/FrameCryptorKeyProvider;
+}
+
+public class org/webrtc/FrameCryptorKeyProvider {
+	public fun <init> (J)V
+	public fun dispose ()V
+	public fun exportKey (Ljava/lang/String;I)[B
+	public fun exportSharedKey (I)[B
+	public fun getNativeKeyProvider ()J
+	public fun ratchetKey (Ljava/lang/String;I)[B
+	public fun ratchetSharedKey (I)[B
+	public fun setKey (Ljava/lang/String;I[B)Z
+	public fun setSharedKey (I[B)Z
+	public fun setSifTrailer ([B)V
+}
+
 public abstract interface class org/webrtc/FrameDecryptor {
 	public abstract fun getNativeFrameDecryptor ()J
 }
@@ -566,7 +626,7 @@ public class org/webrtc/LibaomAv1Decoder : org/webrtc/WrappedNativeVideoDecoder 
 
 public class org/webrtc/LibaomAv1Encoder : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> ()V
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public fun isHardwareEncoder ()Z
 }
 
@@ -577,7 +637,7 @@ public class org/webrtc/LibvpxVp8Decoder : org/webrtc/WrappedNativeVideoDecoder 
 
 public class org/webrtc/LibvpxVp8Encoder : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> ()V
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public fun isHardwareEncoder ()Z
 }
 
@@ -588,7 +648,7 @@ public class org/webrtc/LibvpxVp9Decoder : org/webrtc/WrappedNativeVideoDecoder 
 
 public class org/webrtc/LibvpxVp9Encoder : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> ()V
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public fun isHardwareEncoder ()Z
 }
 
@@ -702,6 +762,7 @@ public class org/webrtc/MediaStreamTrack {
 	public fun dispose ()V
 	public fun enabled ()Z
 	public fun id ()Ljava/lang/String;
+	public fun isDisposed ()Z
 	public fun kind ()Ljava/lang/String;
 	public fun setEnabled (Z)Z
 	public fun state ()Lorg/webrtc/MediaStreamTrack$State;
@@ -1057,18 +1118,17 @@ public final class org/webrtc/PeerConnection$PortPrunePolicy : java/lang/Enum {
 
 public class org/webrtc/PeerConnection$RTCConfiguration {
 	public field activeResetSrtpParams Z
-	public field allowCodecSwitching Ljava/lang/Boolean;
 	public field audioJitterBufferFastAccelerate Z
 	public field audioJitterBufferMaxPackets I
 	public field bundlePolicy Lorg/webrtc/PeerConnection$BundlePolicy;
 	public field candidateNetworkPolicy Lorg/webrtc/PeerConnection$CandidateNetworkPolicy;
 	public field certificate Lorg/webrtc/RtcCertificatePem;
-	public field combinedAudioVideoBwe Ljava/lang/Boolean;
 	public field continualGatheringPolicy Lorg/webrtc/PeerConnection$ContinualGatheringPolicy;
 	public field cryptoOptions Lorg/webrtc/CryptoOptions;
 	public field disableIPv6OnWifi Z
 	public field enableCpuOveruseDetection Z
 	public field enableDscp Z
+	public field enableIceGatheringOnAnyAddressPorts Z
 	public field enableImplicitRollback Z
 	public field iceBackupCandidatePairPingInterval I
 	public field iceCandidatePoolSize I
@@ -1514,7 +1574,7 @@ public final class org/webrtc/SimulcastAlignedVideoEncoderFactory : org/webrtc/V
 
 public class org/webrtc/SimulcastVideoEncoder : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> (Lorg/webrtc/VideoEncoderFactory;Lorg/webrtc/VideoEncoderFactory;Lorg/webrtc/VideoCodecInfo;)V
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public fun isHardwareEncoder ()Z
 }
 
@@ -1703,9 +1763,9 @@ public class org/webrtc/VideoCodecInfo {
 	public final field name Ljava/lang/String;
 	public final field params Ljava/util/Map;
 	public final field payload I
-	public field scalabilityModes [I
+	public final field scalabilityModes Ljava/util/List;
 	public fun <init> (ILjava/lang/String;Ljava/util/Map;)V
-	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/util/List;)V
 	public fun equals (Ljava/lang/Object;)Z
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1766,7 +1826,7 @@ public class org/webrtc/VideoDecoderFallback : org/webrtc/WrappedNativeVideoDeco
 }
 
 public abstract interface class org/webrtc/VideoEncoder {
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public abstract fun encode (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoEncoder$EncodeInfo;)Lorg/webrtc/VideoCodecStatus;
 	public fun getEncoderInfo ()Lorg/webrtc/VideoEncoder$EncoderInfo;
 	public abstract fun getImplementationName ()Ljava/lang/String;
@@ -1885,7 +1945,7 @@ public abstract interface class org/webrtc/VideoEncoderFactory$VideoEncoderSelec
 
 public class org/webrtc/VideoEncoderFallback : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> (Lorg/webrtc/VideoEncoder;Lorg/webrtc/VideoEncoder;)V
-	public fun createNativeVideoEncoder ()J
+	public fun createNative (J)J
 	public fun isHardwareEncoder ()Z
 }
 
@@ -2028,7 +2088,7 @@ public abstract class org/webrtc/WrappedNativeVideoDecoder : org/webrtc/VideoDec
 
 public abstract class org/webrtc/WrappedNativeVideoEncoder : org/webrtc/VideoEncoder {
 	public fun <init> ()V
-	public abstract fun createNativeVideoEncoder ()J
+	public abstract fun createNative (J)J
 	public final fun encode (Lorg/webrtc/VideoFrame;Lorg/webrtc/VideoEncoder$EncodeInfo;)Lorg/webrtc/VideoCodecStatus;
 	public final fun getImplementationName ()Ljava/lang/String;
 	public final fun getScalingSettings ()Lorg/webrtc/VideoEncoder$ScalingSettings;
@@ -2070,6 +2130,8 @@ public abstract interface class org/webrtc/audio/AudioDeviceModule {
 	public abstract fun getNativeAudioDeviceModulePointer ()J
 	public abstract fun release ()V
 	public abstract fun setMicrophoneMute (Z)V
+	public fun setNoiseSuppressorEnabled (Z)Z
+	public fun setPreferredMicrophoneFieldDimension (F)Z
 	public abstract fun setSpeakerMute (Z)V
 }
 
@@ -2084,6 +2146,7 @@ public class org/webrtc/audio/JavaAudioDeviceModule : org/webrtc/audio/AudioDevi
 	public static fun isBuiltInNoiseSuppressorSupported ()Z
 	public fun release ()V
 	public fun setMicrophoneMute (Z)V
+	public fun setNoiseSuppressorEnabled (Z)Z
 	public fun setPreferredInputDevice (Landroid/media/AudioDeviceInfo;)V
 	public fun setSpeakerMute (Z)V
 }
@@ -2136,7 +2199,6 @@ public class org/webrtc/audio/JavaAudioDeviceModule$Builder {
 	public fun createAudioDeviceModule ()Lorg/webrtc/audio/JavaAudioDeviceModule;
 	public fun setAudioAttributes (Landroid/media/AudioAttributes;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioFormat (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
-	public fun setAudioRecordDataCallback (Lorg/webrtc/audio/AudioRecordDataCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordErrorCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordErrorCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordStateCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStateCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioSource (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;

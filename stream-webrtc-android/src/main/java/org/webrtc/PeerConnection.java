@@ -203,14 +203,14 @@ public class PeerConnection {
 
     @Deprecated
     public IceServer(String uri, String username, String password, TlsCertPolicy tlsCertPolicy,
-        String hostname) {
+                     String hostname) {
       this(uri, Collections.singletonList(uri), username, password, tlsCertPolicy, hostname, null,
-          null);
+        null);
     }
 
     private IceServer(String uri, List<String> urls, String username, String password,
-        TlsCertPolicy tlsCertPolicy, String hostname, List<String> tlsAlpnProtocols,
-        List<String> tlsEllipticCurves) {
+                      TlsCertPolicy tlsCertPolicy, String hostname, List<String> tlsAlpnProtocols,
+                      List<String> tlsEllipticCurves) {
       if (uri == null || urls == null || urls.isEmpty()) {
         throw new IllegalArgumentException("uri == null || urls == null || urls.isEmpty()");
       }
@@ -241,7 +241,7 @@ public class PeerConnection {
     @Override
     public String toString() {
       return urls + " [" + username + ":" + password + "] [" + tlsCertPolicy + "] [" + hostname
-          + "] [" + tlsAlpnProtocols + "] [" + tlsEllipticCurves + "]";
+        + "] [" + tlsAlpnProtocols + "] [" + tlsEllipticCurves + "]";
     }
 
     @Override
@@ -257,15 +257,15 @@ public class PeerConnection {
       }
       IceServer other = (IceServer) obj;
       return (uri.equals(other.uri) && urls.equals(other.urls) && username.equals(other.username)
-          && password.equals(other.password) && tlsCertPolicy.equals(other.tlsCertPolicy)
-          && hostname.equals(other.hostname) && tlsAlpnProtocols.equals(other.tlsAlpnProtocols)
-          && tlsEllipticCurves.equals(other.tlsEllipticCurves));
+        && password.equals(other.password) && tlsCertPolicy.equals(other.tlsCertPolicy)
+        && hostname.equals(other.hostname) && tlsAlpnProtocols.equals(other.tlsAlpnProtocols)
+        && tlsEllipticCurves.equals(other.tlsEllipticCurves));
     }
 
     @Override
     public int hashCode() {
       Object[] values = {uri, urls, username, password, tlsCertPolicy, hostname, tlsAlpnProtocols,
-          tlsEllipticCurves};
+        tlsEllipticCurves};
       return Arrays.hashCode(values);
     }
 
@@ -325,7 +325,7 @@ public class PeerConnection {
 
       public IceServer createIceServer() {
         return new IceServer(urls.get(0), urls, username, password, tlsCertPolicy, hostname,
-            tlsAlpnProtocols, tlsEllipticCurves);
+          tlsAlpnProtocols, tlsEllipticCurves);
       }
     }
 
@@ -528,7 +528,6 @@ public class PeerConnection {
     public boolean enableCpuOveruseDetection;
     public boolean suspendBelowMinBitrate;
     @Nullable public Integer screencastMinBitrate;
-    @Nullable public Boolean combinedAudioVideoBwe;
     // Use "Unknown" to represent no preference of adapter types, not the
     // preference of adapters of unknown types.
     public AdapterType networkPreference;
@@ -540,11 +539,6 @@ public class PeerConnection {
     // Actively reset the SRTP parameters whenever the DTLS transports underneath are reset for
     // every offer/answer negotiation.This is only intended to be a workaround for crbug.com/835958
     public boolean activeResetSrtpParams;
-
-    // Whether this client is allowed to switch encoding codec mid-stream. This is a workaround for
-    // a WebRTC bug where the receiver could get confussed if a codec switch happened mid-call.
-    // Null indicates no change to currently configured value.
-    @Nullable public Boolean allowCodecSwitching;
 
     /**
      * Defines advanced optional cryptographic settings related to SRTP and
@@ -572,6 +566,17 @@ public class PeerConnection {
      * See: https://www.chromestatus.com/feature/6269234631933952
      */
     public boolean offerExtmapAllowMixed;
+
+    /**
+     * When this flag is set, ports not bound to any specific network interface
+     * will be used, in addition to normal ports bound to the enumerated
+     * interfaces. Without this flag, these "any address" ports would only be
+     * used when network enumeration fails or is disabled. But under certain
+     * conditions, these ports may succeed where others fail, so they may allow
+     * the application to work in a wider variety of environments, at the expense
+     * of having to allocate additional candidates.
+     */
+    public boolean enableIceGatheringOnAnyAddressPorts;
 
     // TODO(deadbeef): Instead of duplicating the defaults here, we should do
     // something to pick up the defaults from C++. The Objective-C equivalent
@@ -607,15 +612,14 @@ public class PeerConnection {
       enableCpuOveruseDetection = true;
       suspendBelowMinBitrate = false;
       screencastMinBitrate = null;
-      combinedAudioVideoBwe = null;
       networkPreference = AdapterType.UNKNOWN;
       sdpSemantics = SdpSemantics.UNIFIED_PLAN;
       activeResetSrtpParams = false;
       cryptoOptions = null;
       turnLoggingId = null;
-      allowCodecSwitching = null;
       enableImplicitRollback = false;
       offerExtmapAllowMixed = true;
+      enableIceGatheringOnAnyAddressPorts = false;
     }
 
     @CalledByNative("RTCConfiguration")
@@ -788,12 +792,6 @@ public class PeerConnection {
       return screencastMinBitrate;
     }
 
-    @Nullable
-    @CalledByNative("RTCConfiguration")
-    Boolean getCombinedAudioVideoBwe() {
-      return combinedAudioVideoBwe;
-    }
-
     @CalledByNative("RTCConfiguration")
     AdapterType getNetworkPreference() {
       return networkPreference;
@@ -807,12 +805,6 @@ public class PeerConnection {
     @CalledByNative("RTCConfiguration")
     boolean getActiveResetSrtpParams() {
       return activeResetSrtpParams;
-    }
-
-    @Nullable
-    @CalledByNative("RTCConfiguration")
-    Boolean getAllowCodecSwitching() {
-      return allowCodecSwitching;
     }
 
     @Nullable
@@ -835,6 +827,11 @@ public class PeerConnection {
     @CalledByNative("RTCConfiguration")
     boolean getOfferExtmapAllowMixed() {
       return offerExtmapAllowMixed;
+    }
+
+    @CalledByNative("RTCConfiguration")
+    boolean getEnableIceGatheringOnAnyAddressPorts() {
+      return enableIceGatheringOnAnyAddressPorts;
     }
   };
 
@@ -932,7 +929,7 @@ public class PeerConnection {
 
   public void addIceCandidate(IceCandidate candidate, AddIceObserver observer) {
     nativeAddIceCandidateWithObserver(
-        candidate.sdpMid, candidate.sdpMLineIndex, candidate.sdp, observer);
+      candidate.sdpMid, candidate.sdpMLineIndex, candidate.sdp, observer);
   }
 
   public boolean removeIceCandidates(final IceCandidate[] candidates) {
@@ -1119,7 +1116,7 @@ public class PeerConnection {
   }
 
   public RtpTransceiver addTransceiver(
-      MediaStreamTrack track, @Nullable RtpTransceiver.RtpTransceiverInit init) {
+    MediaStreamTrack track, @Nullable RtpTransceiver.RtpTransceiverInit init) {
     if (track == null) {
       throw new NullPointerException("No MediaStreamTrack specified for addTransceiver.");
     }
@@ -1127,7 +1124,7 @@ public class PeerConnection {
       init = new RtpTransceiver.RtpTransceiverInit();
     }
     RtpTransceiver newTransceiver =
-        nativeAddTransceiverWithTrack(track.getNativeMediaStreamTrack(), init);
+      nativeAddTransceiverWithTrack(track.getNativeMediaStreamTrack(), init);
     if (newTransceiver == null) {
       throw new IllegalStateException("C++ addTransceiver failed.");
     }
@@ -1140,7 +1137,7 @@ public class PeerConnection {
   }
 
   public RtpTransceiver addTransceiver(
-      MediaStreamTrack.MediaType mediaType, @Nullable RtpTransceiver.RtpTransceiverInit init) {
+    MediaStreamTrack.MediaType mediaType, @Nullable RtpTransceiver.RtpTransceiverInit init) {
     if (mediaType == null) {
       throw new NullPointerException("No MediaType specified for addTransceiver.");
     }
@@ -1311,9 +1308,9 @@ public class PeerConnection {
   private static native void nativeFreeOwnedPeerConnection(long ownedPeerConnection);
   private native boolean nativeSetConfiguration(RTCConfiguration config);
   private native boolean nativeAddIceCandidate(
-      String sdpMid, int sdpMLineIndex, String iceCandidateSdp);
+    String sdpMid, int sdpMLineIndex, String iceCandidateSdp);
   private native void nativeAddIceCandidateWithObserver(
-      String sdpMid, int sdpMLineIndex, String iceCandidateSdp, AddIceObserver observer);
+    String sdpMid, int sdpMLineIndex, String iceCandidateSdp, AddIceObserver observer);
   private native boolean nativeRemoveIceCandidates(final IceCandidate[] candidates);
   private native boolean nativeAddLocalStream(long stream);
   private native void nativeRemoveLocalStream(long stream);
@@ -1328,9 +1325,9 @@ public class PeerConnection {
   private native RtpSender nativeAddTrack(long track, List<String> streamIds);
   private native boolean nativeRemoveTrack(long sender);
   private native RtpTransceiver nativeAddTransceiverWithTrack(
-      long track, RtpTransceiver.RtpTransceiverInit init);
+    long track, RtpTransceiver.RtpTransceiverInit init);
   private native RtpTransceiver nativeAddTransceiverOfType(
-      MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit init);
+    MediaStreamTrack.MediaType mediaType, RtpTransceiver.RtpTransceiverInit init);
   private native boolean nativeStartRtcEventLog(int file_descriptor, int max_size_bytes);
   private native void nativeStopRtcEventLog();
 }

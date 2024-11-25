@@ -33,14 +33,14 @@ public interface VideoEncoder {
     // TODO(bugs.webrtc.org/10720): Remove.
     @Deprecated
     public Settings(int numberOfCores, int width, int height, int startBitrate, int maxFramerate,
-        int numberOfSimulcastStreams, boolean automaticResizeOn) {
+                    int numberOfSimulcastStreams, boolean automaticResizeOn) {
       this(numberOfCores, width, height, startBitrate, maxFramerate, numberOfSimulcastStreams,
-          automaticResizeOn, new VideoEncoder.Capabilities(false /* lossNotification */));
+        automaticResizeOn, new VideoEncoder.Capabilities(false /* lossNotification */));
     }
 
     @CalledByNative("Settings")
     public Settings(int numberOfCores, int width, int height, int startBitrate, int maxFramerate,
-        int numberOfSimulcastStreams, boolean automaticResizeOn, Capabilities capabilities) {
+                    int numberOfSimulcastStreams, boolean automaticResizeOn, Capabilities capabilities) {
       this.numberOfCores = numberOfCores;
       this.width = width;
       this.height = height;
@@ -208,7 +208,7 @@ public interface VideoEncoder {
     public final int maxBitrateBps;
 
     public ResolutionBitrateLimits(
-        int frameSizePixels, int minStartBitrateBps, int minBitrateBps, int maxBitrateBps) {
+      int frameSizePixels, int minStartBitrateBps, int minBitrateBps, int maxBitrateBps) {
       this.frameSizePixels = frameSizePixels;
       this.minStartBitrateBps = minStartBitrateBps;
       this.minBitrateBps = minBitrateBps;
@@ -275,7 +275,7 @@ public interface VideoEncoder {
     public final boolean applyAlignmentToAllSimulcastLayers;
 
     public EncoderInfo(
-        int requestedResolutionAlignment, boolean applyAlignmentToAllSimulcastLayers) {
+      int requestedResolutionAlignment, boolean applyAlignmentToAllSimulcastLayers) {
       this.requestedResolutionAlignment = requestedResolutionAlignment;
       this.applyAlignmentToAllSimulcastLayers = applyAlignmentToAllSimulcastLayers;
     }
@@ -310,11 +310,11 @@ public interface VideoEncoder {
    * encoder (e.g., an Android platform encoder), or alternatively 2) a native
    * encoder (e.g., a software encoder or a C++ encoder adapter).
    *
-   * For case 1), createNativeVideoEncoder() should return zero.
+   * For case 1), createNative() should return zero.
    * In this case, we expect the native library to call the encoder through
    * JNI using the Java interface declared below.
    *
-   * For case 2), createNativeVideoEncoder() should return a non-zero value.
+   * For case 2), createNative() should return a non-zero value.
    * In this case, we expect the native library to treat the returned value as
    * a raw pointer of type webrtc::VideoEncoder* (ownership is transferred to
    * the caller). The native library should then directly call the
@@ -323,7 +323,7 @@ public interface VideoEncoder {
    * UnsupportedOperationException.
    */
   @CalledByNative
-  default long createNativeVideoEncoder() {
+  default long createNative(long webrtcEnvRef) {
     return 0;
   }
 
@@ -380,6 +380,6 @@ public interface VideoEncoder {
   @CalledByNative
   default EncoderInfo getEncoderInfo() {
     return new EncoderInfo(
-        /* requestedResolutionAlignment= */ 1, /* applyAlignmentToAllSimulcastLayers= */ false);
+      /* requestedResolutionAlignment= */ 1, /* applyAlignmentToAllSimulcastLayers= */ false);
   }
 }

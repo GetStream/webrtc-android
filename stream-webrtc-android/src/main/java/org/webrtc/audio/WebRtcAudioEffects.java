@@ -31,9 +31,9 @@ class WebRtcAudioEffects {
   // UUIDs for Software Audio Effects that we want to avoid using.
   // The implementor field will be set to "The Android Open Source Project".
   private static final UUID AOSP_ACOUSTIC_ECHO_CANCELER =
-      UUID.fromString("bb392ec0-8d4d-11e0-a896-0002a5d5c51b");
+    UUID.fromString("bb392ec0-8d4d-11e0-a896-0002a5d5c51b");
   private static final UUID AOSP_NOISE_SUPPRESSOR =
-      UUID.fromString("c06c8400-8e06-11e0-9cb6-0002a5d5c51b");
+    UUID.fromString("c06c8400-8e06-11e0-9cb6-0002a5d5c51b");
 
   // Contains the available effect descriptors returned from the
   // AudioEffect.getEffects() call. This result is cached to avoid doing the
@@ -104,6 +104,19 @@ class WebRtcAudioEffects {
     return true;
   }
 
+  // Toggles an existing NoiseSuppressor to be enabled or disabled.
+  // Returns true if the toggling was successful, otherwise false is returned (this is also the case
+  // if no NoiseSuppressor was present).
+  public boolean toggleNS(boolean enable) {
+    if (ns == null) {
+      Logging.e(TAG, "Attempting to enable or disable nonexistent NoiseSuppressor.");
+      return false;
+    }
+    Logging.d(TAG, "toggleNS(" + enable + ")");
+    boolean toggling_succeeded = ns.setEnabled(enable) == AudioEffect.SUCCESS;
+    return toggling_succeeded;
+  }
+
   public void enable(int audioSession) {
     Logging.d(TAG, "enable(audioSession=" + audioSession + ")");
     assertTrue(aec == null);
@@ -116,10 +129,10 @@ class WebRtcAudioEffects {
       for (Descriptor d : AudioEffect.queryEffects()) {
         if (effectTypeIsVoIP(d.type)) {
           Logging.d(TAG,
-              "name: " + d.name + ", "
-                  + "mode: " + d.connectMode + ", "
-                  + "implementor: " + d.implementor + ", "
-                  + "UUID: " + d.uuid);
+            "name: " + d.name + ", "
+              + "mode: " + d.connectMode + ", "
+              + "implementor: " + d.implementor + ", "
+              + "UUID: " + d.uuid);
         }
       }
     }
@@ -135,8 +148,8 @@ class WebRtcAudioEffects {
           Logging.e(TAG, "Failed to set the AcousticEchoCanceler state");
         }
         Logging.d(TAG,
-            "AcousticEchoCanceler: was " + (enabled ? "enabled" : "disabled") + ", enable: "
-                + enable + ", is now: " + (aec.getEnabled() ? "enabled" : "disabled"));
+          "AcousticEchoCanceler: was " + (enabled ? "enabled" : "disabled") + ", enable: "
+            + enable + ", is now: " + (aec.getEnabled() ? "enabled" : "disabled"));
       } else {
         Logging.e(TAG, "Failed to create the AcousticEchoCanceler instance");
       }
@@ -153,8 +166,8 @@ class WebRtcAudioEffects {
           Logging.e(TAG, "Failed to set the NoiseSuppressor state");
         }
         Logging.d(TAG,
-            "NoiseSuppressor: was " + (enabled ? "enabled" : "disabled") + ", enable: " + enable
-                + ", is now: " + (ns.getEnabled() ? "enabled" : "disabled"));
+          "NoiseSuppressor: was " + (enabled ? "enabled" : "disabled") + ", enable: " + enable
+            + ", is now: " + (ns.getEnabled() ? "enabled" : "disabled"));
       } else {
         Logging.e(TAG, "Failed to create the NoiseSuppressor instance");
       }
@@ -185,7 +198,7 @@ class WebRtcAudioEffects {
   // AutomaticGainControl.isAvailable() returns false.
   private boolean effectTypeIsVoIP(UUID type) {
     return (AudioEffect.EFFECT_TYPE_AEC.equals(type) && isAcousticEchoCancelerSupported())
-        || (AudioEffect.EFFECT_TYPE_NS.equals(type) && isNoiseSuppressorSupported());
+      || (AudioEffect.EFFECT_TYPE_NS.equals(type) && isNoiseSuppressorSupported());
   }
 
   // Helper method which throws an exception when an assertion has failed.

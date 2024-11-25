@@ -121,6 +121,10 @@ public class MediaStreamTrack {
     }
   }
 
+  public boolean isDisposed() {
+    return nativeTrack == 0;
+  }
+
   private static native String nativeGetId(long track);
   private static native String nativeGetKind(long track);
   private static native boolean nativeGetEnabled(long track);

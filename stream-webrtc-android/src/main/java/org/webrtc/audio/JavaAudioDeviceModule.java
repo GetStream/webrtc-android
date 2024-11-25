@@ -51,7 +51,6 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     private AudioAttributes audioAttributes;
     private boolean useLowLatency;
     private boolean enableVolumeLogger;
-    private AudioRecordDataCallback audioRecordDataCallback;
 
     private Builder(Context context) {
       this.context = context;
@@ -223,16 +222,6 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     }
 
     /**
-     * Can be used to gain access to the raw ByteBuffer from the recording device before it's
-     * fed into WebRTC. You can use this to manipulate the ByteBuffer (e.g. audio filters).
-     * Make sure that the operation is fast.
-     */
-    public Builder setAudioRecordDataCallback(AudioRecordDataCallback audioRecordDataCallback) {
-      this.audioRecordDataCallback = audioRecordDataCallback;
-      return this;
-    }
-
-    /**
      * Construct an AudioDeviceModule based on the supplied arguments. The caller takes ownership
      * and is responsible for calling release().
      */
@@ -265,13 +254,13 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
         executor = WebRtcAudioRecord.newDefaultScheduler();
       }
       final WebRtcAudioRecord audioInput = new WebRtcAudioRecord(context, executor, audioManager,
-          audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
-          samplesReadyCallback, audioRecordDataCallback, useHardwareAcousticEchoCanceler, useHardwareNoiseSuppressor);
+        audioSource, audioFormat, audioRecordErrorCallback, audioRecordStateCallback,
+        samplesReadyCallback, useHardwareAcousticEchoCanceler, useHardwareNoiseSuppressor);
       final WebRtcAudioTrack audioOutput =
-          new WebRtcAudioTrack(context, audioManager, audioAttributes, audioTrackErrorCallback,
-              audioTrackStateCallback, useLowLatency, enableVolumeLogger);
+        new WebRtcAudioTrack(context, audioManager, audioAttributes, audioTrackErrorCallback,
+          audioTrackStateCallback, useLowLatency, enableVolumeLogger);
       return new JavaAudioDeviceModule(context, audioManager, audioInput, audioOutput,
-          inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
+        inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
     }
   }
 
@@ -298,8 +287,11 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
    * Contains audio sample information.
    */
   public static class AudioSamples {
+    /** See {@link AudioRecord#getAudioFormat()} */
     private final int audioFormat;
+    /** See {@link AudioRecord#getChannelCount()} */
     private final int channelCount;
+    /** See {@link AudioRecord#getSampleRate()} */
     private final int sampleRate;
 
     private final byte[] data;
@@ -381,8 +373,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
   private long nativeAudioDeviceModule;
 
   private JavaAudioDeviceModule(Context context, AudioManager audioManager,
-      WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput, int inputSampleRate,
-      int outputSampleRate, boolean useStereoInput, boolean useStereoOutput) {
+                                WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput, int inputSampleRate,
+                                int outputSampleRate, boolean useStereoInput, boolean useStereoOutput) {
     this.context = context;
     this.audioManager = audioManager;
     this.audioInput = audioInput;
@@ -398,7 +390,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     synchronized (nativeLock) {
       if (nativeAudioDeviceModule == 0) {
         nativeAudioDeviceModule = nativeCreateAudioDeviceModule(context, audioManager, audioInput,
-            audioOutput, inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
+          audioOutput, inputSampleRate, outputSampleRate, useStereoInput, useStereoOutput);
       }
       return nativeAudioDeviceModule;
     }
@@ -426,6 +418,12 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     audioInput.setMicrophoneMute(mute);
   }
 
+  @Override
+  public boolean setNoiseSuppressorEnabled(boolean enabled) {
+    Logging.d(TAG, "setNoiseSuppressorEnabled: " + enabled);
+    return audioInput.setNoiseSuppressorEnabled(enabled);
+  }
+
   /**
    * Start to prefer a specific {@link AudioDeviceInfo} device for recording. Typically this should
    * only be used if a client gives an explicit option for choosing a physical device to record
@@ -439,6 +437,6 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
   }
 
   private static native long nativeCreateAudioDeviceModule(Context context,
-      AudioManager audioManager, WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput,
-      int inputSampleRate, int outputSampleRate, boolean useStereoInput, boolean useStereoOutput);
+                                                           AudioManager audioManager, WebRtcAudioRecord audioInput, WebRtcAudioTrack audioOutput,
+                                                           int inputSampleRate, int outputSampleRate, boolean useStereoInput, boolean useStereoOutput);
 }

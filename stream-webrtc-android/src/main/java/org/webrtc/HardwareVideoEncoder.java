@@ -185,9 +185,9 @@ class HardwareVideoEncoder implements VideoEncoder {
    * @throws IllegalArgumentException if colorFormat is unsupported
    */
   public HardwareVideoEncoder(MediaCodecWrapperFactory mediaCodecWrapperFactory, String codecName,
-      VideoCodecMimeType codecType, Integer surfaceColorFormat, Integer yuvColorFormat,
-      Map<String, String> params, int keyFrameIntervalSec, int forceKeyFrameIntervalMs,
-      BitrateAdjuster bitrateAdjuster, EglBase14.Context sharedContext) {
+                              VideoCodecMimeType codecType, Integer surfaceColorFormat, Integer yuvColorFormat,
+                              Map<String, String> params, int keyFrameIntervalSec, int forceKeyFrameIntervalMs,
+                              BitrateAdjuster bitrateAdjuster, EglBase14.Context sharedContext) {
     this.mediaCodecWrapperFactory = mediaCodecWrapperFactory;
     this.codecName = codecName;
     this.codecType = codecType;
@@ -211,7 +211,7 @@ class HardwareVideoEncoder implements VideoEncoder {
     automaticResizeOn = settings.automaticResizeOn;
 
     if (settings.width % REQUIRED_RESOLUTION_ALIGNMENT != 0
-        || settings.height % REQUIRED_RESOLUTION_ALIGNMENT != 0) {
+      || settings.height % REQUIRED_RESOLUTION_ALIGNMENT != 0) {
       Logging.e(TAG, "MediaCodec requires 2x2 alignment.");
       return VideoCodecStatus.ERR_SIZE;
     }
@@ -225,9 +225,9 @@ class HardwareVideoEncoder implements VideoEncoder {
     adjustedBitrate = bitrateAdjuster.getAdjustedBitrateBps();
 
     Logging.d(TAG,
-        "initEncode name: " + codecName + " type: " + codecType + " width: " + width
-            + " height: " + height + " framerate_fps: " + settings.maxFramerate
-            + " bitrate_kbps: " + settings.startBitrate + " surface mode: " + useSurfaceMode);
+      "initEncode name: " + codecName + " type: " + codecType + " width: " + width
+        + " height: " + height + " framerate_fps: " + settings.maxFramerate
+        + " bitrate_kbps: " + settings.startBitrate + " surface mode: " + useSurfaceMode);
     return initEncodeInternal();
   }
 
@@ -253,7 +253,7 @@ class HardwareVideoEncoder implements VideoEncoder {
       format.setInteger(MediaFormat.KEY_BITRATE_MODE, BITRATE_MODE_CBR);
       format.setInteger(MediaFormat.KEY_COLOR_FORMAT, colorFormat);
       format.setFloat(
-          MediaFormat.KEY_FRAME_RATE, (float) bitrateAdjuster.getAdjustedFramerateFps());
+        MediaFormat.KEY_FRAME_RATE, (float) bitrateAdjuster.getAdjustedFramerateFps());
       format.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, keyFrameIntervalSec);
       if (codecType == VideoCodecMimeType.H264) {
         String profileLevelId = params.get(VideoCodecInfo.H264_FMTP_PROFILE_LEVEL_ID);
@@ -279,13 +279,13 @@ class HardwareVideoEncoder implements VideoEncoder {
 
       if (isEncodingStatisticsSupported()) {
         format.setInteger(MediaFormat.KEY_VIDEO_ENCODING_STATISTICS_LEVEL,
-            MediaFormat.VIDEO_ENCODING_STATISTICS_LEVEL_1);
+          MediaFormat.VIDEO_ENCODING_STATISTICS_LEVEL_1);
         isEncodingStatisticsEnabled = true;
       }
 
       Logging.d(TAG, "Format: " + format);
       codec.configure(
-          format, null /* surface */, null /* crypto */, MediaCodec.CONFIGURE_FLAG_ENCODE);
+        format, null /* surface */, null /* crypto */, MediaCodec.CONFIGURE_FLAG_ENCODE);
 
       if (useSurfaceMode) {
         textureEglBase = EglBase.createEgl14(sharedContext, EglBase.CONFIG_RECORDABLE);
@@ -297,7 +297,7 @@ class HardwareVideoEncoder implements VideoEncoder {
       updateInputFormat(codec.getInputFormat());
 
       codec.start();
-    } catch (IllegalStateException e) {
+    } catch (IllegalArgumentException | IllegalStateException e) {
       Logging.e(TAG, "initEncodeInternal failed", e);
       release();
       return VideoCodecStatus.FALLBACK_SOFTWARE;
@@ -392,16 +392,16 @@ class HardwareVideoEncoder implements VideoEncoder {
     }
 
     EncodedImage.Builder builder = EncodedImage.builder()
-                                       .setCaptureTimeNs(videoFrame.getTimestampNs())
-                                       .setEncodedWidth(videoFrame.getBuffer().getWidth())
-                                       .setEncodedHeight(videoFrame.getBuffer().getHeight())
-                                       .setRotation(videoFrame.getRotation());
+      .setCaptureTimeNs(videoFrame.getTimestampNs())
+      .setEncodedWidth(videoFrame.getBuffer().getWidth())
+      .setEncodedHeight(videoFrame.getBuffer().getHeight())
+      .setRotation(videoFrame.getRotation());
     outputBuilders.offer(builder);
 
     long presentationTimestampUs = nextPresentationTimestampUs;
     // Round frame duration down to avoid bitrate overshoot.
     long frameDurationUs =
-        (long) (TimeUnit.SECONDS.toMicros(1) / bitrateAdjuster.getAdjustedFramerateFps());
+      (long) (TimeUnit.SECONDS.toMicros(1) / bitrateAdjuster.getAdjustedFramerateFps());
     nextPresentationTimestampUs += frameDurationUs;
 
     final VideoCodecStatus returnValue;
@@ -421,7 +421,7 @@ class HardwareVideoEncoder implements VideoEncoder {
   }
 
   private VideoCodecStatus encodeTextureBuffer(
-      VideoFrame videoFrame, long presentationTimestampUs) {
+    VideoFrame videoFrame, long presentationTimestampUs) {
     encodeThreadChecker.checkIsOnValidThread();
     try {
       // TODO(perkj): glClear() shouldn't be necessary since every pixel is covered anyway,
@@ -429,7 +429,7 @@ class HardwareVideoEncoder implements VideoEncoder {
       GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
       // It is not necessary to release this frame because it doesn't own the buffer.
       VideoFrame derotatedFrame =
-          new VideoFrame(videoFrame.getBuffer(), 0 /* rotation */, videoFrame.getTimestampNs());
+        new VideoFrame(videoFrame.getBuffer(), 0 /* rotation */, videoFrame.getTimestampNs());
       videoFrameDrawer.drawFrame(derotatedFrame, textureDrawer, null /* additionalRenderMatrix */);
       textureEglBase.swapBuffers(TimeUnit.MICROSECONDS.toNanos(presentationTimestampUs));
     } catch (RuntimeException e) {
@@ -466,8 +466,8 @@ class HardwareVideoEncoder implements VideoEncoder {
 
     if (buffer.capacity() < frameSizeBytes) {
       Logging.e(TAG,
-          "Input buffer size: " + buffer.capacity()
-              + " is smaller than frame size: " + frameSizeBytes);
+        "Input buffer size: " + buffer.capacity()
+          + " is smaller than frame size: " + frameSizeBytes);
       return VideoCodecStatus.ERROR;
     }
 
@@ -475,7 +475,7 @@ class HardwareVideoEncoder implements VideoEncoder {
 
     try {
       codec.queueInputBuffer(
-          index, 0 /* offset */, frameSizeBytes, presentationTimestampUs, 0 /* flags */);
+        index, 0 /* offset */, frameSizeBytes, presentationTimestampUs, 0 /* flags */);
     } catch (IllegalStateException e) {
       Logging.e(TAG, "queueInputBuffer failed", e);
       // IllegalStateException thrown when the codec is in the wrong state.
@@ -528,8 +528,8 @@ class HardwareVideoEncoder implements VideoEncoder {
     // value to be 16. Additionally, this encoder produces a single stream. So it should not require
     // alignment for all layers.
     return new EncoderInfo(
-        /* requestedResolutionAlignment= */ REQUIRED_RESOLUTION_ALIGNMENT,
-        /* applyAlignmentToAllSimulcastLayers= */ false);
+      /* requestedResolutionAlignment= */ REQUIRED_RESOLUTION_ALIGNMENT,
+      /* applyAlignmentToAllSimulcastLayers= */ false);
   }
 
   private VideoCodecStatus resetCodec(int newWidth, int newHeight, boolean newUseSurfaceMode) {
@@ -540,7 +540,7 @@ class HardwareVideoEncoder implements VideoEncoder {
     }
 
     if (newWidth % REQUIRED_RESOLUTION_ALIGNMENT != 0
-        || newHeight % REQUIRED_RESOLUTION_ALIGNMENT != 0) {
+      || newHeight % REQUIRED_RESOLUTION_ALIGNMENT != 0) {
       Logging.e(TAG, "MediaCodec requires 2x2 alignment.");
       return VideoCodecStatus.ERR_SIZE;
     }
@@ -604,7 +604,7 @@ class HardwareVideoEncoder implements VideoEncoder {
       if ((info.flags & MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != 0) {
         Logging.d(TAG, "Config frame generated. Offset: " + info.offset + ". Size: " + info.size);
         if (info.size > 0
-            && (codecType == VideoCodecMimeType.H264 || codecType == VideoCodecMimeType.H265)) {
+          && (codecType == VideoCodecMimeType.H264 || codecType == VideoCodecMimeType.H265)) {
           // In case of H264 and H265 config buffer contains SPS and PPS headers. Presence of these
           // headers makes IDR frame a truly keyframe. Some encoders issue IDR frames without SPS
           // and PPS. We save config buffer here to prepend it to all IDR frames encoder delivers.
@@ -637,8 +637,8 @@ class HardwareVideoEncoder implements VideoEncoder {
       final Runnable releaseCallback;
       if (isKeyFrame && configBuffer != null) {
         Logging.d(TAG,
-            "Prepending config buffer of size " + configBuffer.capacity()
-                + " to output buffer with offset " + info.offset + ", size " + info.size);
+          "Prepending config buffer of size " + configBuffer.capacity()
+            + " to output buffer with offset " + info.offset + ", size " + info.size);
         frameBuffer = ByteBuffer.allocateDirect(info.size + configBuffer.capacity());
         configBuffer.rewind();
         frameBuffer.put(configBuffer);
@@ -663,7 +663,7 @@ class HardwareVideoEncoder implements VideoEncoder {
       }
 
       final EncodedImage.FrameType frameType = isKeyFrame ? EncodedImage.FrameType.VideoFrameKey
-                                                          : EncodedImage.FrameType.VideoFrameDelta;
+        : EncodedImage.FrameType.VideoFrameDelta;
 
       EncodedImage.Builder builder = outputBuilders.poll();
       builder.setBuffer(frameBuffer, releaseCallback);
@@ -746,9 +746,9 @@ class HardwareVideoEncoder implements VideoEncoder {
     }
 
     Logging.d(TAG,
-        "updateInputFormat format: " + format + " stride: " + stride
-            + " sliceHeight: " + sliceHeight + " isSemiPlanar: " + isSemiPlanar
-            + " frameSizeBytes: " + frameSizeBytes);
+      "updateInputFormat format: " + format + " stride: " + stride
+        + " sliceHeight: " + sliceHeight + " isSemiPlanar: " + isSemiPlanar
+        + " frameSizeBytes: " + frameSizeBytes);
   }
 
   protected boolean isEncodingStatisticsSupported() {
@@ -779,12 +779,12 @@ class HardwareVideoEncoder implements VideoEncoder {
     VideoFrame.I420Buffer i420 = frame.toI420();
     if (isSemiPlanar) {
       YuvHelper.I420ToNV12(i420.getDataY(), i420.getStrideY(), i420.getDataU(), i420.getStrideU(),
-          i420.getDataV(), i420.getStrideV(), buffer, i420.getWidth(), i420.getHeight(), stride,
-          sliceHeight);
+        i420.getDataV(), i420.getStrideV(), buffer, i420.getWidth(), i420.getHeight(), stride,
+        sliceHeight);
     } else {
       YuvHelper.I420Copy(i420.getDataY(), i420.getStrideY(), i420.getDataU(), i420.getStrideU(),
-          i420.getDataV(), i420.getStrideV(), buffer, i420.getWidth(), i420.getHeight(), stride,
-          sliceHeight);
+        i420.getDataV(), i420.getStrideV(), buffer, i420.getWidth(), i420.getHeight(), stride,
+        sliceHeight);
     }
     i420.release();
   }
