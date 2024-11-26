@@ -19,6 +19,7 @@ package io.getstream.webrtc.android.benchmark
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.benchmark.macro.junit4.BaselineProfileRule
+import androidx.test.uiautomator.By
 import org.junit.Rule
 import org.junit.Test
 
@@ -34,13 +35,15 @@ class BaselineProfileGenerator {
   fun startup() =
     baselineProfileRule.collect(
       packageName = "io.getstream.webrtc.sample.compose",
+      stableIterations = 2,
+      maxIterations = 8,
       includeInStartupProfile = true,
     ) {
-      pressHome()
-      // This block defines the app's critical user journey. Here we are interested in
-      // optimizing for app startup. But you can also navigate and scroll
-      // through your most important UI.
       startActivityAndWait()
+
       device.waitForIdle()
+
+      device.waitForObject(By.text(getPermissionText()), 5_000)?.click()
+      device.waitForObject(By.text(getPermissionText()), 5_000)?.click()
     }
 }

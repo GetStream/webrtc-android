@@ -16,7 +16,7 @@ android {
 
   defaultConfig {
     applicationId = "io.getstream.webrtc.sample.compose"
-    minSdk = Configurations.minSdk
+    minSdk = Configurations.appMinSdk
     targetSdk = Configurations.targetSdk
     versionName = Configurations.versionName
 
