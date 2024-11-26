@@ -7,6 +7,7 @@ plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
   id(libs.plugins.compose.compiler.get().pluginId)
+  id(libs.plugins.baseline.profile.get().pluginId)
 }
 
 android {
@@ -15,7 +16,7 @@ android {
 
   defaultConfig {
     applicationId = "io.getstream.webrtc.sample.compose"
-    minSdk = Configurations.minSdk
+    minSdk = Configurations.appMinSdk
     targetSdk = Configurations.targetSdk
     versionName = Configurations.versionName
 
@@ -89,4 +90,6 @@ dependencies {
 
   // logger
   implementation(libs.stream.log)
+
+  baselineProfile(project(":benchmark"))
 }

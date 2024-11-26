@@ -6,6 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
+  id(libs.plugins.baseline.profile.get().pluginId)
 }
 
 rootProject.extra.apply {
@@ -39,6 +40,13 @@ android {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = JavaVersion.VERSION_11
   }
+
+  baselineProfile {
+    baselineProfileOutputDir = "."
+    filter {
+      include("org.webrtc.**")
+    }
+  }
 }
 
 tasks.withType(JavaCompile::class.java).configureEach {
@@ -48,4 +56,6 @@ tasks.withType(JavaCompile::class.java).configureEach {
 
 dependencies {
   implementation(libs.androidx.annotation)
+
+  baselineProfile(project(":benchmark"))
 }
