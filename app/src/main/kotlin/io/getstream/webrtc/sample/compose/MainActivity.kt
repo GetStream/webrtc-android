@@ -30,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import io.getstream.webrtc.sample.compose.ui.screens.stage.StageScreen
 import io.getstream.webrtc.sample.compose.ui.screens.video.VideoCallScreen
 import io.getstream.webrtc.sample.compose.ui.theme.WebrtcSampleComposeTheme
 import io.getstream.webrtc.sample.compose.webrtc.SignalingClient
@@ -64,7 +65,11 @@ class MainActivity : ComponentActivity() {
             var onCallScreen by remember { mutableStateOf(BuildConfig.BUILD_TYPE == "benchmark") }
             val state by sessionManager.signalingClient.sessionStateFlow.collectAsState()
 
-            VideoCallScreen()
+            if (!onCallScreen) {
+              StageScreen(state = state) { onCallScreen = true }
+            } else {
+              VideoCallScreen()
+            }
           }
         }
       }
