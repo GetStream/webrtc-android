@@ -51,6 +51,7 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     private AudioAttributes audioAttributes;
     private boolean useLowLatency;
     private boolean enableVolumeLogger;
+    private AudioRecordDataCallback audioRecordDataCallback;
 
     private Builder(Context context) {
       this.context = context;
@@ -218,6 +219,16 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
     /** Disables the volume logger on the audio output track. */
     public Builder setEnableVolumeLogger(boolean enableVolumeLogger) {
       this.enableVolumeLogger = enableVolumeLogger;
+      return this;
+    }
+
+    /**
+     * Can be used to gain access to the raw ByteBuffer from the recording device before it's
+     * fed into WebRTC. You can use this to manipulate the ByteBuffer (e.g. audio filters).
+     * Make sure that the operation is fast.
+     */
+    public Builder setAudioRecordDataCallback(AudioRecordDataCallback audioRecordDataCallback) {
+      this.audioRecordDataCallback = audioRecordDataCallback;
       return this;
     }
 
