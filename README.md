@@ -73,16 +73,17 @@ dependencies {
 Snapshots of the current development version of AvatarView are available, which track [the latest versions](https://oss.sonatype.org/content/repositories/snapshots/io/getstream/stream-webrtc-android/).
 
 To import snapshot versions on your project, add the code snippet below on your gradle file.
-```Gradle
+```kotlin
 repositories {
-   maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+   maven(url="https://oss.sonatype.org/content/repositories/snapshots/")
 }
 ```
 
-Next, add the below dependency to your **module**'s `build.gradle` file.
-```gradle
+Next, add the below dependency to your **module**'s `build.gradle` file:
+
+```kotlin
 dependencies {
-    implementation "io.getstream:stream-webrtc-android:1.2.4-SNAPSHOT"
+    implementation("io.getstream:stream-webrtc-android:1.2.4-SNAPSHOT")
 }
 ```
 
