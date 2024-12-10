@@ -262,7 +262,7 @@ public final class org/webrtc/DataChannel$State : java/lang/Enum {
 
 public class org/webrtc/Dav1dDecoder : org/webrtc/WrappedNativeVideoDecoder {
 	public fun <init> ()V
-	public fun createNativeVideoDecoder ()J
+	public fun createNative (J)J
 }
 
 public final class org/webrtc/DefaultAlignedVideoEncoderFactory : org/webrtc/VideoEncoderFactory {
@@ -619,11 +619,6 @@ public class org/webrtc/JniCommon {
 	public static fun nativeReleaseRef (J)V
 }
 
-public class org/webrtc/LibaomAv1Decoder : org/webrtc/WrappedNativeVideoDecoder {
-	public fun <init> ()V
-	public fun createNativeVideoDecoder ()J
-}
-
 public class org/webrtc/LibaomAv1Encoder : org/webrtc/WrappedNativeVideoEncoder {
 	public fun <init> ()V
 	public fun createNative (J)J
@@ -632,7 +627,7 @@ public class org/webrtc/LibaomAv1Encoder : org/webrtc/WrappedNativeVideoEncoder 
 
 public class org/webrtc/LibvpxVp8Decoder : org/webrtc/WrappedNativeVideoDecoder {
 	public fun <init> ()V
-	public fun createNativeVideoDecoder ()J
+	public fun createNative (J)J
 }
 
 public class org/webrtc/LibvpxVp8Encoder : org/webrtc/WrappedNativeVideoEncoder {
@@ -643,7 +638,7 @@ public class org/webrtc/LibvpxVp8Encoder : org/webrtc/WrappedNativeVideoEncoder 
 
 public class org/webrtc/LibvpxVp9Decoder : org/webrtc/WrappedNativeVideoDecoder {
 	public fun <init> ()V
-	public fun createNativeVideoDecoder ()J
+	public fun createNative (J)J
 }
 
 public class org/webrtc/LibvpxVp9Encoder : org/webrtc/WrappedNativeVideoEncoder {
@@ -1791,7 +1786,7 @@ public final class org/webrtc/VideoCodecStatus : java/lang/Enum {
 }
 
 public abstract interface class org/webrtc/VideoDecoder {
-	public fun createNativeVideoDecoder ()J
+	public fun createNative (J)J
 	public abstract fun decode (Lorg/webrtc/EncodedImage;Lorg/webrtc/VideoDecoder$DecodeInfo;)Lorg/webrtc/VideoCodecStatus;
 	public abstract fun getImplementationName ()Ljava/lang/String;
 	public abstract fun initDecode (Lorg/webrtc/VideoDecoder$Settings;Lorg/webrtc/VideoDecoder$Callback;)Lorg/webrtc/VideoCodecStatus;
@@ -1822,7 +1817,7 @@ public abstract interface class org/webrtc/VideoDecoderFactory {
 
 public class org/webrtc/VideoDecoderFallback : org/webrtc/WrappedNativeVideoDecoder {
 	public fun <init> (Lorg/webrtc/VideoDecoder;Lorg/webrtc/VideoDecoder;)V
-	public fun createNativeVideoDecoder ()J
+	public fun createNative (J)J
 }
 
 public abstract interface class org/webrtc/VideoEncoder {
@@ -2079,7 +2074,7 @@ public final class org/webrtc/WebRTCException : java/lang/RuntimeException {
 
 public abstract class org/webrtc/WrappedNativeVideoDecoder : org/webrtc/VideoDecoder {
 	public fun <init> ()V
-	public abstract fun createNativeVideoDecoder ()J
+	public abstract fun createNative (J)J
 	public final fun decode (Lorg/webrtc/EncodedImage;Lorg/webrtc/VideoDecoder$DecodeInfo;)Lorg/webrtc/VideoCodecStatus;
 	public final fun getImplementationName ()Ljava/lang/String;
 	public final fun initDecode (Lorg/webrtc/VideoDecoder$Settings;Lorg/webrtc/VideoDecoder$Callback;)Lorg/webrtc/VideoCodecStatus;

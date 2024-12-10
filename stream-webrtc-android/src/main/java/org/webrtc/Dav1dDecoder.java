@@ -1,3 +1,4 @@
+
 /*
  *  Copyright (c) 2021 The WebRTC project authors. All Rights Reserved.
  *
@@ -12,7 +13,7 @@ package org.webrtc;
 
 public class Dav1dDecoder extends WrappedNativeVideoDecoder {
   @Override
-  public long createNativeVideoDecoder() {
+  public long createNative(long webrtcEnvRef) {
     return nativeCreateDecoder();
   }
 
