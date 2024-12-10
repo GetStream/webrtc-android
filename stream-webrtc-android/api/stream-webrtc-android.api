@@ -2199,6 +2199,7 @@ public class org/webrtc/audio/JavaAudioDeviceModule$Builder {
 	public fun createAudioDeviceModule ()Lorg/webrtc/audio/JavaAudioDeviceModule;
 	public fun setAudioAttributes (Landroid/media/AudioAttributes;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioFormat (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
+	public fun setAudioRecordDataCallback (Lorg/webrtc/audio/AudioRecordDataCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordErrorCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordErrorCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioRecordStateCallback (Lorg/webrtc/audio/JavaAudioDeviceModule$AudioRecordStateCallback;)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
 	public fun setAudioSource (I)Lorg/webrtc/audio/JavaAudioDeviceModule$Builder;
