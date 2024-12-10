@@ -170,7 +170,7 @@ public class WebRtcAudioRecord {
             // at index 0.
             byte[] data = Arrays.copyOf(byteBuffer.array(), byteBuffer.capacity());
             audioSamplesReadyCallback.onWebRtcAudioRecordSamplesReady(
-                new AudioSamples(audioRecord, data));
+              new AudioSamples(audioRecord, data));
           }
         } else {
           String errorMessage = "AudioRecord.read failed: " + bytesRead;
@@ -253,7 +253,7 @@ public class WebRtcAudioRecord {
     // Note that this size doesn't guarantee a smooth recording under load.
     final int channelConfig = channelCountToConfiguration(channels);
     int minBufferSize =
-        AudioRecord.getMinBufferSize(sampleRate, channelConfig, AudioFormat.ENCODING_PCM_16BIT);
+      AudioRecord.getMinBufferSize(sampleRate, channelConfig, AudioFormat.ENCODING_PCM_16BIT);
     if (minBufferSize == AudioRecord.ERROR || minBufferSize == AudioRecord.ERROR_BAD_VALUE) {
       reportWebRtcAudioRecordInitError("AudioRecord.getMinBufferSize failed: " + minBufferSize);
       return -1;
@@ -267,7 +267,7 @@ public class WebRtcAudioRecord {
     Logging.d(TAG, "bufferSizeInBytes: " + bufferSizeInBytes);
     try {
       audioRecord = new AudioRecord(audioSource, sampleRate, channelConfig,
-          AudioFormat.ENCODING_PCM_16BIT, bufferSizeInBytes);
+        AudioFormat.ENCODING_PCM_16BIT, bufferSizeInBytes);
     } catch (IllegalArgumentException e) {
       reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e.getMessage());
       releaseAudioResources();
@@ -294,13 +294,13 @@ public class WebRtcAudioRecord {
       audioRecord.startRecording();
     } catch (IllegalStateException e) {
       reportWebRtcAudioRecordStartError(AudioRecordStartErrorCode.AUDIO_RECORD_START_EXCEPTION,
-          "AudioRecord.startRecording failed: " + e.getMessage());
+        "AudioRecord.startRecording failed: " + e.getMessage());
       return false;
     }
     if (audioRecord.getRecordingState() != AudioRecord.RECORDSTATE_RECORDING) {
       reportWebRtcAudioRecordStartError(
-          AudioRecordStartErrorCode.AUDIO_RECORD_START_STATE_MISMATCH,
-          "AudioRecord.startRecording failed - incorrect state :"
+        AudioRecordStartErrorCode.AUDIO_RECORD_START_STATE_MISMATCH,
+        "AudioRecord.startRecording failed - incorrect state :"
           + audioRecord.getRecordingState());
       return false;
     }
@@ -327,16 +327,16 @@ public class WebRtcAudioRecord {
 
   private void logMainParameters() {
     Logging.d(TAG, "AudioRecord: "
-            + "session ID: " + audioRecord.getAudioSessionId() + ", "
-            + "channels: " + audioRecord.getChannelCount() + ", "
-            + "sample rate: " + audioRecord.getSampleRate());
+      + "session ID: " + audioRecord.getAudioSessionId() + ", "
+      + "channels: " + audioRecord.getChannelCount() + ", "
+      + "sample rate: " + audioRecord.getSampleRate());
   }
 
   private void logMainParametersExtended() {
     if (Build.VERSION.SDK_INT >= 23) {
       Logging.d(TAG, "AudioRecord: "
-              // The frame count of the native AudioRecord buffer.
-              + "buffer size in frames: " + audioRecord.getBufferSizeInFrames());
+        // The frame count of the native AudioRecord buffer.
+        + "buffer size in frames: " + audioRecord.getBufferSizeInFrames());
     }
   }
 
@@ -358,7 +358,7 @@ public class WebRtcAudioRecord {
   @SuppressWarnings("NoSynchronizedMethodCheck")
   public static synchronized void setAudioSource(int source) {
     Logging.w(TAG, "Audio source is changed from: " + audioSource
-            + " to " + source);
+      + " to " + source);
     audioSource = source;
   }
 
@@ -391,7 +391,7 @@ public class WebRtcAudioRecord {
   }
 
   private void reportWebRtcAudioRecordStartError(
-      AudioRecordStartErrorCode errorCode, String errorMessage) {
+    AudioRecordStartErrorCode errorCode, String errorMessage) {
     Logging.e(TAG, "Start recording error: " + errorCode + ". " + errorMessage);
     WebRtcAudioUtils.logAudioState(TAG);
     if (errorCallback != null) {
