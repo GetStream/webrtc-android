@@ -437,9 +437,19 @@ public final class org/webrtc/EncodedImage$FrameType : java/lang/Enum {
 }
 
 public class org/webrtc/ExternalAudioProcessingFactory : org/webrtc/AudioProcessingFactory {
-	public fun <init> (Ljava/lang/String;)V
+	public fun <init> ()V
 	public fun createNative ()J
-	public fun destroyNative ()V
+	public fun destroy ()V
+	public fun setBypassFlagForCapturePost (Z)V
+	public fun setBypassFlagForRenderPre (Z)V
+	public fun setCapturePostProcessing (Lorg/webrtc/ExternalAudioProcessingFactory$AudioProcessing;)V
+	public fun setRenderPreProcessing (Lorg/webrtc/ExternalAudioProcessingFactory$AudioProcessing;)V
+}
+
+public abstract interface class org/webrtc/ExternalAudioProcessingFactory$AudioProcessing {
+	public abstract fun initialize (II)V
+	public abstract fun process (IILjava/nio/ByteBuffer;)V
+	public abstract fun reset (I)V
 }
 
 public abstract interface class org/webrtc/FecControllerFactoryFactoryInterface {
@@ -810,6 +820,12 @@ public class org/webrtc/NV21Buffer : org/webrtc/VideoFrame$Buffer {
 	public fun release ()V
 	public fun retain ()V
 	public fun toI420 ()Lorg/webrtc/VideoFrame$I420Buffer;
+}
+
+public class org/webrtc/NativeExternalAudioProcessingFactory : org/webrtc/AudioProcessingFactory {
+	public fun <init> (Ljava/lang/String;)V
+	public fun createNative ()J
+	public fun destroyNative ()V
 }
 
 public abstract interface class org/webrtc/NativeLibraryLoader {
