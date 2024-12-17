@@ -59,7 +59,7 @@ Add the below dependency to your **module**'s `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("io.getstream:stream-webrtc-android:1.3.4")
+    implementation("io.getstream:stream-webrtc-android:1.3.5")
 }
 ```
 
@@ -83,7 +83,7 @@ Next, add the below dependency to your **module**'s `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("io.getstream:stream-webrtc-android:1.2.4-SNAPSHOT")
+    implementation("io.getstream:stream-webrtc-android:1.3.6-SNAPSHOT")
 }
 ```
 
