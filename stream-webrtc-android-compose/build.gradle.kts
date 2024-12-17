@@ -6,7 +6,7 @@ import io.getstream.Configurations
 plugins {
   id(libs.plugins.android.library.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
-  id(libs.plugins.compose.compiler.get().pluginId)
+//  id(libs.plugins.compose.compiler.get().pluginId)
   id(libs.plugins.baseline.profile.get().pluginId)
 }
 
@@ -35,6 +35,10 @@ android {
     compose = true
   }
 
+  composeOptions {
+    kotlinCompilerExtensionVersion = "1.5.15"
+  }
+
   packaging {
     resources {
       excludes.add("/META-INF/{AL2.0,LGPL2.1}")
@@ -45,10 +49,10 @@ android {
     abortOnError = false
   }
 
-  composeCompiler {
-    enableStrongSkippingMode = true
-    reportsDestination = layout.buildDirectory.dir("compose_compiler")
-  }
+//  composeCompiler {
+//    enableStrongSkippingMode = true
+//    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+//  }
 
   baselineProfile {
     baselineProfileOutputDir = "."
