@@ -1,13 +1,3 @@
-/*
- *  Copyright 2015 The WebRTC project authors. All Rights Reserved.
- *
- *  Use of this source code is governed by a BSD-style license
- *  that can be found in the LICENSE file in the root of the source
- *  tree. An additional intellectual property rights grant can be found
- *  in the file PATENTS.  All contributing project authors may
- *  be found in the AUTHORS file in the root of the source tree.
- */
-
 package org.webrtc;
 
 import android.graphics.SurfaceTexture;
@@ -32,6 +22,38 @@ public interface EglBase {
      * @note This is currently only supported for EGL 1.4 and not for EGL 1.0.
      */
     long getNativeEglContext();
+  }
+
+  /**
+   * Wraps the objects needed to interact with EGL that are independent of a particular EGLSurface.
+   * In practice this means EGLContext, EGLDisplay and EGLConfig objects. Separating them out in a
+   * standalone object allows for multiple EglBase instances to use the same underlying EGLContext,
+   * while still operating on their own EGLSurface.
+   */
+  public interface EglConnection extends RefCounted {
+    /** Analogous to corresponding EglBase#create below. */
+    public static EglConnection create(@Nullable Context sharedContext, int[] configAttributes) {
+      if (sharedContext == null) {
+        return EglConnection.createEgl14(configAttributes);
+      } else if (sharedContext instanceof EglBase14.Context) {
+        return new EglBase14Impl.EglConnection(
+          ((EglBase14.Context) sharedContext).getRawContext(), configAttributes);
+      } else if (sharedContext instanceof EglBase10.Context) {
+        return new EglBase10Impl.EglConnection(
+          ((EglBase10.Context) sharedContext).getRawContext(), configAttributes);
+      }
+      throw new IllegalArgumentException("Unrecognized Context");
+    }
+
+    /** Analogous to corresponding EglBase#createEgl10 below. */
+    public static EglConnection createEgl10(int[] configAttributes) {
+      return new EglBase10Impl.EglConnection(/* sharedContext= */ null, configAttributes);
+    }
+
+    /** Analogous to corresponding EglBase#createEgl14 below. */
+    public static EglConnection createEgl14(int[] configAttributes) {
+      return new EglBase14Impl.EglConnection(/* sharedContext= */ null, configAttributes);
+    }
   }
 
   // According to the documentation, EGL can be used from multiple threads at the same time if each
@@ -118,15 +140,15 @@ public interface EglBase {
 
   public static final int[] CONFIG_PLAIN = configBuilder().createConfigAttributes();
   public static final int[] CONFIG_RGBA =
-      configBuilder().setHasAlphaChannel(true).createConfigAttributes();
+    configBuilder().setHasAlphaChannel(true).createConfigAttributes();
   public static final int[] CONFIG_PIXEL_BUFFER =
-      configBuilder().setSupportsPixelBuffer(true).createConfigAttributes();
+    configBuilder().setSupportsPixelBuffer(true).createConfigAttributes();
   public static final int[] CONFIG_PIXEL_RGBA_BUFFER = configBuilder()
-                                                           .setHasAlphaChannel(true)
-                                                           .setSupportsPixelBuffer(true)
-                                                           .createConfigAttributes();
+    .setHasAlphaChannel(true)
+    .setSupportsPixelBuffer(true)
+    .createConfigAttributes();
   public static final int[] CONFIG_RECORDABLE =
-      configBuilder().setIsRecordable(true).createConfigAttributes();
+    configBuilder().setIsRecordable(true).createConfigAttributes();
 
   static int getOpenGlesVersionFromConfig(int[] configAttributes) {
     for (int i = 0; i < configAttributes.length - 1; ++i) {
@@ -143,6 +165,24 @@ public interface EglBase {
     }
     // Default to V1 if no renderable type is specified.
     return 1;
+  }
+
+  /**
+   * Creates a new EglBase with a shared EglConnection. EglBase instances sharing the same
+   * EglConnection should be used on the same thread to avoid the underlying EGLContext being made
+   * current on multiple threads. It is up to the client of EglBase to ensure that instances with a
+   * shared EglConnection are current on that thread before each use since other EglBase instances
+   * may have used the same EGLContext since the last interaction.
+   */
+  public static EglBase create(EglConnection eglConnection) {
+    if (eglConnection == null) {
+      return create();
+    } else if (eglConnection instanceof EglBase14Impl.EglConnection) {
+      return new EglBase14Impl((EglBase14Impl.EglConnection) eglConnection);
+    } else if (eglConnection instanceof EglBase10Impl.EglConnection) {
+      return new EglBase10Impl((EglBase10Impl.EglConnection) eglConnection);
+    }
+    throw new IllegalArgumentException("Unrecognized EglConnection");
   }
 
   /**
@@ -187,7 +227,7 @@ public interface EglBase {
    */
   public static EglBase10 createEgl10(EglBase10.Context sharedContext, int[] configAttributes) {
     return new EglBase10Impl(
-        sharedContext == null ? null : sharedContext.getRawContext(), configAttributes);
+      sharedContext == null ? null : sharedContext.getRawContext(), configAttributes);
   }
 
   /**
@@ -195,7 +235,7 @@ public interface EglBase {
    * and shared context.
    */
   public static EglBase10 createEgl10(
-      javax.microedition.khronos.egl.EGLContext sharedContext, int[] configAttributes) {
+    javax.microedition.khronos.egl.EGLContext sharedContext, int[] configAttributes) {
     return new EglBase10Impl(sharedContext, configAttributes);
   }
 
@@ -210,7 +250,7 @@ public interface EglBase {
    */
   public static EglBase14 createEgl14(EglBase14.Context sharedContext, int[] configAttributes) {
     return new EglBase14Impl(
-        sharedContext == null ? null : sharedContext.getRawContext(), configAttributes);
+      sharedContext == null ? null : sharedContext.getRawContext(), configAttributes);
   }
 
   /**
@@ -218,7 +258,7 @@ public interface EglBase {
    * and shared context.
    */
   public static EglBase14 createEgl14(
-      android.opengl.EGLContext sharedContext, int[] configAttributes) {
+    android.opengl.EGLContext sharedContext, int[] configAttributes) {
     return new EglBase14Impl(sharedContext, configAttributes);
   }
 

@@ -315,6 +315,7 @@ public abstract interface class org/webrtc/EglBase {
 	public static fun create ()Lorg/webrtc/EglBase;
 	public static fun create (Lorg/webrtc/EglBase$Context;)Lorg/webrtc/EglBase;
 	public static fun create (Lorg/webrtc/EglBase$Context;[I)Lorg/webrtc/EglBase;
+	public static fun create (Lorg/webrtc/EglBase$EglConnection;)Lorg/webrtc/EglBase;
 	public abstract fun createDummyPbufferSurface ()V
 	public static fun createEgl10 (Ljavax/microedition/khronos/egl/EGLContext;[I)Lorg/webrtc/EglBase10;
 	public static fun createEgl10 (Lorg/webrtc/EglBase10$Context;[I)Lorg/webrtc/EglBase10;
@@ -352,6 +353,12 @@ public abstract interface class org/webrtc/EglBase$Context {
 	public abstract fun getNativeEglContext ()J
 }
 
+public abstract interface class org/webrtc/EglBase$EglConnection : org/webrtc/RefCounted {
+	public static fun create (Lorg/webrtc/EglBase$Context;[I)Lorg/webrtc/EglBase$EglConnection;
+	public static fun createEgl10 ([I)Lorg/webrtc/EglBase$EglConnection;
+	public static fun createEgl14 ([I)Lorg/webrtc/EglBase$EglConnection;
+}
+
 public abstract interface class org/webrtc/EglBase10 : org/webrtc/EglBase {
 }
 
@@ -359,11 +366,24 @@ public abstract interface class org/webrtc/EglBase10$Context : org/webrtc/EglBas
 	public abstract fun getRawContext ()Ljavax/microedition/khronos/egl/EGLContext;
 }
 
+public abstract interface class org/webrtc/EglBase10$EglConnection : org/webrtc/EglBase$EglConnection {
+	public abstract fun getConfig ()Ljavax/microedition/khronos/egl/EGLConfig;
+	public abstract fun getContext ()Ljavax/microedition/khronos/egl/EGLContext;
+	public abstract fun getDisplay ()Ljavax/microedition/khronos/egl/EGLDisplay;
+	public abstract fun getEgl ()Ljavax/microedition/khronos/egl/EGL10;
+}
+
 public abstract interface class org/webrtc/EglBase14 : org/webrtc/EglBase {
 }
 
 public abstract interface class org/webrtc/EglBase14$Context : org/webrtc/EglBase$Context {
 	public abstract fun getRawContext ()Landroid/opengl/EGLContext;
+}
+
+public abstract interface class org/webrtc/EglBase14$EglConnection : org/webrtc/EglBase$EglConnection {
+	public abstract fun getConfig ()Landroid/opengl/EGLConfig;
+	public abstract fun getContext ()Landroid/opengl/EGLContext;
+	public abstract fun getDisplay ()Landroid/opengl/EGLDisplay;
 }
 
 public class org/webrtc/EglRenderer : org/webrtc/VideoSink {
@@ -380,6 +400,7 @@ public class org/webrtc/EglRenderer : org/webrtc/VideoSink {
 	public fun disableFpsReduction ()V
 	public fun init (Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RendererCommon$GlDrawer;)V
 	public fun init (Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RendererCommon$GlDrawer;Z)V
+	public fun init (Lorg/webrtc/EglThread;Lorg/webrtc/RendererCommon$GlDrawer;Z)V
 	public fun onFrame (Lorg/webrtc/VideoFrame;)V
 	public fun pauseVideo ()V
 	public fun printStackTrace ()V
@@ -399,6 +420,27 @@ public abstract interface class org/webrtc/EglRenderer$ErrorCallback {
 
 public abstract interface class org/webrtc/EglRenderer$FrameListener {
 	public abstract fun onFrame (Landroid/graphics/Bitmap;)V
+}
+
+public class org/webrtc/EglThread : org/webrtc/RenderSynchronizer$Listener {
+	public fun addExceptionCallback (Ljava/lang/Runnable;)V
+	public static fun create (Lorg/webrtc/EglThread$ReleaseMonitor;Lorg/webrtc/EglBase$Context;[I)Lorg/webrtc/EglThread;
+	public static fun create (Lorg/webrtc/EglThread$ReleaseMonitor;Lorg/webrtc/EglBase$Context;[ILorg/webrtc/RenderSynchronizer;)Lorg/webrtc/EglThread;
+	public fun createEglBaseWithSharedConnection ()Lorg/webrtc/EglBase;
+	public fun getHandler ()Landroid/os/Handler;
+	public fun onRenderWindowClose ()V
+	public fun onRenderWindowOpen ()V
+	public fun release ()V
+	public fun removeExceptionCallback (Ljava/lang/Runnable;)V
+	public fun scheduleRenderUpdate (Lorg/webrtc/EglThread$RenderUpdate;)V
+}
+
+public abstract interface class org/webrtc/EglThread$ReleaseMonitor {
+	public abstract fun onRelease (Lorg/webrtc/EglThread;)Z
+}
+
+public abstract interface class org/webrtc/EglThread$RenderUpdate {
+	public abstract fun update (Z)V
 }
 
 public class org/webrtc/EncodedImage : org/webrtc/RefCounted {
@@ -1336,6 +1378,18 @@ public class org/webrtc/RTCStatsReport {
 public abstract interface class org/webrtc/RefCounted {
 	public abstract fun release ()V
 	public abstract fun retain ()V
+}
+
+public final class org/webrtc/RenderSynchronizer {
+	public fun <init> ()V
+	public fun <init> (F)V
+	public fun registerListener (Lorg/webrtc/RenderSynchronizer$Listener;)V
+	public fun removeListener (Lorg/webrtc/RenderSynchronizer$Listener;)V
+}
+
+public abstract interface class org/webrtc/RenderSynchronizer$Listener {
+	public abstract fun onRenderWindowClose ()V
+	public abstract fun onRenderWindowOpen ()V
 }
 
 public class org/webrtc/RendererCommon {
