@@ -2,7 +2,7 @@
 streamLog = "1.1.4"
 landscapist = "2.4.6"
 jvmTarget = "11"
-androidGradlePlugin = "8.6.1"
+androidGradlePlugin = "8.8.0"
 androidxActivity = "1.10.0"
 androidxAppCompat = "1.7.0"
 androidxComposeBom = "2025.01.00"
