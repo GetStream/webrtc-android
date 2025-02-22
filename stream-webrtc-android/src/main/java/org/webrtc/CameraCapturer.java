@@ -40,7 +40,8 @@ abstract class CameraCapturer implements CameraVideoCapturer {
         @Override
         public void onDone(CameraSession session) {
           checkIsOnCameraThread();
-          Logging.d(TAG, "Create session done. Switch state: " + switchState);
+          Logging.d(TAG, "Create session done. Switch state: " + switchState
+          + ". Torch state: " + torchState);
           uiThreadHandler.removeCallbacks(openCameraTimeoutRunnable);
           synchronized (stateLock) {
             capturerObserver.onCapturerStarted(true /* success */);
@@ -61,6 +62,17 @@ abstract class CameraCapturer implements CameraVideoCapturer {
               pendingCameraName = null;
               switchState = SwitchState.IDLE;
               switchCameraInternal(switchEventsHandler, selectedCameraName);
+            }
+
+            if (CameraCapturer.this.torchState == CameraCapturer.SwitchState.IN_PROGRESS) {
+              CameraCapturer.this.torchState = CameraCapturer.SwitchState.IDLE;
+              if (CameraCapturer.this.torchHandler != null) {
+                CameraCapturer.this.torchHandler.onTorchSuccess();
+                CameraCapturer.this.torchHandler = null;
+              }
+            } else if (CameraCapturer.this.torchState == CameraCapturer.SwitchState.PENDING) {
+              CameraCapturer.this.torchState = CameraCapturer.SwitchState.IDLE;
+              CameraCapturer.this.torchInternal(!CameraCapturer.this.torch, CameraCapturer.this.torchHandler);
             }
           }
         }
@@ -188,6 +200,8 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   @Nullable private CameraSession currentSession; /* guarded by stateLock */
   private String cameraName; /* guarded by stateLock */
   private String pendingCameraName; /* guarded by stateLock */
+
+  private boolean torch; /* guarded by stateLock */
   private int width; /* guarded by stateLock */
   private int height; /* guarded by stateLock */
   private int framerate; /* guarded by stateLock */
@@ -195,6 +209,12 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   private SwitchState switchState = SwitchState.IDLE; /* guarded by stateLock */
   @Nullable private CameraSwitchHandler switchEventsHandler; /* guarded by stateLock */
   // Valid from onDone call until stopCapture, otherwise null.
+
+  private SwitchState torchState; /* guarded by stateLock */
+
+  @Nullable
+  private CameraVideoCapturer.TorchHandler torchHandler; /* guarded by stateLock */
+
   @Nullable private CameraStatistics cameraStatistics; /* guarded by stateLock */
   private boolean firstFrameObserved; /* guarded by stateLock */
 
@@ -218,6 +238,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     this.eventsHandler = eventsHandler;
+    this.torchState = SwitchState.IDLE;
     this.cameraEnumerator = cameraEnumerator;
     this.cameraName = cameraName;
     List<String> deviceNames = Arrays.asList(cameraEnumerator.getDeviceNames());
@@ -270,7 +291,7 @@ abstract class CameraCapturer implements CameraVideoCapturer {
       @Override
       public void run() {
         createCameraSession(createSessionCallback, cameraSessionEventsHandler, applicationContext,
-            surfaceHelper, cameraName, width, height, framerate);
+            surfaceHelper, cameraName, width, height, framerate, torch);
       }
     }, delayMs);
   }
@@ -348,6 +369,16 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   }
 
   @Override
+  public void torch(final boolean state, final CameraVideoCapturer.TorchHandler torchHandler) {
+    Logging.d("CameraCapturer", "torch");
+    this.cameraThreadHandler.post(new Runnable() {
+      public void run() {
+        CameraCapturer.this.torchInternal(state, torchHandler);
+      }
+    });
+  }
+
+  @Override
   public void switchCamera(final CameraSwitchHandler switchEventsHandler, final String cameraName) {
     Logging.d(TAG, "switchCamera");
     cameraThreadHandler.post(new Runnable() {
@@ -387,6 +418,13 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     }
   }
 
+  private void reportTorchError(String error, @Nullable CameraVideoCapturer.TorchHandler torchHandler) {
+    Logging.e("CameraCapturer", error);
+    if (torchHandler != null) {
+      torchHandler.onTorchError(error);
+    }
+  }
+
   private void switchCameraInternal(
       @Nullable final CameraSwitchHandler switchEventsHandler, final String selectedCameraName) {
     Logging.d(TAG, "switchCamera internal");
@@ -401,6 +439,10 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     synchronized (stateLock) {
       if (switchState != SwitchState.IDLE) {
         reportCameraSwitchError("Camera switch already in progress.", switchEventsHandler);
+        return;
+      }
+      if (this.torchState != CameraCapturer.SwitchState.IDLE) {
+        this.reportCameraSwitchError("Torch change in progress.", switchEventsHandler);
         return;
       }
       if (!sessionOpening && currentSession == null) {
@@ -438,6 +480,57 @@ abstract class CameraCapturer implements CameraVideoCapturer {
     Logging.d(TAG, "switchCamera done");
   }
 
+  private void torchInternal(boolean state, CameraVideoCapturer.TorchHandler torchHandler) {
+    Logging.d("CameraCapturer", "torch internal");
+    if (!this.cameraEnumerator.hasTorch(this.cameraName)) {
+      if (torchHandler != null) {
+        torchHandler.onTorchUnsupported();
+      }
+
+    } else {
+      synchronized(this.stateLock) {
+        if (this.switchState != CameraCapturer.SwitchState.IDLE) {
+          this.reportTorchError("Camera switch in progress.", torchHandler);
+          return;
+        }
+
+        if (this.torchState != CameraCapturer.SwitchState.IDLE) {
+          this.reportTorchError("Torch change already in progress.", torchHandler);
+          return;
+        }
+
+        if (!this.sessionOpening && this.currentSession == null) {
+          this.reportTorchError("torch: camera is not running.", torchHandler);
+          return;
+        }
+
+        this.torchHandler = torchHandler;
+        if (this.sessionOpening) {
+          this.torchState = CameraCapturer.SwitchState.PENDING;
+          return;
+        }
+
+        this.torchState = CameraCapturer.SwitchState.IN_PROGRESS;
+        Logging.d("CameraCapturer", "torch: Stopping session");
+        this.cameraStatistics.release();
+        this.cameraStatistics = null;
+        final CameraSession oldSession = this.currentSession;
+        this.cameraThreadHandler.post(new Runnable() {
+          public void run() {
+            oldSession.stop();
+          }
+        });
+        this.currentSession = null;
+        this.torch = state;
+        this.sessionOpening = true;
+        this.openAttemptsRemaining = 1;
+        this.createSessionInternal(0);
+      }
+
+      Logging.d("CameraCapturer", "torch done");
+    }
+  }
+
   private void checkIsOnCameraThread() {
     if (Thread.currentThread() != cameraThreadHandler.getLooper().getThread()) {
       Logging.e(TAG, "Check is on camera thread failed.");
@@ -454,5 +547,5 @@ abstract class CameraCapturer implements CameraVideoCapturer {
   abstract protected void createCameraSession(
       CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events,
       Context applicationContext, SurfaceTextureHelper surfaceTextureHelper, String cameraName,
-      int width, int height, int framerate);
+      int width, int height, int framerate, boolean torch);
 }
