@@ -16,10 +16,10 @@
 
 package io.getstream.webrtc.android.ktx
 
-import org.webrtc.IceCandidateErrorEvent
-import org.webrtc.MediaStreamTrack
-import org.webrtc.SessionDescription
-import org.webrtc.audio.JavaAudioDeviceModule
+import io.getstream.webrtc.IceCandidateErrorEvent
+import io.getstream.webrtc.MediaStreamTrack
+import io.getstream.webrtc.SessionDescription
+import io.getstream.webrtc.audio.JavaAudioDeviceModule
 
 public fun SessionDescription.stringify(): String =
   "SessionDescription(type=$type, description=$description)"

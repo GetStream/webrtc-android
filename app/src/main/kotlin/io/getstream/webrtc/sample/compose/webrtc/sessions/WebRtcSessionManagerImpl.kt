@@ -41,17 +41,17 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
-import org.webrtc.AudioTrack
-import org.webrtc.Camera2Capturer
-import org.webrtc.Camera2Enumerator
-import org.webrtc.CameraEnumerationAndroid
-import org.webrtc.IceCandidate
-import org.webrtc.MediaConstraints
-import org.webrtc.MediaStreamTrack
-import org.webrtc.SessionDescription
-import org.webrtc.SurfaceTextureHelper
-import org.webrtc.VideoCapturer
-import org.webrtc.VideoTrack
+import io.getstream.webrtc.AudioTrack
+import io.getstream.webrtc.Camera2Capturer
+import io.getstream.webrtc.Camera2Enumerator
+import io.getstream.webrtc.CameraEnumerationAndroid
+import io.getstream.webrtc.IceCandidate
+import io.getstream.webrtc.MediaConstraints
+import io.getstream.webrtc.MediaStreamTrack
+import io.getstream.webrtc.SessionDescription
+import io.getstream.webrtc.SurfaceTextureHelper
+import io.getstream.webrtc.VideoCapturer
+import io.getstream.webrtc.VideoTrack
 import java.util.UUID
 
 private const val ICE_SEPARATOR = '$'

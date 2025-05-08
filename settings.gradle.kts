@@ -16,10 +16,10 @@ dependencyResolutionManagement {
   }
 }
 rootProject.name = "stream-webrtc-android"
-//include(":app")
+include(":app")
 include(":stream-webrtc-android")
-//include(":stream-webrtc-android-ui")
-//include(":stream-webrtc-android-compose")
-//include(":stream-webrtc-android-ktx")
-//include(":stream-webrtc-android-bom")
-//include(":benchmark")
+include(":stream-webrtc-android-ui")
+include(":stream-webrtc-android-compose")
+include(":stream-webrtc-android-ktx")
+include(":stream-webrtc-android-bom")
+include(":benchmark")

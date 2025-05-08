@@ -31,18 +31,18 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import org.webrtc.CandidatePairChangeEvent
-import org.webrtc.DataChannel
-import org.webrtc.IceCandidate
-import org.webrtc.IceCandidateErrorEvent
-import org.webrtc.MediaConstraints
-import org.webrtc.MediaStream
-import org.webrtc.MediaStreamTrack
-import org.webrtc.PeerConnection
-import org.webrtc.RTCStatsReport
-import org.webrtc.RtpReceiver
-import org.webrtc.RtpTransceiver
-import org.webrtc.SessionDescription
+import io.getstream.webrtc.CandidatePairChangeEvent
+import io.getstream.webrtc.DataChannel
+import io.getstream.webrtc.IceCandidate
+import io.getstream.webrtc.IceCandidateErrorEvent
+import io.getstream.webrtc.MediaConstraints
+import io.getstream.webrtc.MediaStream
+import io.getstream.webrtc.MediaStreamTrack
+import io.getstream.webrtc.PeerConnection
+import io.getstream.webrtc.RTCStatsReport
+import io.getstream.webrtc.RtpReceiver
+import io.getstream.webrtc.RtpTransceiver
+import io.getstream.webrtc.SessionDescription
 
 /**
  * Wrapper around the WebRTC connection that contains tracks.
@@ -330,7 +330,7 @@ class StreamPeerConnection(
     logger.i { "[onIceGatheringChange] #sfu; #$typeTag; newState: $newState" }
   }
 
-  override fun onIceCandidatesRemoved(iceCandidates: Array<out org.webrtc.IceCandidate>?) {
+  override fun onIceCandidatesRemoved(iceCandidates: Array<out io.getstream.webrtc.IceCandidate>?) {
     logger.i { "[onIceCandidatesRemoved] #sfu; #$typeTag; iceCandidates: $iceCandidates" }
   }
 

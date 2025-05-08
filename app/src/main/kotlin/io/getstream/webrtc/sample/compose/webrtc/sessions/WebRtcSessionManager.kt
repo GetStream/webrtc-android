@@ -19,7 +19,7 @@ package io.getstream.webrtc.sample.compose.webrtc.sessions
 import io.getstream.webrtc.sample.compose.webrtc.SignalingClient
 import io.getstream.webrtc.sample.compose.webrtc.peer.StreamPeerConnectionFactory
 import kotlinx.coroutines.flow.SharedFlow
-import org.webrtc.VideoTrack
+import io.getstream.webrtc.VideoTrack
 
 interface WebRtcSessionManager {
 

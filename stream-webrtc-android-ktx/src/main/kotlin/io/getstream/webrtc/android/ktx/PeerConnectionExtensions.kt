@@ -16,10 +16,10 @@
 
 package io.getstream.webrtc.android.ktx
 
-import org.webrtc.AddIceObserver
-import org.webrtc.IceCandidate
-import org.webrtc.PeerConnection
-import org.webrtc.WebRTCException
+import io.getstream.webrtc.AddIceObserver
+import io.getstream.webrtc.IceCandidate
+import io.getstream.webrtc.PeerConnection
+import io.getstream.webrtc.WebRTCException
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

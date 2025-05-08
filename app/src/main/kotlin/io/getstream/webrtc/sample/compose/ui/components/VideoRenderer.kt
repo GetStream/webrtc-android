@@ -27,8 +27,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import io.getstream.webrtc.android.ui.VideoTextureViewRenderer
 import io.getstream.webrtc.sample.compose.webrtc.sessions.LocalWebRtcSessionManager
-import org.webrtc.RendererCommon
-import org.webrtc.VideoTrack
+import io.getstream.webrtc.RendererCommon
+import io.getstream.webrtc.VideoTrack
 
 /**
  * Renders a single video track based on the call state.

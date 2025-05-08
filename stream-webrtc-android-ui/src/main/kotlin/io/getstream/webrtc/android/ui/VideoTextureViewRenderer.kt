@@ -25,15 +25,15 @@ import android.os.Looper
 import android.util.AttributeSet
 import android.view.TextureView
 import android.view.TextureView.SurfaceTextureListener
-import org.webrtc.EglBase
-import org.webrtc.EglRenderer
-import org.webrtc.GlRectDrawer
-import org.webrtc.RendererCommon.RendererEvents
-import org.webrtc.RendererCommon.ScalingType
-import org.webrtc.RendererCommon.VideoLayoutMeasure
-import org.webrtc.ThreadUtils
-import org.webrtc.VideoFrame
-import org.webrtc.VideoSink
+import io.getstream.webrtc.EglBase
+import io.getstream.webrtc.EglRenderer
+import io.getstream.webrtc.GlRectDrawer
+import io.getstream.webrtc.RendererCommon.RendererEvents
+import io.getstream.webrtc.RendererCommon.ScalingType
+import io.getstream.webrtc.RendererCommon.VideoLayoutMeasure
+import io.getstream.webrtc.ThreadUtils
+import io.getstream.webrtc.VideoFrame
+import io.getstream.webrtc.VideoSink
 import java.util.concurrent.CountDownLatch
 
 /**

@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import io.getstream.webrtc.android.compose.FloatingVideoRenderer
 import io.getstream.webrtc.android.compose.VideoRenderer
 import io.getstream.webrtc.sample.compose.webrtc.sessions.LocalWebRtcSessionManager
-import org.webrtc.RendererCommon.RendererEvents
+import io.getstream.webrtc.RendererCommon.RendererEvents
 
 @Composable
 fun VideoCallScreen() {

@@ -16,8 +16,8 @@
 
 package io.getstream.webrtc.android.ktx
 
-import org.webrtc.SdpObserver
-import org.webrtc.SessionDescription
+import io.getstream.webrtc.SdpObserver
+import io.getstream.webrtc.SessionDescription
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

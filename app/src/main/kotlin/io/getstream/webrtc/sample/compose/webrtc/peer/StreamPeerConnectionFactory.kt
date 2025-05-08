@@ -20,23 +20,23 @@ import android.content.Context
 import android.os.Build
 import io.getstream.log.taggedLogger
 import kotlinx.coroutines.CoroutineScope
-import org.webrtc.AudioSource
-import org.webrtc.AudioTrack
-import org.webrtc.DefaultVideoDecoderFactory
-import org.webrtc.EglBase
-import org.webrtc.HardwareVideoEncoderFactory
-import org.webrtc.IceCandidate
-import org.webrtc.Logging
-import org.webrtc.MediaConstraints
-import org.webrtc.MediaStream
-import org.webrtc.PeerConnection
-import org.webrtc.PeerConnectionFactory
-import org.webrtc.RtpTransceiver
-import org.webrtc.SimulcastVideoEncoderFactory
-import org.webrtc.SoftwareVideoEncoderFactory
-import org.webrtc.VideoSource
-import org.webrtc.VideoTrack
-import org.webrtc.audio.JavaAudioDeviceModule
+import io.getstream.webrtc.AudioSource
+import io.getstream.webrtc.AudioTrack
+import io.getstream.webrtc.DefaultVideoDecoderFactory
+import io.getstream.webrtc.EglBase
+import io.getstream.webrtc.HardwareVideoEncoderFactory
+import io.getstream.webrtc.IceCandidate
+import io.getstream.webrtc.Logging
+import io.getstream.webrtc.MediaConstraints
+import io.getstream.webrtc.MediaStream
+import io.getstream.webrtc.PeerConnection
+import io.getstream.webrtc.PeerConnectionFactory
+import io.getstream.webrtc.RtpTransceiver
+import io.getstream.webrtc.SimulcastVideoEncoderFactory
+import io.getstream.webrtc.SoftwareVideoEncoderFactory
+import io.getstream.webrtc.VideoSource
+import io.getstream.webrtc.VideoTrack
+import io.getstream.webrtc.audio.JavaAudioDeviceModule
 
 class StreamPeerConnectionFactory constructor(
   private val context: Context,

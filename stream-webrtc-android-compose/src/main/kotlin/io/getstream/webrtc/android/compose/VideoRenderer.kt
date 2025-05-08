@@ -27,9 +27,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
 import io.getstream.webrtc.android.compose.VideoScalingType.Companion.toCommonScalingType
 import io.getstream.webrtc.android.ui.VideoTextureViewRenderer
-import org.webrtc.EglBase.Context
-import org.webrtc.RendererCommon.RendererEvents
-import org.webrtc.VideoTrack
+import io.getstream.webrtc.EglBase.Context
+import io.getstream.webrtc.RendererCommon.RendererEvents
+import io.getstream.webrtc.VideoTrack
 
 /**
  * Renders a single video track based on the call state.
