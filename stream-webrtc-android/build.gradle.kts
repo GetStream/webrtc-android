@@ -18,7 +18,7 @@ rootProject.extra.apply {
 apply(from ="${rootDir}/scripts/publish-module.gradle")
 
 android {
-  namespace = "org.webrtc"
+  namespace = "io.getstream.webrtc"
   compileSdk = Configurations.compileSdk
 
   defaultConfig {
@@ -44,7 +44,7 @@ android {
   baselineProfile {
     baselineProfileOutputDir = "."
     filter {
-      include("org.webrtc.**")
+      include("io.getstream.webrtc.**")
     }
   }
 }
