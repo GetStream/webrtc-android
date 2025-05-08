@@ -57,5 +57,5 @@ tasks.withType(JavaCompile::class.java).configureEach {
 dependencies {
   implementation(libs.androidx.annotation)
 
-  baselineProfile(project(":benchmark"))
+//  baselineProfile(project(":benchmark"))
 }
