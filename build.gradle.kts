@@ -14,7 +14,7 @@ plugins {
 apply(from ="${rootDir}/scripts/publish-root.gradle")
 
 apiValidation {
-  ignoredProjects.addAll(listOf("app"))
+//  ignoredProjects.addAll(listOf("app"))
   nonPublicMarkers.add("kotlin.PublishedApi")
 }
 
