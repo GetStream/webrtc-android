@@ -7,7 +7,7 @@ plugins {
   id(libs.plugins.android.application.get().pluginId)
   id(libs.plugins.kotlin.android.get().pluginId)
 //  id(libs.plugins.compose.compiler.get().pluginId)
-  id(libs.plugins.baseline.profile.get().pluginId)
+//  id(libs.plugins.baseline.profile.get().pluginId)
 }
 
 android {
@@ -55,13 +55,13 @@ android {
     abortOnError = false
   }
 
-  buildTypes {
-    create("benchmark") {
-      signingConfig = signingConfigs.getByName("debug")
-      matchingFallbacks += listOf("release")
-      isDebuggable = false
-    }
-  }
+//  buildTypes {
+//    create("benchmark") {
+//      signingConfig = signingConfigs.getByName("debug")
+//      matchingFallbacks += listOf("release")
+//      isDebuggable = false
+//    }
+//  }
 }
 
 dependencies {
@@ -95,5 +95,5 @@ dependencies {
   // logger
   implementation(libs.stream.log)
 
-  baselineProfile(project(":benchmark"))
+//  baselineProfile(project(":benchmark"))
 }
