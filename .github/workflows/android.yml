@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
       - name: set up JDK
         uses: actions/setup-java@v1
@@ -18,7 +18,7 @@ jobs:
           java-version: 17
 
       - name: Cache Gradle and wrapper
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
