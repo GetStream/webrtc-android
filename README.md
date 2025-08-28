@@ -59,7 +59,7 @@ Add the below dependency to your **module**'s `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("io.getstream:stream-webrtc-android:1.3.8")
+    implementation("io.getstream:stream-webrtc-android:1.3.9")
 }
 ```
 
@@ -70,12 +70,12 @@ dependencies {
 
 ### Including the SNAPSHOT
 
-Snapshots of the current development version of AvatarView are available, which track [the latest versions](https://oss.sonatype.org/content/repositories/snapshots/io/getstream/stream-webrtc-android/).
+<!-- Snapshots of the current development version of AvatarView are available, which track [the latest versions](https://oss.sonatype.org/content/repositories/snapshots/io/getstream/stream-webrtc-android/). -->
 
 To import snapshot versions on your project, add the code snippet below on your gradle file.
 ```kotlin
 repositories {
-   maven(url="https://oss.sonatype.org/content/repositories/snapshots/")
+   maven(url="https://central.sonatype.com/repository/maven-snapshots/")
 }
 ```
 
@@ -83,7 +83,7 @@ Next, add the below dependency to your **module**'s `build.gradle` file:
 
 ```kotlin
 dependencies {
-    implementation("io.getstream:stream-webrtc-android:1.3.8-SNAPSHOT")
+    implementation("io.getstream:stream-webrtc-android:1.3.10-SNAPSHOT")
 }
 ```
 
