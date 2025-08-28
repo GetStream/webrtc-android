@@ -66,6 +66,12 @@ public class Camera2Enumerator implements CameraEnumerator {
   }
 
   @Override
+  public boolean hasTorch(String deviceName) {
+    CameraCharacteristics characteristics = getCameraCharacteristics(deviceName);
+    return characteristics != null && characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+  }
+
+  @Override
   public boolean isBackFacing(String deviceName) {
     CameraCharacteristics characteristics = getCameraCharacteristics(deviceName);
 

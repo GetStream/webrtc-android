@@ -26,7 +26,7 @@ public class Camera1Capturer extends CameraCapturer {
   protected void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback,
       CameraSession.Events events, Context applicationContext,
       SurfaceTextureHelper surfaceTextureHelper, String cameraName, int width, int height,
-      int framerate) {
+      int framerate, boolean torch) {
     Camera1Session.create(createSessionCallback, events, captureToTexture, applicationContext,
         surfaceTextureHelper, cameraName, width, height, framerate);
   }
