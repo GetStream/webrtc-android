@@ -62,7 +62,7 @@ class WebRtcAudioTrack {
 
   private ByteBuffer byteBuffer;
 
-  private @Nullable final AudioAttributes audioAttributes;
+  public @Nullable AudioAttributes audioAttributes;
   private @Nullable AudioTrack audioTrack;
   private @Nullable AudioTrackThread audioThread;
   private final VolumeLogger volumeLogger;

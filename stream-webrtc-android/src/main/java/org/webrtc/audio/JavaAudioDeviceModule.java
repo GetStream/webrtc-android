@@ -373,8 +373,8 @@ public class JavaAudioDeviceModule implements AudioDeviceModule {
 
   private final Context context;
   private final AudioManager audioManager;
-  private final WebRtcAudioRecord audioInput;
-  private final WebRtcAudioTrack audioOutput;
+  public final WebRtcAudioRecord audioInput;
+  public final WebRtcAudioTrack audioOutput;
   private final int inputSampleRate;
   private final int outputSampleRate;
   private final boolean useStereoInput;
