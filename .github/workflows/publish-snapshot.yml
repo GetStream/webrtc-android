@@ -32,3 +32,7 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SONATYPE_STAGING_PROFILE_ID: ${{ secrets.SONATYPE_STAGING_PROFILE_ID }}
           SNAPSHOT: true
+      - name: Show snapshot version
+        run: ./scripts/show-last-snapshot-update.sh
+        env:
+          SNAPSHOT: true
