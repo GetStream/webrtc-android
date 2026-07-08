@@ -5,6 +5,9 @@ on:
     types: [released]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   publish:
     name: Release build and publish

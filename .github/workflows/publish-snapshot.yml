@@ -5,7 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
+
+permissions:
+  contents: read
+
 jobs:
   publish:
     name: Snapshot build and publish
