@@ -51,6 +51,8 @@ class Camera2Session implements CameraSession {
   private final int height;
   private final int framerate;
 
+  private final boolean torch;
+
   // Initialized at start
   private CameraCharacteristics cameraCharacteristics;
   private int cameraOrientation;
@@ -167,6 +169,10 @@ class Camera2Session implements CameraSession {
         captureRequestBuilder.set(
             CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
         captureRequestBuilder.set(CaptureRequest.CONTROL_AE_LOCK, false);
+        if (Camera2Session.this.torch) {
+          captureRequestBuilder.set(CaptureRequest.FLASH_MODE, 2);
+        }
+
         chooseStabilizationMode(captureRequestBuilder);
         chooseFocusMode(captureRequestBuilder);
 
@@ -270,14 +276,14 @@ class Camera2Session implements CameraSession {
   public static void create(CreateSessionCallback callback, Events events,
       Context applicationContext, CameraManager cameraManager,
       SurfaceTextureHelper surfaceTextureHelper, String cameraId, int width, int height,
-      int framerate) {
+      int framerate, boolean torch) {
     new Camera2Session(callback, events, applicationContext, cameraManager, surfaceTextureHelper,
-        cameraId, width, height, framerate);
+        cameraId, width, height, framerate, torch);
   }
 
   private Camera2Session(CreateSessionCallback callback, Events events, Context applicationContext,
       CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String cameraId,
-      int width, int height, int framerate) {
+      int width, int height, int framerate, boolean torch) {
     Logging.d(TAG, "Create new camera2 session on camera " + cameraId);
 
     constructionTimeNs = System.nanoTime();
@@ -292,6 +298,7 @@ class Camera2Session implements CameraSession {
     this.width = width;
     this.height = height;
     this.framerate = framerate;
+    this.torch = torch;
 
     start();
   }
