@@ -45,12 +45,10 @@ public enum class VideoScalingType {
     @JvmField
     public val SCAPE_ASPECT_FILL: VideoScalingType = SCALE_ASPECT_FILL
 
-    internal fun VideoScalingType.toCommonScalingType(): RendererCommon.ScalingType {
-      return when (this) {
-        SCALE_ASPECT_FIT -> RendererCommon.ScalingType.SCALE_ASPECT_FIT
-        SCALE_ASPECT_FILL -> RendererCommon.ScalingType.SCALE_ASPECT_FILL
-        SCALE_ASPECT_BALANCED -> RendererCommon.ScalingType.SCALE_ASPECT_BALANCED
-      }
+    internal fun VideoScalingType.toCommonScalingType(): RendererCommon.ScalingType = when (this) {
+      SCALE_ASPECT_FIT -> RendererCommon.ScalingType.SCALE_ASPECT_FIT
+      SCALE_ASPECT_FILL -> RendererCommon.ScalingType.SCALE_ASPECT_FILL
+      SCALE_ASPECT_BALANCED -> RendererCommon.ScalingType.SCALE_ASPECT_BALANCED
     }
   }
 }
