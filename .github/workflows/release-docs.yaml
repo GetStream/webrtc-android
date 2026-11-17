@@ -13,6 +13,8 @@ jobs:
   publish_dokka:
     name: Dokka docs
     runs-on: ubuntu-22.04
+    permissions:
+      contents: write # push to gh-pages
     steps:
       - name: Check out code
         uses: actions/checkout@v3.1.0
@@ -28,6 +30,6 @@ jobs:
       - name: Deploy to GitHub pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.DOCUSAURUS_GH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/dokka/htmlMultiModule
           publish_branch: gh-pages
