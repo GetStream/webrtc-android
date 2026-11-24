@@ -12,7 +12,7 @@ permissions:
 jobs:
   publish_dokka:
     name: Dokka docs
-    runs-on: ubuntu-22.04
+    runs-on: { group: github-public-amd64 }
     permissions:
       contents: write # push to gh-pages
     steps:
