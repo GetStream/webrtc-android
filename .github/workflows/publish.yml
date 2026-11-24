@@ -11,7 +11,7 @@ permissions:
 jobs:
   publish:
     name: Release build and publish
-    runs-on: ubuntu-latest
+    runs-on: { group: github-public-amd64 }
     steps:
       - name: Check out code
         uses: actions/checkout@v2
