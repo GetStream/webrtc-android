@@ -64,6 +64,11 @@ public class Camera1Enumerator implements CameraEnumerator {
   }
 
   @Override
+  public boolean hasTorch(String deviceName) {
+    return false; //TODO, old API unsupported
+  }
+
+  @Override
   public List<CaptureFormat> getSupportedFormats(String deviceName) {
     return getSupportedFormats(getCameraIndex(deviceName));
   }

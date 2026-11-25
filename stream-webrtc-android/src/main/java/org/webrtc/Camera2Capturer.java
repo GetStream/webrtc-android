@@ -29,8 +29,8 @@ public class Camera2Capturer extends CameraCapturer {
   protected void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback,
       CameraSession.Events events, Context applicationContext,
       SurfaceTextureHelper surfaceTextureHelper, String cameraName, int width, int height,
-      int framerate) {
+      int framerate, boolean torch) {
     Camera2Session.create(createSessionCallback, events, applicationContext, cameraManager,
-        surfaceTextureHelper, cameraName, width, height, framerate);
+        surfaceTextureHelper, cameraName, width, height, framerate, torch);
   }
 }
